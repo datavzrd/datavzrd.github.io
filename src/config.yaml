@@ -50,7 +50,7 @@ features:
         !table-a!:
           !path!: %table-a.csv%
           !links!:
-            !gene details!:
+            !gene! !details!:
               !column!: %gene%
               !view!: %gene-{value}%
             !gene! !expression!:
