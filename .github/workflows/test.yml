@@ -1,0 +1,20 @@
+name: test
+
+on:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash -el {0}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: locosopa
+        uses: koesterlab/locosopa@main
+        with:
+          config: src/config.yaml
+          path: build
+          deploy: "false"

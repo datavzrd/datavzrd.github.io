@@ -1,0 +1,3 @@
+.snakemake
+build
+node_modules

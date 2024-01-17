@@ -1,0 +1,44 @@
+project:
+  name: Datavzrd
+  copyright: 2024, Koesterlab
+  authors: Felix Wiegand, Johannes Koester
+
+color: blue
+logo:
+  dark: datavzrd.svg # add a logo
+  light: datavzrd.svg # add a logo
+
+repo: 
+  name: datavzrd/datavzrd
+  contributors:
+    skip:
+      - github-actions[bot]
+      - dependabot[bot]
+
+header:
+  links:
+    - text: Github
+      url: https://github.com/datavzrd
+    - text: Live-Preview
+      url: https://datavzrd.github.io/datavzrd/index.html
+
+hero:
+  # img: datavzrd.svg # add a logo
+  statements:
+    - A low-code interactive reporting tool for tabular datasets
+  links: []
+
+features:
+  - title: Heatmaps
+    desc: |
+       Datavzrd makes it easy to create heatmaps from tabular data.
+    code: |
+    Rated:
+      !plot!:
+        !heatmap!:
+          !scale!: %ordinal%
+          !color-scheme!: %tableau20%
+
+docs:
+  src: docs
+  sidebar-links: []
