@@ -34,7 +34,7 @@ hero:
 features:
   - title: Heatmaps
     desc: |
-       Datavzrd makes it easy to create heatmaps from tabular data.
+       Datavzrd makes it easy to create heatmaps from tabular data. Heatmaps can be used for numerical or categorical data with predefined color schemes or continuous color scales.
     code: |
       !Rated!:
         !plot!:
@@ -44,7 +44,7 @@ features:
 
   - title: Datasets
     desc: |
-        Organize your datasets in a single place with few lines of code. Use links to connect them and make your reports interactive.
+        Organize your datasets in a single place with few lines of code. Use links to connect them and make your reports interactive. 
     code: |
       !datasets!:
         !table-a!:
@@ -59,7 +59,7 @@ features:
 
   - title: Linkouts
     desc: |
-        Add links to external resources to your reports to provide additional information.
+        Add links to external resources to your reports to provide additional information and context.
     code: |
       !Gene!:
         !link-to-url!:
