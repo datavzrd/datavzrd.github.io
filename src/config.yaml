@@ -35,35 +35,35 @@ features:
     desc: |
        Datavzrd makes it easy to create heatmaps from tabular data.
     code: |
-    Rated:
-      !plot!:
-        !heatmap!:
-          !scale!: %ordinal%
-          !color-scheme!: %tableau20%
+      !Rated!:
+        !plot!:
+          !heatmap!:
+            !scale!: %ordinal%
+            !color-scheme!: %tableau20%
 
   - title: Datasets
     desc: |
         Organize your datasets in a single place with few lines of code. Use links to connect them and make your reports interactive.
     code: |
-    !datasets!:
-      !table-a!:
-        !path!: %"table-a.csv"%
-        !links!:
-          !gene details!:
-            !column!: %gene%
-            !view!: %"gene-{value}"%
-          !gene expression!:
-            !column!: %gene%
-            !table-row!: %table-b/gene%
+      !datasets!:
+        !table-a!:
+          !path!: %"table-a.csv"%
+          !links!:
+            !gene details!:
+              !column!: %gene%
+              !view!: %"gene-{value}"%
+            !gene expression!:
+              !column!: %gene%
+              !table-row!: %table-b/gene%
 
   - title: Linkouts
     desc: |
         Add links to external resources to your reports to provide additional information.
     code: |
-    !Gene!:
-      !link-to-url!:
-        !ncbi!:
-          !url!: %"https://www.ncbi.nlm.nih.gov/gene/{gene}"%
+      !Gene!:
+        !link-to-url!:
+          !ncbi!:
+            !url!: %"https://www.ncbi.nlm.nih.gov/gene/{gene}"%
       
 
 docs:
