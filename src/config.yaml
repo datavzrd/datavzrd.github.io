@@ -56,6 +56,16 @@ features:
             !column!: %gene%
             !table-row!: %table-b/gene%
 
+    - title: Linkouts
+    desc: |
+       Add links to external resources to your reports to provide additional information.
+    code: |
+    !Gene!:
+      !link-to-url!:
+        !ncbi!:
+          !url!: %"https://www.ncbi.nlm.nih.gov/gene/{gene}"%
+      
+
 docs:
   src: docs
   sidebar-links: []
