@@ -48,12 +48,12 @@ features:
     code: |
       !datasets!:
         !table-a!:
-          !path!: %"table-a.csv"%
+          !path!: %table-a.csv%
           !links!:
             !gene details!:
               !column!: %gene%
-              !view!: %"gene-{value}"%
-            !gene expression!:
+              !view!: %gene-{value}%
+            !gene! !expression!:
               !column!: %gene%
               !table-row!: %table-b/gene%
 
