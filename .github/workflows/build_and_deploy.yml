@@ -26,5 +26,5 @@ jobs:
       - name: locosopa
         uses: koesterlab/locosopa@main
         with:
-          config: config.yaml
+          config: src/config.yaml
           path: build
