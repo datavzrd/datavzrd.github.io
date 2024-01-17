@@ -64,7 +64,7 @@ features:
       !Gene!:
         !link-to-url!:
           !ncbi!:
-            !url!: %"https://www.ncbi.nlm.nih.gov/gene/{gene}"%
+            !url!: %https://www.ncbi.nlm.nih.gov/gene/{gene}%
       
 
 docs:
