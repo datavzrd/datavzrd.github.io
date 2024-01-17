@@ -16,6 +16,8 @@ repo:
       - dependabot[bot]
 
 header:
+  logo: datavzrd.svg
+  name: Datavzrd
   links:
     - text: Github
       url: https://github.com/datavzrd
