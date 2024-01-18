@@ -29,7 +29,9 @@ hero:
   img: datavzrd.svg # add a logo
   statements:
     - A low-code interactive reporting tool for tabular datasets
-  links: []
+  links: 
+    - url: https://datavzrd.github.io/datavzrd/oscars/index_1.html
+      text: Check Live Demo
 
 features:
   - title: Heatmaps
