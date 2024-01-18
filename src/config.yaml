@@ -6,8 +6,8 @@ project:
 
 color: blue
 logo:
-  dark: datavzrd.svg # add a logo
-  light: datavzrd.svg # add a logo
+  dark: datavzrd_logo_white.svg # add a logo
+  light: datavzrd_logo_black.svg # add a logo
 
 repo: 
   name: datavzrd/datavzrd
@@ -17,7 +17,7 @@ repo:
       - dependabot[bot]
 
 header:
-  logo: datavzrd.svg
+  logo: datavzrd_white.svg
   name: Datavzrd
   links:
     - text: Github
