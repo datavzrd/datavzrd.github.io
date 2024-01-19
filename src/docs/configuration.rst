@@ -23,7 +23,7 @@ max-in-memory-rows
 aux-libraries
 ^^^^^^^^^^^^^
 
-``aux-libraries`` allows to add one or more js libraries via cdn links for usage in :ref:`render-html`. The keyword expects a list of urls that link to the js libraries.
+``aux-libraries`` allows to add one or more js libraries via cdn links for usage in `render-html`_. The keyword expects a list of urls that link to the js libraries.
 
 webview-controls
 ^^^^^^^^^^^^^^^^
