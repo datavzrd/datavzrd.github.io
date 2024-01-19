@@ -1,37 +1,37 @@
-
+*************
 Configuration
-=============
+*************
 
 Datavzrd allows the user to easily customize it's interactive HTML report via a config file.
 When generating large reports, templating yaml files can be a bit tricky. We advise using `yte <https://github.com/yte-template-engine/yte>`_ for easy yaml templating with python expressions.
 
 name
-^^^^
+====
 
 ``name`` allows the user to optionally set a name for the generated report that will be heading all resulting tables and plots.
 
 default-view
-^^^^^^^^^^^^
+============
 
 ``default-view`` allows the user to optionally specify a view for the generated report that will be shown when opening the index file.
 
 max-in-memory-rows
-^^^^^^^^^^^^^^^^^^
+==================
 
 ``max-in-memory-rows`` defines the threshold for the maximum number of rows in memory. If the given dataset exceeds the threshold the data will be split across multiple pages and their html files. Defaults to 1000 rows.
 
 aux-libraries
-^^^^^^^^^^^^^
+=============
 
 ``aux-libraries`` allows to add one or more js libraries via cdn links for usage in `render-html`_. The keyword expects a list of urls that link to the js libraries.
 
 webview-controls
-^^^^^^^^^^^^^^^^
+================
 
 ``webview-controls`` allows to turn on sharing individual rows via a link with the data encoded into a url pointing to a webview that hosts a static version of datavzrd at https://datavzrd.github.io. Note that when using the link the row data can temporarily occur (in base64-encoded form) in the server logs of the given webview host. Defaults to ``false``.
 
 datasets
-^^^^^^^^
+========
 
 ``datasets`` defines the different datasets of the report. This is also the place to define links between your individual datasets.
 
@@ -59,7 +59,7 @@ datasets
 
 
 views
-^^^^^
+=====
 
 ``views`` consists of all different CSV/TSV views (table or plot) that should be included in the resulting report. If neither ``render-table`` nor ``render-plot`` is present, datavzrd will render the given file as a table. Each item definition can contain these values:
 
@@ -98,7 +98,7 @@ views
 
 
 render-table
-^^^^^^^^^^^^
+============
 
 ``render-table`` contains definitions for a table view
 
@@ -116,7 +116,7 @@ render-table
 
 
 columns
-^^^^^^^
+=======
 
 ``columns`` contains individual configurations for each column that can either be adressed by its name defined in the header of the CSV/TSV file, its 0-based index (e.g. ``index(5)`` for the 6th column), a range expression (e.g. ``range(5, 10)`` for the 5th column to 9th column) or a regular expression (e.g. ``"regex('prob:.+')"`` for matching all columns starting with ``prob:``\ ):
 
@@ -174,7 +174,7 @@ columns
 
 
 add-columns
-^^^^^^^^^^^
+===========
 
 ``add-columns`` allows to generate new columns out of the existing dataset.
 
@@ -204,7 +204,7 @@ add-columns
 
 
 headers
-^^^^^^^
+=======
 
 ``headers`` contains definitions for additional header rows. Each row can be accessed with its index starting at ``1`` (\ ``0`` is the first header row that can't be customized).
 
@@ -224,7 +224,7 @@ headers
 
 
 render-plot
-^^^^^^^^^^^
+===========
 
 ``render-plot`` contains individual configurations for generating a single plot from the given CSV/TSV file.
 
@@ -240,7 +240,7 @@ render-plot
 
 
 render-html
-^^^^^^^^^^^
+===========
 
 ``render-html`` contains individual configurations for generating a single custom view where a global variable ``data`` with the dataset in json format can be accessed in the given js file. The rendered view contains a ``<div id="canvas">`` that can then be manipulated with the given script. By default, the div uses the full width and centers its contents. Of course, the divs CSS can be overwritten via Javascript. jQuery is already available, any other necessary Javascript libraries can be loaded via `aux-libraries <#aux-libraries>`_.
 
@@ -254,7 +254,7 @@ render-html
 
 
 links
-^^^^^
+=====
 
 ``links`` can configure linkouts between multiple items.
 
@@ -279,7 +279,7 @@ links
 
 
 custom-plot
-^^^^^^^^^^^
+===========
 
 ``custom-plot`` allows the rendering of customized vega-lite plots per cell.
 
@@ -304,7 +304,7 @@ custom-plot
 
 
 link-to-url
-^^^^^^^^^^^
+===========
 
 ``link-to-url`` allows rendering a link to a given url with {value} replaced by the value of the table.
 
@@ -323,7 +323,7 @@ link-to-url
 
 
 plot
-^^^^
+====
 
 ``plot`` allows the rendering of either a `tick-plot <https://vega.github.io/vega-lite/docs/tick.html>`_ for numeric values or a heatmap for nominal values.
 
@@ -341,7 +341,7 @@ plot
 
 
 ticks
-^^^^^
+=====
 
 ``ticks`` defines the attributes of a `tick-plot <https://vega.github.io/vega-lite/docs/tick.html>`_ for numeric values.
 
@@ -361,7 +361,7 @@ ticks
 
 
 heatmap
-^^^^^^^
+=======
 
 ``heatmap`` defines the attributes of a heatmap for numeric or nominal values.
 
@@ -400,7 +400,7 @@ heatmap
 
 
 bars
-^^^^
+====
 
 ``bars`` defines the attributes of a `bar-plot <https://vega.github.io/vega-lite/docs/bar.html>`_ for numeric values.
 
@@ -420,7 +420,7 @@ bars
 
 
 color
-^^^^^
+=====
 
 ``color`` defines the attributes of a color scale definition for tick and bar plots
 
