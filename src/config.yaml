@@ -34,28 +34,6 @@ hero:
       text: Check Live Demo
 
 features:
-  - title: Heatmaps
-    desc: |
-       Datavzrd makes it easy to create heatmaps from tabular data. Heatmaps can be used for numerical or categorical data with predefined color schemes or continuous color scales.
-    code: |
-      !Rated!:
-        !plot!:
-          !heatmap!:
-            !scale!: %ordinal%
-            !color-scheme!: %tableau20%
-            
-  - title: Plots
-    desc: |
-       Use custom vega-lite json specs to create any plot suitable for your needs or rely on Datavzrds easy to configure plot or bar plots.
-    code: |
-      !age!:
-          !plot!:
-            !ticks!:
-              !scale!: %linear%
-              !domain!:
-                - %20%
-                - %100%
-
   - title: Datasets
     desc: |
         Organize your datasets in a single place with few lines of code. Use links to connect them and make your reports interactive. 
@@ -79,8 +57,29 @@ features:
         !link-to-url!:
           !ncbi!:
             !url!: %https://www.ncbi.nlm.nih.gov/gene/{gene}%
+            
+  - title: Heatmaps
+    desc: |
+       Datavzrd makes it easy to create heatmaps from tabular data. Heatmaps can be used for numerical or categorical data with predefined color schemes or continuous color scales.
+    code: |
+      !Rated!:
+        !plot!:
+          !heatmap!:
+            !scale!: %ordinal%
+            !color-scheme!: %tableau20%
+            
+  - title: Plots
+    desc: |
+       Use custom vega-lite json specs to create any plot suitable for your needs or rely on Datavzrds easy to configure plot or bar plots.
+    code: |
+      !age!:
+          !plot!:
+            !ticks!:
+              !scale!: %linear%
+              !domain!:
+                - %20%
+                - %100%
       
-
 docs:
   src: docs
   links:
