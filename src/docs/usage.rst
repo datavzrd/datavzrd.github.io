@@ -1,7 +1,8 @@
 .. _usage:
 
+*****
 Usage
-=====
+*****
 
 To use **Datavzrd**, run the following command in your terminal:
 
@@ -10,7 +11,7 @@ To use **Datavzrd**, run the following command in your terminal:
    $ datavzrd [FLAGS] [OPTIONS] <CONFIG> --output <output>
 
 Command Line Arguments
-----------------------
+======================
 
 .. list-table:: Command Line Arguments
    :widths: 20 40 10 10 20
