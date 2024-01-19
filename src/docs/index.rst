@@ -16,5 +16,6 @@ Example Report
 Explore Datavzrd's capabilities by checking out an [example report online](https://datavzrd.github.io/datavzrd/index.html) along with its corresponding [config file](https://github.com/datavzrd/datavzrd/tree/main/.examples/example-config.yaml).
 
 .. toctree::
+    installation
     usage
     configuration
