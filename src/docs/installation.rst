@@ -1,5 +1,6 @@
+******************
 Installation Guide
-==================
+******************
 
 Datavzrd can be installed using different package managers:
 
