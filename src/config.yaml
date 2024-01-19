@@ -83,3 +83,5 @@ features:
 
 docs:
   src: docs
+  links:
+    Homepage: https://datavzrd.github.io
