@@ -43,6 +43,18 @@ features:
           !heatmap!:
             !scale!: %ordinal%
             !color-scheme!: %tableau20%
+            
+  - title: Plots
+    desc: |
+       Use custom vega-lite json specs to create any plot suitable for your needs or rely on Datavzrds easy to configure plot or bar plots.
+    code: |
+      !age!:
+          !plot!:
+            !ticks!:
+              !scale!: %linear%
+              !domain!:
+                - %20%
+                - %100%
 
   - title: Datasets
     desc: |
