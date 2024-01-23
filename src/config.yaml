@@ -81,12 +81,12 @@ features:
        Use custom vega-lite json specs to create any plot suitable for your needs or rely on Datavzrds easy to configure plot or bar plots.
     code: |
       !age!:
-          !plot!:
-            !ticks!:
-              !scale!: %linear%
-              !domain!:
-                - %20%
-                - %100%
+        !plot!:
+          !ticks!:
+            !scale!: %linear%
+            !domain!:
+              - %20%
+              - %100%
       
 docs:
   src: docs
