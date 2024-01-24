@@ -397,6 +397,7 @@ heatmap
      - 
    * - custom-content
      - Allows to render custom content into any heatmap cell (while using the actual cell content for the heatmap color). Requires a ``function(value, row)`` that returns the text value that will be displayed in the cell.
+     -
 
 
 bars
