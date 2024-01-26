@@ -238,6 +238,7 @@ render-plot
    * - spec-path
      - The path to a file containing a schema for a vega lite plot that will be rendered to a single view. The given path is relative to the directory you are currently in and running datavzrd from.
 
+.. _render-html:
 
 render-html
 ===========
