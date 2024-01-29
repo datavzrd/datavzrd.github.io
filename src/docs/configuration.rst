@@ -50,7 +50,7 @@ datasets
    * - headers
      - Number of header rows in the file
      - 1
-   * - `links <#links>`_
+   * - :ref:`links`
      - Configuration linking between items
      - 
    * - offer-excel
@@ -73,28 +73,28 @@ views
      - A description that will be shown in the report. `Markdown <https://github.github.com/gfm/>`_ is allowed and will be rendered to proper HTML. It is also possible to add latex formulas with ```latex ... ```.
      - 
    * - dataset
-     - The name of the corresponding dataset to this view defined in `datasets <#datasets>`_
+     - The name of the corresponding dataset to this view defined in :ref:`datasets`
      - 
    * - datasets
-     - Key-value pairs to include multiple datasets into a `render-plot <#render-plot>`_ configuration. Key must be the name of the dataset in the given vega-lite specswhile the value needs to be the name of a dataset defined in `datasets <#datasets>`_.
+     - Key-value pairs to include multiple datasets into a :ref:`render-plot` configuration. Key must be the name of the dataset in the given vega-lite specswhile the value needs to be the name of a dataset defined in :ref:`datasets`.
      - 
    * - page-size
      - Number of rows per page
      - 20
-   * - `render-table <#render-table>`_
+   * - :ref:`render-table`
      - Configuration of individual column rendering
      - 
-   * - `render-plot <#render-plot>`_
+   * - :ref:`render-plot`
      - Configuration of a single plot
      - 
-   * - `render-html <#render-html>`_
+   * - :ref:`render-html`
      - Configuration of a custom html view
      - 
    * - hidden
      - Whether or not the view is shown in the menu navigation
      - false
    * - max-in-memory-rows
-     - Overwrites the global settings for `max-in-memory-rows <#max-in-memory-rows>`_
+     - Overwrites the global settings for :ref:`max-in-memory-rows`
 
 
 render-table
@@ -107,11 +107,11 @@ render-table
 
    * - keyword
      - explanation
-   * - `columns <#columns>`_
+   * - :ref:`columns`
      - Configuration of columns
-   * - `add-columns <#add-columns>`_
+   * - :ref:`add-columns`
      - Configuration of additionally generated columns
-   * - `headers <#headers>`_
+   * - :ref:`headers`
      - Configuration of the additional headers
 
 
@@ -127,7 +127,7 @@ columns
      - explanation
      - default
      - possible values
-   * - `link-to-url <#link-to-url>`_
+   * - :ref:`link-to-url`
      - You can either specify only a single url or key value pairs with a name as the key and the url as the value that will then be accessible via a dropdown. Use the special keyword ``custom-content`` to change the title of the link or the dropdown with a javascript function looking like this: ``function my_link_title(value, row) { return 'Open link to ' + value }``
      - 
      - 
@@ -143,12 +143,12 @@ columns
      - Allows to specify a path to a file that contains a js function similar to custom. The file should only contain one js function (the name of the function shouldn't matter) and should look like `this <https://github.com/koesterlab/datavzrd/blob/main/.examples/specs/time-formatter.js>`_. The given path is relative to the directory you are currently in and running datavzrd from.
      - 
      - 
-   * - `custom-plot <#custom-plot>`_
+   * - :ref:`custom-plot`
      - Renders a custom vega-lite plot to the corresponding table cell
      - 
      - 
-   * - `plot <#plot>`_
-     - Renders a vega-lite plot defined with `plot <#plot>`_ to the corresponding table cell
+   * - :ref:`plot`
+     - Renders a vega-lite plot defined with :ref:`plot` to the corresponding table cell
      - 
      - 
    * - ellipsis
@@ -189,11 +189,11 @@ add-columns
      - A javascript function taking a row of the dataset as the parameter that returns the value for the newly generated column. A value named ``age`` may be accessed in the function via ``function my_new_col(row) { return row.age * 2 }`` for example.
      - 
      - 
-   * - `link-to-url <#link-to-url>`_
+   * - :ref:`link-to-url`
      - You can either specify only a single url or key value pairs with a name as the key and the url as the value that will then be accessible via a dropdown. Use the special keyword ``custom-content`` to change the title of the link or the dropdown with a javascript function looking like this: ``function my_link_title(value, row) { return 'Open link to ' + value }``
      - 
      - 
-   * - `custom-plot <#custom-plot>`_
+   * - :ref:`custom-plot`
      - Renders a custom vega-lite plot to the corresponding table cell
      - 
      - 
@@ -215,8 +215,8 @@ headers
      - explanation
    * - label
      - Allows to add an additional label to the corresponding header
-   * - `plot <#plot>`_
-     - Renders a vega-lite plot defined with `plot <#plot>`_ to the corresponding table cell (currently only the `heatmap <#heatmap>`_ type is supported in header rows)
+   * - :ref:`plot`
+     - Renders a vega-lite plot defined with :ref:`plot` to the corresponding table cell (currently only the :ref:`heatmap` type is supported in header rows)
    * - display-mode
      - Allows to hide the header row by setting this to ``hidden``.
    * - ellipsis
@@ -243,7 +243,7 @@ render-plot
 render-html
 ===========
 
-``render-html`` contains individual configurations for generating a single custom view where a global variable ``data`` with the dataset in json format can be accessed in the given js file. The rendered view contains a ``<div id="canvas">`` that can then be manipulated with the given script. By default, the div uses the full width and centers its contents. Of course, the divs CSS can be overwritten via Javascript. jQuery is already available, any other necessary Javascript libraries can be loaded via `aux-libraries <#aux-libraries>`_.
+``render-html`` contains individual configurations for generating a single custom view where a global variable ``data`` with the dataset in json format can be accessed in the given js file. The rendered view contains a ``<div id="canvas">`` that can then be manipulated with the given script. By default, the div uses the full width and centers its contents. Of course, the divs CSS can be overwritten via Javascript. jQuery is already available, any other necessary Javascript libraries can be loaded via :ref:`aux-libraries`.
 
 .. list-table::
    :header-rows: 1
@@ -333,11 +333,11 @@ plot
 
    * - keyword
      - explanation
-   * - `ticks <#ticks>`_
+   * - :ref:`ticks`
      - Defines a `tick-plot <https://vega.github.io/vega-lite/docs/tick.html>`_ for numeric values
-   * - `heatmap <#heatmap>`_
+   * - :ref:`heatmap`
      - Defines a heatmap for numeric or nominal values
-   * - `bars <#bars>`_
+   * - :ref:`bars`
      - Defines a `bar-plot <https://vega.github.io/vega-lite/docs/bar.html>`_ for numeric values
 
 
@@ -357,7 +357,7 @@ ticks
      - Defines the domain of the tick plot. If not present datavzrd will automatically use the minimum and maximum values for the domain
    * - aux-domain-columns
      - Allows to specify a list of other columns that will be additionally used to determine the domain of the tick plot. Regular expression (e.g. ``"regex('prob:.+')"`` for matching all columns starting with ``prob:``\ ) are also supported as well as range expressions (e.g. ``range(5, 10)`` for the 5th column to 9th column).
-   * - `color <#color>`_
+   * - :ref:`color`
      - Defines the color of the tick plot
 
 
@@ -417,7 +417,7 @@ bars
      - Defines the domain of the bar plot. If not present datavzrd will automatically use the minimum and maximum values for the domain
    * - aux-domain-columns
      - Allows to specify a list of other columns that will be additionally used to determine the domain of the bar plot. Regular expression (e.g. ``"regex('prob:.+')"`` for matching all columns starting with ``prob:``\ ) are also supported.
-   * - `color <#color>`_
+   * - :ref:`color`
      - Defines the color of the bar plot
 
 
