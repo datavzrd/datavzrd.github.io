@@ -39,7 +39,7 @@ features:
       With exponentially growing gathered data per year, its representation becomes more important than ever to make it comprehensible and interpretable for humans.
       Datavzrd aims to create a solution for reporting tabular data in a sharable format that is highly customizable and easy to use with simple configuration using the yaml syntax.
     img: preview.png
-    img-width: 30vw
+    img-width: min(30vw, 550px)
     url: https://datavzrd.github.io/datavzrd/movies/index_1.html
 
   - title: Datasets
