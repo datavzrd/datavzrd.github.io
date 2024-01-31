@@ -25,7 +25,7 @@ jobs:
         uses: actions/checkout@v4
       
       - name: locosopa
-        uses: koesterlab/locosopa@main
+        uses: koesterlab/locosopa@fxwiegand-tailwind-test
         with:
           config: src/config.yaml
           path: build
