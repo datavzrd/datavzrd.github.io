@@ -96,6 +96,7 @@ views
      - false
    * - max-in-memory-rows
      - Overwrites the global settings for :ref:`max-in-memory-rows`
+     -
 
 
 render-table
