@@ -15,6 +15,11 @@ default-view
 
 ``default-view`` allows the user to optionally specify a view for the generated report that will be shown when opening the index file.
 
+page-size
+=========
+
+``page-size`` allows the user to set a page-size for the generated report. If not manually set this defaults to `20`.
+
 max-in-memory-rows
 ==================
 
