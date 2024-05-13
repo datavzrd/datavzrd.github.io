@@ -309,7 +309,7 @@ custom-plot
 link-to-url
 ===========
 
-``link-to-url`` allows rendering a link to a given url with {value} replaced by the value of the table.
+``link-to-url`` allows rendering a link to a given url with {value} replaced by the value of the table. Multiple links will result in a dropdown menu.
 
 .. list-table::
    :header-rows: 1
@@ -324,6 +324,17 @@ link-to-url
      - Whether or not the rendered link will be opened in a new window or not
      - true
 
+It is also possible to use `custom-content` to change the content of the dropdown button. Example usage:
+
+.. code-block:: yaml
+
+   link-to-url:
+      custom-content: function(value, row) { return `Find out more about ${value}`; }
+      Wikipedia:
+        url: "https://de.wikipedia.org/wiki/{value}"
+      Letterboxd:
+        url: "https://letterboxd.com/search/{value}"
+        new-window: false
 
 plot
 ====
