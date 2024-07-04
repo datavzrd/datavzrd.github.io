@@ -82,6 +82,9 @@ views
    * - page-size
      - Number of rows per page
      - 20
+   * - line-numbers
+     - Show line numbers in table
+     - false
    * - :ref:`render-table`
      - Configuration of individual column rendering
      - 
