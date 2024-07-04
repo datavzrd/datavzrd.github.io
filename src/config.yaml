@@ -28,6 +28,7 @@ header:
 hero:
   img: 
     dark: datavzrd_white.svg
+    light: datavzrd_white.svg
   statements:
     - A low-code interactive reporting tool for tabular datasets
   links: 
