@@ -26,7 +26,8 @@ header:
       url: https://datavzrd.github.io/datavzrd/index.html
 
 hero:
-  img: datavzrd_white.svg # add a logo
+  img: 
+    dark: datavzrd_white.svg
   statements:
     - A low-code interactive reporting tool for tabular datasets
   links: 
