@@ -651,4 +651,12 @@ color
    * - range
      - Defines the color range of the tick or bar plot as a list
 
-See :ref:`bars` for an example use case.
+Example:
+
+.. code-block:: yaml
+
+    color:
+        scale: linear
+        range:
+            - red
+            - green
