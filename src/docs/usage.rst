@@ -10,6 +10,12 @@ To use **Datavzrd**, run the following command in your terminal:
 
    $ datavzrd [FLAGS] [OPTIONS] <CONFIG> --output <output>
 
+Example:
+
+.. code-block:: bash
+
+   $ datavzrd path/to/my-config.yaml --output my-report
+
 Command Line Arguments
 ======================
 
