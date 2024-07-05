@@ -1,5 +1,5 @@
 ******************
-Snakemake wrapper
+Wrapper
 ******************
 
 Datavzrd integrates easily into any `snakemake <https://snakemake.readthedocs.io/en/stable/>`_ workflow by using its own wrapper.
