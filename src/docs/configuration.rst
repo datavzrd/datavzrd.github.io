@@ -10,10 +10,22 @@ name
 
 ``name`` allows the user to optionally set a name for the generated report that will be heading all resulting tables and plots.
 
+Example:
+
+.. code-block:: yaml
+
+    name: "my report"
+
 default-view
 ============
 
 ``default-view`` allows the user to optionally specify a view for the generated report that will be shown when opening the index file.
+
+Example:
+
+.. code-block:: yaml
+
+    default-view: "gene-overview"
 
 
 max-in-memory-rows
@@ -21,15 +33,35 @@ max-in-memory-rows
 
 ``max-in-memory-rows`` defines the threshold for the maximum number of rows in memory. If the given dataset exceeds the threshold the data will be split across multiple pages and their html files. Defaults to 1000 rows.
 
+Example:
+
+.. code-block:: yaml
+
+    max-in-memory-rows: "5000"
+
 aux-libraries
 =============
 
 ``aux-libraries`` allows to add one or more js libraries via cdn links for usage in :ref:`render-html`. The keyword expects a list of urls that link to the js libraries.
 
+Example:
+
+.. code-block:: yaml
+
+    aux-libraries:
+        - "https://cdn.jsdelivr.net/npm/mathjs@13.0.2/lib/browser/math.min.js"
+        - "https://cdn.jsdelivr.net/npm/fraction.js@4.3.7/fraction.min.js"
+
 webview-controls
 ================
 
 ``webview-controls`` allows to turn on sharing individual rows via a link with the data encoded into a url pointing to a webview that hosts a static version of datavzrd at https://datavzrd.github.io. Note that when using the link the row data can temporarily occur (in base64-encoded form) in the server logs of the given webview host. Defaults to ``false``.
+
+Example:
+
+.. code-block:: yaml
+
+    webview-controls: true
 
 datasets
 ========
@@ -57,6 +89,32 @@ datasets
    * - offer-excel
      - Whether to offer the dataset as an excel worksheet.
      - false
+
+Example:
+
+.. code-block:: yaml
+
+    datasets:
+        table-a:
+            path: "table-a.csv"
+            links:
+                gene details:
+                    column: gene
+                    view: "gene-{value}"
+                gene expression:
+                    column: gene
+                    table-row: table-b/gene
+                    optional: true
+        table-b:
+            path: table-b.csv
+            separator: ;
+        gene-mycn:
+            path: "genes/table-mycn.csv"
+            headers: 2
+            links:
+                some expression:
+                    column: quality
+                    view: table-b
 
 
 views
@@ -98,6 +156,15 @@ views
      - Overwrites the global settings for :ref:`max-in-memory-rows`
      -
 
+Example:
+
+.. code-block:: yaml
+
+    views:
+        table-a:
+            dataset: table-a
+            desc: "This is the **description** for *table-a*. Markdown is allowed!"
+            render-table: ...
 
 render-table
 ============
@@ -115,6 +182,18 @@ render-table
      - Configuration of additionally generated columns
    * - :ref:`headers`
      - Configuration of the additional headers
+
+Example:
+
+.. code-block:: yaml
+
+    render-table:
+        columns:
+            ...
+        add-columns:
+            ...
+        headers:
+            ...
 
 
 columns
@@ -174,6 +253,18 @@ columns
      - false
      - true, false
 
+Example:
+
+.. code-block:: yaml
+
+    columns:
+        age:
+            display-mode: detail
+        impact:
+            plot:
+                ...
+            optional: true
+
 
 add-columns
 ===========
@@ -204,6 +295,13 @@ add-columns
      - normal
      - detail, normal, hidden
 
+Example:
+
+.. code-block:: yaml
+
+    add-columns:
+        my-new-column:
+            value: function(value) { return value + 3 }
 
 headers
 =======
@@ -224,6 +322,14 @@ headers
    * - ellipsis
      - Shortens values to the first *n* given characters with the rest hidden behind a popover. With *n = 0* the cell will be empty and the value will only be shown in a popover.
 
+Example:
+
+.. code-block:: yaml
+
+    headers:
+        1:
+            ellipsis: 10
+
 
 render-plot
 ===========
@@ -240,6 +346,24 @@ render-plot
    * - spec-path
      - The path to a file containing a schema for a vega lite plot that will be rendered to a single view. The given path is relative to the directory you are currently in and running datavzrd from.
 
+Example:
+
+.. code-block:: yaml
+
+    render-plot:
+        spec: |
+            {
+                "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+                "mark": "circle",
+                "encoding": {
+                 "size": {"field": "significance", "type": "quantitative", "scale": {"domain": [0,100]}},
+                 "color": {"field": "threshold", "scale": {"domain": [true,false]}},
+                 "href": {"field": "some expression"}
+                },
+                "config": {"legend": {"disable": true}}
+            }
+
+
 .. _render-html:
 
 render-html
@@ -254,6 +378,13 @@ render-html
      - explanation
    * - script-path
      - A path to a js file that has access to the dataset and can manipulate the given canvas of the rendered view
+
+Example:
+
+.. code-block:: yaml
+
+    render-html:
+        script-path: "scripts/my-page.js"
 
 
 links
@@ -280,6 +411,8 @@ links
      - Allows missing values in linked tables
      - false
 
+Check :ref:`datasets` for an example use case.
+
 
 custom-plot
 ===========
@@ -305,6 +438,27 @@ custom-plot
      - Whether or not the resulting vega-lite plot is supposed to have action-links in the embedded view
      - false
 
+Example:
+
+.. code-block:: yaml
+
+    custom-plot:
+        data: |
+            function(value, row) {
+                // Generate data for this cell, having access to the value and any other values from the same row.
+                return [{"significance": value, "threshold": value > 60}]
+            }
+        spec: |
+            {
+                "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+                "mark": "circle",
+                "encoding": {
+                "size": {"field": "significance", "type": "quantitative", "scale": {"domain": [0,100]}},
+                "color": {"field": "threshold", "scale": {"domain": [true,false]}}
+                },
+                "config": {"legend": {"disable": true}}
+            }
+
 
 link-to-url
 ===========
@@ -324,17 +478,19 @@ link-to-url
      - Whether or not the rendered link will be opened in a new window or not
      - true
 
-It is also possible to use `custom-content` to change the content of the dropdown button. Example usage:
+It is also possible to use `custom-content` to change the content of the dropdown button.
+
+Example:
 
 .. code-block:: yaml
 
-   link-to-url:
-      custom-content: function(value, row) { return `Find out more about ${value}`; }
-      Wikipedia:
-        url: "https://de.wikipedia.org/wiki/{value}"
-      Letterboxd:
-        url: "https://letterboxd.com/search/{value}"
-        new-window: false
+    link-to-url:
+        custom-content: function(value, row) { return `Find out more about ${value}`; }
+            Wikipedia:
+                url: "https://de.wikipedia.org/wiki/{value}"
+        Letterboxd:
+                url: "https://letterboxd.com/search/{value}"
+                new-window: false
 
 plot
 ====
@@ -353,6 +509,12 @@ plot
    * - :ref:`bars`
      - Defines a `bar-plot <https://vega.github.io/vega-lite/docs/bar.html>`_ for numeric values
 
+Example:
+
+.. code-block:: yaml
+
+    plot:
+        heatmap:
 
 ticks
 =====
@@ -372,6 +534,17 @@ ticks
      - Allows to specify a list of other columns that will be additionally used to determine the domain of the tick plot. Regular expression (e.g. ``"regex('prob:.+')"`` for matching all columns starting with ``prob:``\ ) are also supported as well as range expressions (e.g. ``range(5, 10)`` for the 5th column to 9th column).
    * - :ref:`color`
      - Defines the color of the tick plot
+
+Example:
+
+.. code-block:: yaml
+
+    plot:
+        ticks:
+            domain:
+                - 10
+                - 50
+            scale: log
 
 
 heatmap
@@ -413,6 +586,15 @@ heatmap
      - Allows to render custom content into any heatmap cell (while using the actual cell content for the heatmap color). Requires a ``function(value, row)`` that returns the text value that will be displayed in the cell.
      -
 
+Example:
+
+.. code-block:: yaml
+
+    plot:
+        heatmap:
+            scale: ordinal
+            color-scheme: category20
+
 
 bars
 ====
@@ -432,6 +614,22 @@ bars
      - Allows to specify a list of other columns that will be additionally used to determine the domain of the bar plot. Regular expression (e.g. ``"regex('prob:.+')"`` for matching all columns starting with ``prob:``\ ) are also supported.
    * - :ref:`color`
      - Defines the color of the bar plot
+
+Example:
+
+.. code-block:: yaml
+
+    plot:
+        bars:
+            scale: linear
+            domain:
+                - 1
+                - 10
+            color:
+                scale: linear
+                range:
+                    - red
+                    - green
 
 
 color
@@ -453,3 +651,4 @@ color
    * - range
      - Defines the color range of the tick or bar plot as a list
 
+See :ref:`bars` for an example use case.
