@@ -37,7 +37,7 @@ Example:
 
 .. code-block:: yaml
 
-    max-in-memory-rows: "5000"
+    max-in-memory-rows: 5000
 
 aux-libraries
 =============
