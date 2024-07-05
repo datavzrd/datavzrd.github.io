@@ -29,5 +29,5 @@ The `datavzrd wrapper <https://snakemake-wrappers.readthedocs.io/en/latest/wrapp
       log:
           "logs/datavzrd_report/{sample}.log",
       wrapper:
-          "v3.13.4-5-gaa1774f/utils/datavzrd"
+          "v3.13.4/utils/datavzrd"
 
