@@ -1,3 +1,6 @@
+.. _YAML: https://yaml.org
+.. _Markdown: https://en.wikipedia.org/wiki/Markdown
+
 ********
 Tutorial
 ********
@@ -33,7 +36,6 @@ While datavzrd is platform independent, it is in general advisable to conduct su
 In case you only have access to Microsoft Windows, note that Windows nowadays offers its own Linux subsystem (`WSL <https://learn.microsoft.com/en-us/windows/wsl/about>`_).
 Check out the docs for installing WSL `here <https://learn.microsoft.com/en-us/windows/wsl/install>`_, enter WSL and proceed below as if you were on a plain Linux system.
 
-
 First, install Datavzrd as instructed :ref:`here <installation>`.
 Second, create a working directory for your tutorial excercises in some reasonable place of your file system and enter it.
 In the following, we will always assume that you are in this working directory.
@@ -45,6 +47,10 @@ Create a subdirectory ``data`` and download the Oscar winners dataset via the fo
     curl -L https://raw.githubusercontent.com/datavzrd/datavzrd/main/.examples/data/movies.csv > data/movies.csv
     curl -L https://raw.githubusercontent.com/datavzrd/datavzrd/main/.examples/data/oscars.csv > data/oscars.csv
 
+The tutorial (and using Datavzrd in general) requires you to use a text editor for editing Datavzrd configuration files.
+If you are an experienced developer and know all the formats and terms that are used here, you can of course use any editor you like and will have no issues.
+If you are new to editing text files and using command line tools like Datavzrd, we recomment `Visual Studio Code (VSCode) <https://code.visualstudio.com>`_.
+VSCode offers plugins which will help to write and edit such configuration files, in particular we recommend installing `indent-rainbow <https://marketplace.visualstudio.com/items?itemName=oderwat.indent-rainbow>`_, which simplifies getting the indentation in YAML_ files right.
 
 Basic usage
 ===========
@@ -62,7 +68,7 @@ The first command line parameter (here ``config.yaml``) is a configuration file 
 The second parameter (here ``--output myreport``) specifies the output directory for the generated report.
 The output directory will contain the generated report as a main HTML file and a subdirectory with all required resources for displaying the report.
 
-The configuration file is written in the so-called `YAML <https://yaml.org>`_ format.
+The configuration file is written in the so-called YAML_ format.
 In this case, the format can be seen as a simple, structured, human readable way to specify how Datavzrd shall visualize the given tabular data.
 
 .. note::
@@ -70,6 +76,10 @@ In this case, the format can be seen as a simple, structured, human readable way
     Under the hood, Datavzrd delegates all of its visualization capabilities to the `Vega-Lite <https://vega.github.io/vega-lite>` library.
     This also means that often values passed to the configuration will stem from the vocabulary of Vega-Lite.
     Where this is the case, we will try to provide links to the respective Vega-Lite documentation.
+
+Step 1: Create a minimal report
+-------------------------------
+
 
 We define a minimal configuration file as follows:
 
@@ -82,20 +92,20 @@ We define a minimal configuration file as follows:
     views:
       movies:
         dataset: movies
-      render-table:
-        columns:
-          Rated:
-            plot:
-              heatmap:
-                scale: ordinal
-                color-scheme: category20
+        render-table:
+          columns:
+            Rated:
+              plot:
+                heatmap:
+                  scale: ordinal
+                  color-scheme: category20
 
 Save this configuration file as ``config.yaml`` in your working directory.
 The file specifies that the table to be visualized is stored in the file ``data/movies.csv``.
 There shall be a single view for this table, which renders the table while coloring the ``Rated`` column using a heatmap visualization.
 We configure the heatmap to have an ordinal scale and to use the `category20 <https://vega.github.io/vega/docs/schemes/#categorical>`_ color scheme.
 
-Next we execute Datavzrd with this configuration file in order to generate our first report:
+Next, we execute Datavzrd with this configuration file in order to generate our first report:
 
 .. code-block:: bash
 
@@ -123,3 +133,182 @@ It contains a rendered version of the ``data/movies.csv`` table.
 The ``Rated`` column is colored according to the heatmap configuration.
 The report is interactive, meaning that you can, by clicking on corresponding icons on the column headers, sort the table, filter it, hide columns and show summary statistics.
 Also note the "hamburger"-menu at the top right, which offers various view options.
+Take your time to explore the interactive capabilities of this very minimal version of the report.
+
+.. note::
+
+    The report is self-contained and can be shared with others by simply compressing the output directory into a zip file and e.g. sending it around to sharing it via cloud storage.
+    The report can be opened in any modern browser without requiring any additional software or server infrastructure.
+
+Step 2: Add a report name and a description
+-------------------------------------------
+
+Reports become more transparent and understandable if they are self-descriptive.
+For this purpose, Datavzrd offers the ability to provide a report-wide name (annotating the global topic of the report) and a description for each view.
+We now extend our configuration from before (``config.yaml``) by defining a report name via adding the following to the top level of the configuration:
+
+.. code-block:: yaml
+
+    name: Oscars and movies
+
+We also add a description by specifying the following as a child of the movies view, just below the dataset entry with the same indentation.
+Description can make use of Markdown_ syntax for formatting text.
+
+.. code-block:: yaml
+
+    description: |
+      Movies that won an **Oscar**.
+
+Note the leading ``|`` in the description entry, which is a YAML_ operator that allows for multi-line text below (one indentation deeper).
+Also note the ``**`` around the word "Oscar", which Markdown_ syntax for bold text.
+
+The full configuration file now looks like this:
+
+.. code-block:: yaml
+
+    name: Oscars and movies
+
+    datasets:
+      movies:
+        path: data/movies.csv
+    
+    views:
+      movies:
+        dataset: movies
+        description: |
+          Movies that won an **Oscar**.
+        render-table:
+          columns:
+            Rated:
+              plot:
+                heatmap:
+                  scale: ordinal
+                  color-scheme: category20
+
+Execute Datavzrd again with this updated configuration file:
+
+.. code-block:: bash
+
+    datavzrd config.yaml --output example-report
+
+Open the main file, called ``index.html``, in your browser and check out the added name (top left) and description (above the table).
+The description can also be hidden via the "x"-button at its top right, and opened again via the "hamburger"-menu.
+
+.. note::
+
+    In reality, descriptions should be as comprehensive as possible, allowing somebody viewing the report to understand the presented data without external help.
+    This entails that one should consider explaining the content and interpretation of e.g. certain columns or the visualizations that have been applied.
+
+Step 3: Add a second dataset
+----------------------------
+
+We now extend our report by adding the oscars table as a second dataset.
+
+.. admonition:: Exercise
+
+    1. Analogously to ``movies`` add a second entry to the ``datasets`` section of the configuration file.
+    2. Add a second view to the ``views`` section that renders the oscars dataset as a table.
+      Use the same heatmap configuration as for the ``Rated`` column of the movies table for the ``award`` column in the oscars table.
+      Add a description to this view.
+
+The full configuration file now looks like this:
+
+.. code-block:: yaml
+
+    name: Oscars and movies
+
+    datasets:
+      movies:
+        path: data/movies.csv
+      oscars:
+        path: data/oscars.csv
+    
+    views:
+      movies:
+        dataset: movies
+        description: |
+          Movies that won an **Oscar**.
+        render-table:
+          columns:
+            Rated:
+              plot:
+                heatmap:
+                  scale: ordinal
+                  color-scheme: category20
+      oscars:
+        dataset: oscars
+        description: |
+          This view shows **Oscar** awards.
+        render-table:
+          columns:
+            award:
+              plot:
+                heatmap:
+                  scale: ordinal
+                  color-scheme: category20
+
+Step 4: Link between movies and oscars
+--------------------------------------
+
+We now extend our report by adding a link between movies and oscars.
+Datavzrd will automatically render link buttons into tables that are based on linked datasets, such that one can jump around between corresponding entries of the different tables.
+
+Naturally, one can add a link between the ``movie`` column of the oscars dataset and the ``Title`` column of the movies dataset.
+Add the following block to the oscars dataset, at the same indentation level as the path entry:
+
+.. code-block:: yaml
+
+    links:
+      movie:
+        column: movie
+        table-row: movies/Title
+
+Here, we express that any tabular view of the oscars dataset shall link each row to the corresponding row in the movies view based on the ``movie`` column in the oscars dataset and the matching ``Title`` column in the movies table view.
+
+.. admonition:: Exercise
+
+    Analogously, add a link between the ``Title`` column of the movies dataset and the ``movie`` column of the oscars table view to the movies dataset.
+
+The full configuration file now looks like this:
+
+.. code-block:: yaml
+
+    name: Oscars and movies
+
+    datasets:
+      movies:
+        path: data/movies.csv
+        links:
+          oscar:
+            column: Title
+            table-row: oscars/movie
+      oscars:
+        path: data/oscars.csv
+        links:
+          movie:
+            column: movie
+            table-row: movies/Title
+    
+    views:
+      movies:
+        dataset: movies
+        description: |
+          Movies that won an **Oscar**.
+        render-table:
+          columns:
+            Rated:
+              plot:
+                heatmap:
+                  scale: ordinal
+                  color-scheme: category20
+      oscars:
+        dataset: oscars
+        description: |
+          This view shows **Oscar** awards.
+        render-table:
+          columns:
+            award:
+              plot:
+                heatmap:
+                  scale: ordinal
+                  color-scheme: category20
