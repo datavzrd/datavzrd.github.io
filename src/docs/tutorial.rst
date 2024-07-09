@@ -249,6 +249,14 @@ The full configuration file now looks like this:
                   scale: ordinal
                   color-scheme: category20
 
+Execute Datavzrd again with this updated configuration file:
+
+.. code-block:: bash
+
+    datavzrd config.yaml --output example-report
+
+Open the main file, called ``index.html``, in your browser and check out the added oscars table.
+
 Step 4: Link between movies and oscars
 --------------------------------------
 
@@ -316,3 +324,16 @@ The full configuration file now looks like this:
                 heatmap:
                   scale: ordinal
                   color-scheme: category20
+
+Execute Datavzrd again with this updated configuration file:
+
+.. code-block:: bash
+
+    datavzrd config.yaml --output example-report
+
+Open the main file, called ``index.html``, in your browser and check out the added link buttons that allow you to jump between corresponding entries of the tables.
+
+Step 5: Add more column visualizations
+--------------------------------------
+
+We now extend our report by adding more visualizations for the columns of the tables.
