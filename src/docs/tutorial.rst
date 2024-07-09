@@ -220,6 +220,7 @@ The full configuration file now looks like this:
     datasets:
       movies:
         path: data/movies.csv
+
       oscars:
         path: data/oscars.csv
     
@@ -235,6 +236,7 @@ The full configuration file now looks like this:
                 heatmap:
                   scale: ordinal
                   color-scheme: category20
+
       oscars:
         dataset: oscars
         description: |
@@ -282,6 +284,7 @@ The full configuration file now looks like this:
           oscar:
             column: Title
             table-row: oscars/movie
+
       oscars:
         path: data/oscars.csv
         links:
@@ -301,6 +304,7 @@ The full configuration file now looks like this:
                 heatmap:
                   scale: ordinal
                   color-scheme: category20
+
       oscars:
         dataset: oscars
         description: |
