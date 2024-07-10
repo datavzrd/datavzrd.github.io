@@ -2,7 +2,7 @@ image: gitpod/workspace-full
 
 tasks:
   - name: Setup Datavzrd
-    init: |
+    command: |
       echo "setup tutorial environment, please wait..."
       rm -rf * .[!.]* # clean up workspace
       mkdir data
@@ -12,5 +12,5 @@ tasks:
       source ~/.bashrc &> /tmp/log-source-bashrc.txt
       micromamba create -n datavzrd -c conda-forge datavzrd --yes &> /tmp/log-setup-datavzrd.txt
       echo "micromamba activate datavzrd" >> ~/.bashrc
-      source ~/.bashrc &>> /tmp/log-source-bashrc.txt
+      micromamba activate datavzrd
       echo "done, ready to go!"
