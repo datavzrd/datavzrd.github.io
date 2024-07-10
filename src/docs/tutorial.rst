@@ -193,6 +193,10 @@ Execute Datavzrd again with this updated configuration file:
 
     datavzrd config.yaml --output example-report --overwrite-output
 
+.. note:
+
+    The additional ``--overwrite-output`` argument tells Datavzrd to overwrite the contents of the given directory if it already exists. This ensures that Datavzrd does not accidentally overwrite existing reports by requiring explicit permission to overwrite files.
+    
 Open the main file, called ``index.html``, in your browser and check out the added name (top left) and description (above the table).
 The description can also be hidden via the "x"-button at its top right, and opened again via the "hamburger"-menu.
 
