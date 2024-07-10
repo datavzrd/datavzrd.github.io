@@ -11,6 +11,7 @@ tasks:
       ("${SHELL}" <(curl -L micro.mamba.pm/install.sh) < /dev/null) &> /tmp/log-setup-micromamba.txt
       source ~/.bashrc &> /tmp/log-source-bashrc.txt
       micromamba create -n datavzrd -c conda-forge datavzrd --yes &> /tmp/log-setup-datavzrd.txt
+      echo "micromamba activate datavzrd" >> ~/.bashrc
       echo "done, ready to go!"
     command: |
       micromamba activate datavzrd
