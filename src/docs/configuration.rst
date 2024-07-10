@@ -486,7 +486,7 @@ Example:
 
     link-to-url:
         custom-content: function(value, row) { return `Find out more about ${value}`; }
-            Wikipedia:
+        Wikipedia:
                 url: "https://de.wikipedia.org/wiki/{value}"
         Letterboxd:
                 url: "https://letterboxd.com/search/{value}"
