@@ -193,7 +193,7 @@ Execute Datavzrd again with this updated configuration file:
 
     datavzrd config.yaml --output example-report --overwrite-output
 
-.. note:
+.. note::
 
     The additional ``--overwrite-output`` argument tells Datavzrd to overwrite the contents of the given directory if it already exists. This ensures that Datavzrd does not accidentally overwrite existing reports by requiring explicit permission to overwrite files.
     
