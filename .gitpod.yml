@@ -2,9 +2,11 @@ image: gitpod/workspace-full
 
 tasks:
   - name: Setup Datavzrd
-    before: |
-      "${SHELL}" <(curl -L micro.mamba.pm/install.sh) < /dev/null
-      source ~/.bashrc
-      micromamba create -n datavzrd -c conda-forge datavzrd --yes
+    init: |
+      echo "setup Datavzrd..."
+      "${SHELL}" <(curl -L micro.mamba.pm/install.sh) < /dev/null 2> /tmp/log-setup-micromamba.txt
+      source ~/.bashrc 2> /tmp/log-source-bashrc.txt
+      micromamba create -n datavzrd -c conda-forge datavzrd --yes 2> /tmp/log-setup-datavzrd.txt
+      echo "done"
     command: |
       micromamba activate datavzrd
