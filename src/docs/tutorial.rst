@@ -412,7 +412,7 @@ In total, the updated configuration looks like this:
 
 Execute Datavzrd again with this updated configuration file and see how the links are added to the Title column of the movies table view in the form of a dropdown menu.
 
-.. node::
+.. note::
 
   If there would be only a single link, it would be rendered as a simple link on each column entry instead of a dropdown menu.
 
