@@ -20,6 +20,7 @@ Explore Datavzrd's capabilities by checking out an `example report online <https
 .. toctree::
     installation
     usage
+    tutorial
     configuration
     wrapper
     contributing

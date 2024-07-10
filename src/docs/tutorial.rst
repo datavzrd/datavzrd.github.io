@@ -3,9 +3,9 @@
 .. _Javascript: https://en.wikipedia.org/wiki/JavaScript
 .. _Vega-Lite: https://vega.github.io/vega-lite
 
-********
-Tutorial
-********
+***************
+Getting started
+***************
 
 This tutorial introduces Datavzrd.
 Datavzrd allows to generate interactive HTML based reports from tabular data (including multiple linked tables) without programming knowledge (depending on the use case even in a so-called zero-code or low-code manner).
