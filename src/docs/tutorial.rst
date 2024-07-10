@@ -1,5 +1,7 @@
 .. _YAML: https://yaml.org
 .. _Markdown: https://en.wikipedia.org/wiki/Markdown
+.. _Javascript: https://en.wikipedia.org/wiki/JavaScript
+.. _Vega-Lite: https://vega.github.io/vega-lite
 
 ********
 Tutorial
@@ -156,7 +158,7 @@ Description can make use of Markdown_ syntax for formatting text.
 
 .. code-block:: yaml
 
-    description: |
+    desc: |
       Movies that won an **Oscar**.
 
 Note the leading ``|`` in the description entry, which is a YAML_ operator that allows for multi-line text below (one indentation deeper).
@@ -175,7 +177,7 @@ The full configuration file now looks like this:
     views:
       movies:
         dataset: movies
-        description: |
+        desc: |
           Movies that won an **Oscar**.
         render-table:
           columns:
@@ -227,7 +229,7 @@ The full configuration file now looks like this:
     views:
       movies:
         dataset: movies
-        description: |
+        desc: |
           Movies that won an **Oscar**.
         render-table:
           columns:
@@ -239,7 +241,7 @@ The full configuration file now looks like this:
 
       oscars:
         dataset: oscars
-        description: |
+        desc: |
           This view shows **Oscar** awards.
         render-table:
           columns:
@@ -303,7 +305,7 @@ The full configuration file now looks like this:
     views:
       movies:
         dataset: movies
-        description: |
+        desc: |
           Movies that won an **Oscar**.
         render-table:
           columns:
@@ -315,7 +317,7 @@ The full configuration file now looks like this:
 
       oscars:
         dataset: oscars
-        description: |
+        desc: |
           This view shows **Oscar** awards.
         render-table:
           columns:
@@ -333,7 +335,581 @@ Execute Datavzrd again with this updated configuration file:
 
 Open the main file, called ``index.html``, in your browser and check out the added link buttons that allow you to jump between corresponding entries of the tables.
 
-Step 5: Add more column visualizations
---------------------------------------
+Step 5: Add Links to external resources
+---------------------------------------
 
 We now extend our report by adding more visualizations for the columns of the tables.
+First, we add a Wikipedia and a Letterboxd link to every movie title in the movies table by adding an entry ``Title`` of the following form to the ``columns`` section of the movies table view:
+
+.. code-block::yaml
+
+    Title:
+      link-to-url:
+        Wikipedia:
+          url: https://en.wikipedia.org/wiki/{value}
+        Letterboxd:
+          url: https://letterboxd.com/search/{value}
+
+As can be seen, the ``link-to-url`` entry takes a map of keys and values, where the keys are the descriptive names of the links that shall be rendered and the values are URL patterns.
+The URL patterns may contain a placeholder ``{value}``, which will be replaced by the actual value of the respective column entry.
+Moreover, it is possible to refer to any other column value of the same row by using the column name as a placeholder.
+
+In total, the updated configuration looks like this:
+
+.. code-block:: yaml
+
+    name: Oscars and movies
+
+    datasets:
+      movies:
+        path: data/movies.csv
+        links:
+          oscar:
+            column: Title
+            table-row: oscars/movie
+
+      oscars:
+        path: data/oscars.csv
+        links:
+          movie:
+            column: movie
+            table-row: movies/Title
+    
+    views:
+      movies:
+        dataset: movies
+        desc: |
+          Movies that won an **Oscar**.
+        render-table:
+          columns:
+            Title:
+              link-to-url:
+                Wikipedia:
+                  url: https://en.wikipedia.org/wiki/{value}
+                Letterboxd:
+                  url: https://letterboxd.com/search/{value}
+            Rated:
+              plot:
+                heatmap:
+                  scale: ordinal
+                  color-scheme: category20
+
+      oscars:
+        dataset: oscars
+        desc: |
+          This view shows **Oscar** awards.
+        render-table:
+          columns:
+            award:
+              plot:
+                heatmap:
+                  scale: ordinal
+                  color-scheme: category20
+
+Execute Datavzrd again with this updated configuration file and see how the links are added to the Title column of the movies table view in the form of a dropdown menu.
+
+.. node::
+
+  If there would be only a single link, it would be rendered as a simple link on each column entry instead of a dropdown menu.
+
+.. admonition:: Exercise
+
+    1. Add a link to the oscars table that links the ``name`` column to the corresponding imDB search (use the URL pattern ``https://www.imdb.com/find/?q={value}``) page of the respective award.
+    2. Modify the link to Wikipedia in the movies table such that it opens the page in a new tab. For this purpose, Datavzrd offers the possibility to add an entry ``new-window: true`` next to the ``url:`` entry of the ``link-to-url`` structure.
+
+Step 6: Add a tick plot
+-----------------------
+
+In order to display numerical values in the context of their observed range, Datavzrd offers tick plots.
+We will now add a tick plot for the ``age`` column of the oscars table, by adding an entry ``age`` of the following form to the ``columns`` section:
+
+.. code-block::yaml
+
+    age:
+      plot:
+        ticks:
+          scale: linear
+
+The ``scale`` of the tick plot can be chosen from the available `Vega-Lite continuous scales <https://vega.github.io/vega-lite/docs/scale.html#continuous-scales>`_.
+In this case, we choose a linear scale, meaning that the distance between any two ticks in the plots is proportional to the distance between their underlying values.
+
+The updated configuration looks like this:
+
+.. code-block:: yaml
+
+    name: Oscars and movies
+
+    datasets:
+      movies:
+        path: data/movies.csv
+        links:
+          oscar:
+            column: Title
+            table-row: oscars/movie
+
+      oscars:
+        path: data/oscars.csv
+        links:
+          movie:
+            column: movie
+            table-row: movies/Title
+    
+    views:
+      movies:
+        dataset: movies
+        desc: |
+          Movies that won an **Oscar**.
+        render-table:
+          columns:
+            Title:
+              link-to-url:
+                Wikipedia:
+                  url: https://en.wikipedia.org/wiki/{value}
+                Letterboxd:
+                  url: https://letterboxd.com/search/{value}
+            Rated:
+              plot:
+                heatmap:
+                  scale: ordinal
+                  color-scheme: category20
+
+      oscars:
+        dataset: oscars
+        desc: |
+          This view shows **Oscar** awards.
+        render-table:
+          columns:
+            award:
+              plot:
+                heatmap:
+                  scale: ordinal
+                  color-scheme: category20
+            age:
+              plot:
+                ticks:
+                  scale: linear
+
+Execute Datavzrd again with this updated configuration file and see how the tick plot is added to the age column of the oscars table view.
+
+.. admonition:: Exercise
+
+    Analogously to tick plots, Datavzrd offers bar plots for numerical values.
+    Add a bar plot for the ``imdbRating`` column of the movies table (the syntax is the same, just use ``bars`` instead of ``ticks``).
+
+Step 7: Adding derived columns and hiding columns
+-------------------------------------------------
+
+Sometimes, tabular data might contain information that should rather be visualized in a different way.
+In the oscars table, there are columns ``birth_d``, ``birth_mo``, and ``birth_y``, denoting the birthdate of the actress or actor.
+We will now add a derived column ``birth_season`` that displays the birtdate as an icon that represents the season.
+For such tasks, Datavzrd offers the possibility do use custom functions (written in Javascript_).
+We add a new section ``add-columns`` with the following content to the ``render-table`` section of the oscars table view:
+
+.. code-block::yaml
+
+    add-columns:
+      birth_season:
+        value: |
+          function(row) {
+            const month = row['birth_mo'];
+            if (month >= 3 && month <= 5) {
+              return '🌷';
+            } else if (month >= 6 && month <= 8) {
+              return '🌞';
+            } else if (month >= 9 && month <= 11) {
+              return '🍂';
+            } else {
+              return '❄️';
+            }
+          }
+
+In other words, we add a column named ``birth_season`` that calculates its value via a Javascript_ function that accesses the column ``birht_mo`` from the same row, and returns a season-representing icon (which here are in fact a special unicode/font characters) depending on the month.
+
+Let us assume that only the season is relevant in this context.
+Datavzrd offers the ability to hide irrelevant columns in two ways: not displaying them completely, or displaying them upon request.
+We will now hide the columns ``birth_d`` and ``birth_mo`` in the oscars table view and display the year upon request.
+For this purpose, we add entries for the three columns to the ``columns`` section of the oscars table view:
+
+.. code-block::yaml
+    columns: 
+      birth_d:
+        display-mode: hidden
+      birth_mo:
+        display-mode: hidden
+      birth_y:
+        display-mode: detail
+
+For the former two, ``display-mode: hidden`` is used, which means that the columns are not displayed at all.
+For the latter, ``display-mode: detail`` is used, which means that the value appears with all others of the same dsiplay mode when a ``+`` button at the beginning of the row is clicked.
+
+The updated configuration looks like this:
+
+.. code-block:: yaml
+
+    name: Oscars and movies
+
+    datasets:
+      movies:
+        path: data/movies.csv
+        links:
+          oscar:
+            column: Title
+            table-row: oscars/movie
+
+      oscars:
+        path: data/oscars.csv
+        links:
+          movie:
+            column: movie
+            table-row: movies/Title
+    
+    views:
+      movies:
+        dataset: movies
+        desc: |
+          Movies that won an **Oscar**.
+        render-table:
+          columns:
+            Title:
+              link-to-url:
+                Wikipedia:
+                  url: https://en.wikipedia.org/wiki/{value}
+                Letterboxd:
+                  url: https://letterboxd.com/search/{value}
+            Rated:
+              plot:
+                heatmap:
+                  scale: ordinal
+                  color-scheme: category20
+
+      oscars:
+        dataset: oscars
+        desc: |
+          This view shows **Oscar** awards.
+        render-table:
+          columns:
+            award:
+              plot:
+                heatmap:
+                  scale: ordinal
+                  color-scheme: category20
+            age:
+              plot:
+                ticks:
+                  scale: linear
+            birth_d:
+              display-mode: hidden
+            birth_mo:
+              display-mode: hidden
+            birth_y:
+              display-mode: detail
+          add-columns:
+            birth_season:
+              value: |
+                function(row) {
+                  const month = row['birth_mo'];
+                  if (month >= 3 && month <= 5) {
+                    return '🌷';
+                  } else if (month >= 6 && month <= 8) {
+                    return '🌞';
+                  } else if (month >= 9 && month <= 11) {
+                    return '🍂';
+                  } else {
+                    return '❄️';
+                  }
+                }
+
+Execute Datavzrd again with this updated configuration file and explore the introduced changes.
+
+Step 8: Adding a custom plot to render cells of a column
+--------------------------------------------------------
+
+Beyond the offered built-ins like tick and bar plots, Datavzrd offers the ability to specify custom Vega-Lite_ plots.
+For learning how to write Vega-Lite_, we refer to the `Vega-Lite tutorial <https://vega.github.io/vega-lite/tutorials/getting_started.html>`_.
+Here, we simply assume that this knowledge is already present, and aim to display wins and nominations of each actor and actress as a pie chart.
+Note that this information is present in the column ``overall_wins_and_overall_nominations`` (in the form ``m/n`` with ``m`` being the wins and ``n`` being the nominations), see the rendered Datavzrd report from any previous step.
+For this purpose, we add an entry ``overall_wins_and_overall_nominations`` of the following form to the ``columns`` section of the oscars table view:
+
+.. code-block::yaml
+
+    overall_wins_and_overall_nominations:
+      custom-plot:
+        data: |
+          function(value, row) {
+            const [wins, nominations] = value.split("/");
+            return [
+              {"category": "wins", "amount": wins},
+              {"category": "nominations", "amount": nominations},
+            ]
+          }
+        spec: |
+          {
+            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+            "height": 25,
+            "width": 25,
+            "mark": {"type": "arc", "tooltip": true},
+            "encoding": {
+              "theta": {"field": "amount", "type": "quantitative"},
+              "color": {"field": "category", "type": "nominal"}
+            },
+            "config": {
+              "legend": {"disable": true}
+            }
+          }
+
+This definition does two things.
+First, it uses the column value to construct a data representation that is suitable for Vega-Lite_.
+Similar to the previous step, this works again by specifying a Javascript_ function.
+Second, it defines a Vega-Lite_ plot which maps the categories (wins and nominations) to colors and the amount to arcs in the pie chart.
+
+The updated configuration looks like this:
+
+.. code-block:: yaml
+
+    name: Oscars and movies
+
+    datasets:
+      movies:
+        path: data/movies.csv
+        links:
+          oscar:
+            column: Title
+            table-row: oscars/movie
+
+      oscars:
+        path: data/oscars.csv
+        links:
+          movie:
+            column: movie
+            table-row: movies/Title
+    
+    views:
+      movies:
+        dataset: movies
+        desc: |
+          Movies that won an **Oscar**.
+        render-table:
+          columns:
+            Title:
+              link-to-url:
+                Wikipedia:
+                  url: https://en.wikipedia.org/wiki/{value}
+                Letterboxd:
+                  url: https://letterboxd.com/search/{value}
+            Rated:
+              plot:
+                heatmap:
+                  scale: ordinal
+                  color-scheme: category20
+
+      oscars:
+        dataset: oscars
+        desc: |
+          This view shows **Oscar** awards.
+        render-table:
+          columns:
+            award:
+              plot:
+                heatmap:
+                  scale: ordinal
+                  color-scheme: category20
+            age:
+              plot:
+                ticks:
+                  scale: linear
+            birth_d:
+              display-mode: hidden
+            birth_mo:
+              display-mode: hidden
+            birth_y:
+              display-mode: detail
+            overall_wins_and_overall_nominations:
+              custom-plot:
+                data: |
+                  function(value, row) {
+                    const [wins, nominations] = value.split("/");
+                    return [
+                      {"category": "wins", "amount": wins},
+                      {"category": "nominations", "amount": nominations},
+                    ]
+                  }
+                spec: |
+                  {
+                    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+                    "height": 25,
+                    "width": 25,
+                    "mark": {"type": "arc", "tooltip": true},
+                    "encoding": {
+                      "theta": {"field": "amount", "type": "quantitative"},
+                      "color": {"field": "category", "type": "nominal"}
+                    },
+                    "config": {
+                      "legend": {"disable": true}
+                    }
+                  }
+          add-columns:
+            birth_season:
+              value: |
+                function(row) {
+                  const month = row['birth_mo'];
+                  if (month >= 3 && month <= 5) {
+                    return '🌷';
+                  } else if (month >= 6 && month <= 8) {
+                    return '🌞';
+                  } else if (month >= 9 && month <= 11) {
+                    return '🍂';
+                  } else {
+                    return '❄️';
+                  }
+                }
+
+Execute Datavzrd again with this updated configuration file and explore the introduced changes.
+
+Step 9: Add a plot view
+-----------------------
+
+Apart from displaying table views, Datavzrd offers the ability to define so-called plot views, which only contain a custom plot instead of a table.
+Again, plots can be defined using Vega-Lite_.
+To illustrate this feature, let us specify a view that displays the relation between the year of the Oscar award (column ``oscar_yr``) and the age of the actress or actor (column ``age``).
+We add the following entry as a new view below the oscars table view in the configuration file (of course at the same indentation level).
+
+.. code-block:: yaml
+
+    year_vs_age:
+      dataset: oscars
+      desc: |
+        Relationship between year of the Oscar award and the age of the actress/actor.
+      render-plot:
+        spec: |
+          {
+            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+            "mark": {"type": "circle", "tooltip": true},
+            "encoding": {
+              "x": {"field": "oscar_yr", "type": "temporal"},
+              "y": {"field": "age", "type": "quantitative"},
+              "color": {"field": "award", "type": "nominal"}
+            }
+          }
+
+The updated configuration file looks like this:
+
+.. code-block:: yaml
+
+    name: Oscars and movies
+
+    datasets:
+      movies:
+        path: data/movies.csv
+        links:
+          oscar:
+            column: Title
+            table-row: oscars/movie
+
+      oscars:
+        path: data/oscars.csv
+        links:
+          movie:
+            column: movie
+            table-row: movies/Title
+
+    views:
+      movies:
+        dataset: movies
+        desc: |
+          Movies that won an **Oscar**.
+        render-table:
+          columns:
+            Title:
+              link-to-url:
+                Wikipedia:
+                  url: https://en.wikipedia.org/wiki/{value}
+                Letterboxd:
+                  url: https://letterboxd.com/search/{value}
+            Rated:
+              plot:
+                heatmap:
+                  scale: ordinal
+                  color-scheme: category20
+
+      oscars:
+        dataset: oscars
+        desc: |
+          This view shows **Oscar** awards.
+        render-table:
+          columns:
+            award:
+              plot:
+                heatmap:
+                  scale: ordinal
+                  color-scheme: category20
+            age:
+              plot:
+                ticks:
+                  scale: linear
+            birth_d:
+              display-mode: hidden
+            birth_mo:
+              display-mode: hidden
+            birth_y:
+              display-mode: detail
+            overall_wins_and_overall_nominations:
+              custom-plot:
+                data: |
+                  function(value, row) {
+                    const [wins, nominations] = value.split("/");
+                    return [
+                      {"category": "wins", "amount": wins},
+                      {"category": "nominations", "amount": nominations},
+                    ]
+                  }
+                spec: |
+                  {
+                    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+                    "height": 25,
+                    "width": 25,
+                    "mark": {"type": "arc", "tooltip": true},
+                    "encoding": {
+                      "theta": {"field": "amount", "type": "quantitative"},
+                      "color": {"field": "category", "type": "nominal"}
+                    },
+                    "config": {
+                      "legend": {"disable": true}
+                    }
+                  }
+          add-columns:
+            birth_season:
+              value: |
+                function(row) {
+                  const month = row['birth_mo'];
+                  if (month >= 3 && month <= 5) {
+                    return '🌷';
+                  } else if (month >= 6 && month <= 8) {
+                    return '🌞';
+                  } else if (month >= 9 && month <= 11) {
+                    return '🍂';
+                  } else {
+                    return '❄️';
+                  }
+                }
+      year_vs_age:
+          dataset: oscars
+          desc: |
+            Relationship between year of the Oscar award and the age of the actress/actor.
+          render-plot:
+            spec: |
+              {
+                "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+                "mark": {"type": "circle", "tooltip": true},
+                "encoding": {
+                  "x": {"field": "oscar_yr", "type": "temporal"},
+                  "y": {"field": "age", "type": "quantitative"},
+                  "color": {"field": "award", "type": "nominal"}
+                }
+              }
+
+As always run datavzrd on this configuration to obtain an updated report.
+Investigate the resulting new view, and be suprised (or not) about the systematic age difference between actors and actresses and how that reflects some of the issues we have in the society.
+
+With this, we are at the end of the Datavzrd tutorial.
+Naturally, there are numerous options and features that we did not cover here.
+For a comprehensive overview, we refer to the `Datavzrd homepage <https://datavzrd.github.io>`_ and the documentation that can be reached from there.
