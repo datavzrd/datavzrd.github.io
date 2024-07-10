@@ -12,4 +12,5 @@ tasks:
       source ~/.bashrc &> /tmp/log-source-bashrc.txt
       micromamba create -n datavzrd -c conda-forge datavzrd --yes &> /tmp/log-setup-datavzrd.txt
       echo "micromamba activate datavzrd" >> ~/.bashrc
+      source ~/.bashrc &>> /tmp/log-source-bashrc.txt
       echo "done, ready to go!"
