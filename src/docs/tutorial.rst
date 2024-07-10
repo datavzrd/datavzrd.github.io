@@ -75,7 +75,7 @@ In this case, the format can be seen as a simple, structured, human readable way
 
 .. note::
 
-    Under the hood, Datavzrd delegates all of its visualization capabilities to the `Vega-Lite <https://vega.github.io/vega-lite>` library.
+    Under the hood, Datavzrd delegates all of its visualization capabilities to the Vega-Lite_ library.
     This also means that often values passed to the configuration will stem from the vocabulary of Vega-Lite.
     Where this is the case, we will try to provide links to the respective Vega-Lite documentation.
 
