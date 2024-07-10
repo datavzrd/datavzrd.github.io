@@ -210,8 +210,8 @@ We now extend our report by adding the oscars table as a second dataset.
 
     1. Analogously to ``movies`` add a second entry to the ``datasets`` section of the configuration file.
     2. Add a second view to the ``views`` section that renders the oscars dataset as a table.
-      Use the same heatmap configuration as for the ``Rated`` column of the movies table for the ``award`` column in the oscars table.
-      Add a description to this view.
+       Use the same heatmap configuration as for the ``Rated`` column of the movies table for the ``award`` column in the oscars table.
+       Add a description to this view.
 
 The full configuration file now looks like this:
 
