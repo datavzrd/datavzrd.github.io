@@ -67,7 +67,7 @@ The basic structure of the datavzrd command is
     datavzrd config.yaml --output example-report
 
 The first command line parameter (here ``config.yaml``) is a configuration file that specifies the data to be visualized and the visualizations to be used.
-The second parameter (here ``--output myreport``) specifies the output directory for the generated report.
+The second parameter (here ``--output example-report``) specifies the output directory for the generated report.
 The output directory will contain the generated report as a main HTML file and a subdirectory with all required resources for displaying the report.
 
 The configuration file is written in the so-called YAML_ format.
