@@ -335,7 +335,7 @@ Execute Datavzrd again with this updated configuration file:
 
 .. code-block:: bash
 
-    datavzrd config.yaml --output example-report
+    datavzrd config.yaml --output example-report --overwrite-output
 
 Open the main file, called ``index.html``, in your browser and check out the added link buttons that allow you to jump between corresponding entries of the tables.
 
