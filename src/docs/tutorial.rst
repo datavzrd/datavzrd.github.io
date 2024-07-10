@@ -418,7 +418,7 @@ Execute Datavzrd again with this updated configuration file and see how the link
 
 .. admonition:: Exercise
 
-    1. Add a link to the oscars table that links the ``name`` column to the corresponding imDB search (use the URL pattern ``https://www.imdb.com/find/?q={value}``) page of the respective award.
+    1. Add a link to the oscars table that links the ``name`` column to the corresponding IMDb search (use the URL pattern ``https://www.imdb.com/find/?q={value}``) page of the respective award.
     2. Modify the link to Wikipedia in the movies table such that it opens the page in a new tab. For this purpose, Datavzrd offers the possibility to add an entry ``new-window: true`` next to the ``url:`` entry of the ``link-to-url`` structure.
 
 Step 6: Add a tick plot
