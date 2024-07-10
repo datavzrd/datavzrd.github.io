@@ -530,7 +530,8 @@ Datavzrd offers the ability to hide irrelevant columns in two ways: not displayi
 We will now hide the columns ``birth_d`` and ``birth_mo`` in the oscars table view and display the year upon request.
 For this purpose, we add entries for the three columns to the ``columns`` section of the oscars table view:
 
-.. code-block::yaml
+.. code-block:: yaml
+
     columns: 
       birth_d:
         display-mode: hidden
