@@ -28,7 +28,7 @@ Run the tutorial via Gitpod
 ---------------------------
 
 Gitpod enables performing the exercises via your browser—including all required software, for free and in the cloud.
-In order to do this, simply open the predefined datavzrd-tutorial GitPod workspace in your browser.
+In order to do this, simply open the `predefined datavzrd-tutorial GitPod workspace <https://gitpod.io/new/#https://github.com/datavzrd/datavzrd.github.io>`_ in your browser.
 GitPod provides you with a `Visual Studio Code <https://code.visualstudio.com>`_ development environment, which you can learn about in the linked documentation.
 
 Run the tutorial on your own machine
