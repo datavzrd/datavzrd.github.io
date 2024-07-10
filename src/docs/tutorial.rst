@@ -191,7 +191,7 @@ Execute Datavzrd again with this updated configuration file:
 
 .. code-block:: bash
 
-    datavzrd config.yaml --output example-report
+    datavzrd config.yaml --output example-report --overwrite-output
 
 Open the main file, called ``index.html``, in your browser and check out the added name (top left) and description (above the table).
 The description can also be hidden via the "x"-button at its top right, and opened again via the "hamburger"-menu.
