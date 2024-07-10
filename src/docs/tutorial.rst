@@ -67,7 +67,7 @@ The basic structure of the datavzrd command is
     datavzrd config.yaml --output example-report
 
 The first command line parameter (here ``config.yaml``) is a configuration file that specifies the data to be visualized and the visualizations to be used.
-The second parameter (here ``--output myreport``) specifies the output directory for the generated report.
+The second parameter (here ``--output example-report``) specifies the output directory for the generated report.
 The output directory will contain the generated report as a main HTML file and a subdirectory with all required resources for displaying the report.
 
 The configuration file is written in the so-called YAML_ format.
@@ -191,8 +191,12 @@ Execute Datavzrd again with this updated configuration file:
 
 .. code-block:: bash
 
-    datavzrd config.yaml --output example-report
+    datavzrd config.yaml --output example-report --overwrite-output
 
+.. note:
+
+    The additional ``--overwrite-output`` argument tells Datavzrd to overwrite the contents of the given directory if it already exists. This ensures that Datavzrd does not accidentally overwrite existing reports by requiring explicit permission to overwrite files.
+    
 Open the main file, called ``index.html``, in your browser and check out the added name (top left) and description (above the table).
 The description can also be hidden via the "x"-button at its top right, and opened again via the "hamburger"-menu.
 
@@ -255,7 +259,7 @@ Execute Datavzrd again with this updated configuration file:
 
 .. code-block:: bash
 
-    datavzrd config.yaml --output example-report
+    datavzrd config.yaml --output example-report --overwrite-output
 
 Open the main file, called ``index.html``, in your browser and check out the added oscars table.
 
@@ -331,7 +335,7 @@ Execute Datavzrd again with this updated configuration file:
 
 .. code-block:: bash
 
-    datavzrd config.yaml --output example-report
+    datavzrd config.yaml --output example-report --overwrite-output
 
 Open the main file, called ``index.html``, in your browser and check out the added link buttons that allow you to jump between corresponding entries of the tables.
 
