@@ -1,0 +1,9 @@
+image: gitpod/workspace-full
+
+tasks:
+  - name: Setup Datavzrd
+    command: |
+      curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest | sudo tar -xvj /usr/bin/micromamba
+      micromamba shell init -s bash -p /usr/bin/micromamba
+      micromamba create -n datavzrd -c conda-forge datavzrd
+      micromamba activate datavzrd
