@@ -4,7 +4,7 @@ tasks:
   - name: Setup Datavzrd
     init: |
       echo "setup tutorial environment, please wait..."
-      rm -rf * .* # clean up workspace
+      rm -rf * .[!.]* # clean up workspace
       mkdir data
       curl -L https://raw.githubusercontent.com/datavzrd/datavzrd/main/.examples/data/movies.csv > data/movies.csv &>> /tmp/log-download-dat.txt 
       curl -L https://raw.githubusercontent.com/datavzrd/datavzrd/main/.examples/data/oscars.csv > data/oscars.csv &>> /tmp/log-download-dat.txt 
