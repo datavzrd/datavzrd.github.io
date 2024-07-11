@@ -131,7 +131,20 @@ The resulting report has the following structure:
         └── bundle.js
 
 Open the main file, called ``index.html``, in your browser.
-It contains a rendered version of the ``data/movies.csv`` table.
+
+.. note::
+
+  On Gitpod, you can open the file by executing the command
+
+  .. code-block:: bash
+
+      show-report-url
+  
+  and clicking the link that is printed to the terminal.
+  Gitpod might ask you for confirmation to open the link.
+  It is safe to do so.
+
+The report contains a rendered version of the ``data/movies.csv`` table.
 The ``Rated`` column is colored according to the heatmap configuration.
 The report is interactive, meaning that you can, by clicking on corresponding icons on the column headers, sort the table, filter it, hide columns and show summary statistics.
 Also note the "hamburger"-menu at the top right, which offers various view options.
