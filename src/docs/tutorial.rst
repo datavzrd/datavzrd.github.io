@@ -16,6 +16,12 @@ A key feature of Datavzrd reports is that they are portable, can be simply send 
 The examples used in this tutorial are based on an "Oscar winners" dataset, which has been chosen to demonstrate the capabilities of Datavzrd while being independent of any scientific domain.
 In reality, Datavzrd can be used with any tabular data, e.g. from biomedicine, physics, social sciences, business, etc.
 
+.. note::
+
+    This tutorial is written in a way that mixes concrete instructions, exercises and their solutions.
+    Even if you see the solution in the tutorial, we recommend to try to solve **and type** all instructions and exercises yourself and just use the solutions for double checking.
+    This way, you get the most out of this tutorial and better memorize how Datavzrd works.
+
 Setup
 =====
 
