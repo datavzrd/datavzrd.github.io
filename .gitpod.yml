@@ -6,11 +6,16 @@ tasks:
       echo "setup tutorial environment, please wait..."
       rm -rf * .[!.]* # clean up workspace
       mkdir data
-      curl -L https://raw.githubusercontent.com/datavzrd/datavzrd/main/.examples/data/movies.csv > data/movies.csv &>> /tmp/log-download-dat.txt 
-      curl -L https://raw.githubusercontent.com/datavzrd/datavzrd/main/.examples/data/oscars.csv > data/oscars.csv &>> /tmp/log-download-dat.txt 
+      curl -L https://raw.githubusercontent.com/datavzrd/datavzrd/main/.examples/data/movies.csv > data/movies.csv 2>> /tmp/log-download-dat.txt 
+      curl -L https://raw.githubusercontent.com/datavzrd/datavzrd/main/.examples/data/oscars.csv > data/oscars.csv 2>> /tmp/log-download-dat.txt 
       ("${SHELL}" <(curl -L micro.mamba.pm/install.sh) < /dev/null) &> /tmp/log-setup-micromamba.txt
       source ~/.bashrc &> /tmp/log-source-bashrc.txt
       micromamba create -n datavzrd -c conda-forge datavzrd --yes &> /tmp/log-setup-datavzrd.txt
       echo "micromamba activate datavzrd" >> ~/.bashrc
       micromamba activate datavzrd
       echo "done, ready to go!"
+
+vscode:
+  extensions:
+    - oderwat/indent-rainbow
+    - mechatroner/rainbow-csv
