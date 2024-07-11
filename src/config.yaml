@@ -30,7 +30,7 @@ hero:
     dark: datavzrd_white.svg
     light: datavzrd_white.svg
   statements:
-    - A low-code interactive reporting tool for tabular datasets
+    - A zero/low-code, interactive, visual, server-free, browser-based reporting tool for tabular datasets
   links: 
     - url: https://datavzrd.github.io/datavzrd/oscars/index_1.html
       text: Check Live Demo
