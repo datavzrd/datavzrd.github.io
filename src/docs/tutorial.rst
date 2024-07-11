@@ -276,7 +276,60 @@ Execute Datavzrd again with this updated configuration file:
 
 Open the main file, called ``index.html``, in your browser and check out the added oscars table.
 
-Step 4: Link between movies and oscars
+Step 4: Specifying a default view
+---------------------------------
+
+Once a report has two or more views, it is important to inform Datavzrd about the default view that shall be displayed when the report is opened.
+We set the default view by specifying
+
+.. code-block:: yaml
+
+    default-view: oscars
+
+at the top level of the configuration file.
+This entry tells Datavzrd to display the oscars table view when the report is opened.
+
+The full configuration file now looks like this:
+
+.. code-block:: yaml
+
+    name: Oscars and movies
+
+    default-view: oscars
+
+    datasets:
+      movies:
+        path: data/movies.csv
+
+      oscars:
+        path: data/oscars.csv
+    
+    views:
+      movies:
+        dataset: movies
+        desc: |
+          Movies that won an **Oscar**.
+        render-table:
+          columns:
+            Rated:
+              plot:
+                heatmap:
+                  scale: ordinal
+                  color-scheme: category20
+
+      oscars:
+        dataset: oscars
+        desc: |
+          This view shows **Oscar** awards.
+        render-table:
+          columns:
+            award:
+              plot:
+                heatmap:
+                  scale: ordinal
+                  color-scheme: category20
+
+Step 5: Link between movies and oscars
 --------------------------------------
 
 We now extend our report by adding a link between movies and oscars.
@@ -303,6 +356,8 @@ The full configuration file now looks like this:
 .. code-block:: yaml
 
     name: Oscars and movies
+
+    default-view: oscars
 
     datasets:
       movies:
@@ -352,7 +407,7 @@ Execute Datavzrd again with this updated configuration file:
 
 Open the main file, called ``index.html``, in your browser and check out the added link buttons that allow you to jump between corresponding entries of the tables.
 
-Step 5: Add Links to external resources
+Step 6: Add Links to external resources
 ---------------------------------------
 
 We now extend our report by adding more visualizations for the columns of the tables.
@@ -376,6 +431,8 @@ In total, the updated configuration looks like this:
 .. code-block:: yaml
 
     name: Oscars and movies
+
+    default-view: oscars
 
     datasets:
       movies:
@@ -434,7 +491,7 @@ Execute Datavzrd again with this updated configuration file and see how the link
     1. Add a link to the oscars table that links the ``name`` column to the corresponding IMDb search (use the URL pattern ``https://www.imdb.com/find/?q={value}``) page of the respective award.
     2. Modify the link to Wikipedia in the movies table such that it opens the page in a new tab. For this purpose, Datavzrd offers the possibility to add an entry ``new-window: true`` next to the ``url:`` entry of the ``link-to-url`` structure.
 
-Step 6: Add a tick plot
+Step 7: Add a tick plot
 -----------------------
 
 In order to display numerical values in the context of their observed range, Datavzrd offers tick plots.
@@ -455,6 +512,8 @@ The updated configuration looks like this:
 .. code-block:: yaml
 
     name: Oscars and movies
+
+    default-view: oscars
 
     datasets:
       movies:
@@ -513,7 +572,7 @@ Execute Datavzrd again with this updated configuration file and see how the tick
     Analogously to tick plots, Datavzrd offers bar plots for numerical values.
     Add a bar plot for the ``imdbRating`` column of the movies table (the syntax is the same, just use ``bars`` instead of ``ticks``).
 
-Step 7: Adding derived columns and hiding columns
+Step 8: Adding derived columns and hiding columns
 -------------------------------------------------
 
 Sometimes, tabular data might contain information that should rather be visualized in a different way.
@@ -565,6 +624,8 @@ The updated configuration looks like this:
 .. code-block:: yaml
 
     name: Oscars and movies
+
+    default-view: oscars
 
     datasets:
       movies:
@@ -639,12 +700,13 @@ The updated configuration looks like this:
 
 Execute Datavzrd again with this updated configuration file and explore the introduced changes.
 
-Step 8: Adding a custom plot to render cells of a column
+Step 9: Adding a custom plot to render cells of a column
 --------------------------------------------------------
 
 Beyond the offered built-ins like tick and bar plots, Datavzrd offers the ability to specify custom Vega-Lite_ plots.
 For learning how to write Vega-Lite_, we refer to the `Vega-Lite tutorial <https://vega.github.io/vega-lite/tutorials/getting_started.html>`_.
 Here, we simply assume that this knowledge is already present, and aim to display wins and nominations of each actor and actress as a pie chart.
+Even if you don't know Vega-Lite_ yet, you can still follow this example, hence there is no need to do the Vega-Lite_ tutorial now.
 Note that this information is present in the column ``overall_wins_and_overall_nominations`` (in the form ``m/n`` with ``m`` being the wins and ``n`` being the nominations), see the rendered Datavzrd report from any previous step.
 For this purpose, we add an entry ``overall_wins_and_overall_nominations`` of the following form to the ``columns`` section of the oscars table view:
 
@@ -685,6 +747,8 @@ The updated configuration looks like this:
 .. code-block:: yaml
 
     name: Oscars and movies
+
+    default-view: oscars
 
     datasets:
       movies:
@@ -783,7 +847,7 @@ The updated configuration looks like this:
 
 Execute Datavzrd again with this updated configuration file and explore the introduced changes.
 
-Step 9: Add a plot view
+Step 10: Add a plot view
 -----------------------
 
 Apart from displaying table views, Datavzrd offers the ability to define so-called plot views, which only contain a custom plot instead of a table.
@@ -814,6 +878,8 @@ The updated configuration file looks like this:
 .. code-block:: yaml
 
     name: Oscars and movies
+
+    default-view: oscars
 
     datasets:
       movies:
