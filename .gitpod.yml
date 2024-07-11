@@ -11,7 +11,7 @@ tasks:
       curl -L https://raw.githubusercontent.com/datavzrd/datavzrd/main/.examples/data/movies.csv > data/movies.csv 2>> /tmp/log-download-dat.txt 
       curl -L https://raw.githubusercontent.com/datavzrd/datavzrd/main/.examples/data/oscars.csv > data/oscars.csv 2>> /tmp/log-download-dat.txt 
       ("${SHELL}" <(curl -L micro.mamba.pm/install.sh) < /dev/null) &> /tmp/log-setup-micromamba.txt
-      echo "alias show-report-url='echo 0.0.0.0:8000'" >> ~/.bashrc
+      echo "alias show-report-url='echo https://0.0.0.0:8000/example-report'" >> ~/.bashrc
       source ~/.bashrc &> /tmp/log-source-bashrc.txt
       micromamba create -n datavzrd -c conda-forge datavzrd --yes &> /tmp/log-setup-datavzrd.txt
       echo "micromamba activate datavzrd" >> ~/.bashrc
