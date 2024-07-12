@@ -34,6 +34,8 @@ hero:
   links: 
     - url: https://datavzrd.github.io/datavzrd/oscars/index_1.html
       text: Check Live Demo
+    - url: https://datavzrd.github.io/docs/tutorial.html
+      text: Tutorial
 
 features:
   - title: Easily configurable interactive reports
