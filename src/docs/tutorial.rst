@@ -153,7 +153,7 @@ Open the main file, called ``index.html``, in your browser.
 The report contains a rendered version of the ``data/movies.csv`` table.
 The ``Rated`` column is colored according to the heatmap configuration.
 The report is interactive, meaning that you can, by clicking on corresponding icons on the column headers, sort the table, filter it, hide columns and show summary statistics.
-Also note the "hamburger"-menu at the top right, which offers various view options.
+Also note the so-called "hamburger"-menu at the top right (the button with the three horizontal lines), which offers various view options.
 Take your time to explore the interactive capabilities of this very minimal version of the report.
 
 .. note::
@@ -419,7 +419,7 @@ Step 6: Add Links to external resources
 We now extend our report by adding more visualizations for the columns of the tables.
 First, we add a Wikipedia and a Letterboxd link to every movie title in the movies table by adding an entry ``Title`` of the following form to the ``columns`` section of the movies table view:
 
-.. code-block::yaml
+.. code-block:: yaml
 
     Title:
       link-to-url:
@@ -503,7 +503,7 @@ Step 7: Add a tick plot
 In order to display numerical values in the context of their observed range, Datavzrd offers tick plots.
 We will now add a tick plot for the ``age`` column of the oscars table, by adding an entry ``age`` of the following form to the ``columns`` section:
 
-.. code-block::yaml
+.. code-block:: yaml
 
     age:
       plot:
@@ -583,11 +583,11 @@ Step 8: Adding derived columns and hiding columns
 
 Sometimes, tabular data might contain information that should rather be visualized in a different way.
 In the oscars table, there are columns ``birth_d``, ``birth_mo``, and ``birth_y``, denoting the birthdate of the actress or actor.
-We will now add a derived column ``birth_season`` that displays the birtdate as an icon that represents the season.
+We will now add a derived column ``birth_season`` that displays the birth date as an icon that represents the season.
 For such tasks, Datavzrd offers the possibility do use custom functions (written in Javascript_).
 We add a new section ``add-columns`` with the following content to the ``render-table`` section of the oscars table view:
 
-.. code-block::yaml
+.. code-block:: yaml
 
     add-columns:
       birth_season:
@@ -623,7 +623,7 @@ For this purpose, we add entries for the three columns to the ``columns`` sectio
         display-mode: detail
 
 For the former two, ``display-mode: hidden`` is used, which means that the columns are not displayed at all.
-For the latter, ``display-mode: detail`` is used, which means that the value appears with all others of the same dsiplay mode when a ``+`` button at the beginning of the row is clicked.
+For the latter, ``display-mode: detail`` is used, which means that the value appears with all others of the same display mode when a ``+`` button at the beginning of the row is clicked.
 
 The updated configuration looks like this:
 
@@ -716,7 +716,7 @@ Even if you don't know Vega-Lite_ yet, you can still follow this example, hence 
 Note that this information is present in the column ``overall_wins_and_overall_nominations`` (in the form ``m/n`` with ``m`` being the wins and ``n`` being the nominations), see the rendered Datavzrd report from any previous step.
 For this purpose, we add an entry ``overall_wins_and_overall_nominations`` of the following form to the ``columns`` section of the oscars table view:
 
-.. code-block::yaml
+.. code-block:: yaml
 
     overall_wins_and_overall_nominations:
       custom-plot:
@@ -859,7 +859,7 @@ Step 10: Add a plot view
 Apart from displaying table views, Datavzrd offers the ability to define so-called plot views, which only contain a custom plot instead of a table.
 Again, plots can be defined using Vega-Lite_.
 To illustrate this feature, let us specify a view that displays the relation between the year of the Oscar award (column ``oscar_yr``) and the age of the actress or actor (column ``age``).
-We add the following entry as a new view below the oscars table view in the configuration file (of course at the same indentation level).
+We add the following entry as a new view below the oscars table view in the configuration file at the same indentation level as oscars and movies.
 
 .. code-block:: yaml
 
