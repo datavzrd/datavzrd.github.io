@@ -585,7 +585,8 @@ Sometimes, tabular data might contain information that should rather be visualiz
 In the oscars table, there are columns ``birth_d``, ``birth_mo``, and ``birth_y``, denoting the birthdate of the actress or actor.
 We will now add a derived column ``birth_season`` that displays the birth date as an icon that represents the season.
 For such tasks, Datavzrd offers the possibility do use custom functions (written in Javascript_).
-We add a new section ``add-columns`` with the following content to the ``render-table`` section of the oscars table view:
+We add a new section ``add-columns`` with the following content to the ``render-table`` section of the oscars table view
+(note: you can find the suggested or other emojis (they are actually just special text characters) in `Emojipedia <https://emojipedia.org>`__):
 
 .. code-block:: yaml
 
