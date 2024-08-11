@@ -14,7 +14,7 @@ Datavzrd can be installed using different package managers:
       cargo install datavzrd
 
 - **Conda**:
-  If you prefer using Conda or Mamba, Datavzrd is available from the conda-forge channel. Run the following command:
+  If you prefer using conda, mamba, or micromamba, Datavzrd is available from the conda-forge channel. Run the following command:
 
   .. code-block:: bash
 
@@ -25,5 +25,11 @@ Datavzrd can be installed using different package managers:
   .. code-block:: bash
 
       mamba install -c conda-forge datavzrd
+
+  or
+
+  .. code-block:: bash
+
+      micromamba install -c conda-forge datavzrd
 
 This will install Datavzrd and its dependencies, allowing you to start using it for your data analysis tasks.
