@@ -31,7 +31,7 @@ Example:
 max-in-memory-rows
 ==================
 
-``max-in-memory-rows`` defines the threshold for the maximum number of rows in memory. If the given dataset exceeds the threshold the data will be split across multiple pages and their html files. Defaults to 1000 rows.
+``max-in-memory-rows`` defines the threshold for the maximum number of rows in memory. If the given dataset exceeds the threshold the data will be split across multiple pages and their html files. Defaults to 20000 rows.
 
 Example:
 
