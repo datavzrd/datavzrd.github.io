@@ -155,6 +155,9 @@ views
    * - max-in-memory-rows
      - Overwrites the global settings for :ref:`max-in-memory-rows`
      -
+   * - :ref:`spell`
+     - Uses a datavzrd spell to configure a view. Any other defitions for the view will be overwritten by the spell.
+     - 
 
 Example:
 
@@ -252,6 +255,10 @@ columns
      - Specifies whether the column in the plot-view should include a legend or not.
      - false
      - true, false
+   * - :ref:`spell`
+     - Uses a datavzrd spell to configure the column. Any other defitions for the column will be overwritten by the spell.
+     - 
+     - 
 
 Example:
 
@@ -660,3 +667,27 @@ Example:
         range:
             - red
             - green
+
+spell
+======
+
+``spell`` simplify the process of creating reports by allowing users to define common configurations in a modular way.
+
+   * - keyword
+     - explanation
+   * - url
+     - Specifies the spell to use. This can be any local file path, specific versioned URLs (e.g. ``v1.0.0/stats/p-value``), or any remote URL like ``https://github.com/datavzrd/datavzrd-spells/raw/main/stats/p-value/spell.yaml``
+   * - with
+     - Defines the parameters passed to the spell.
+
+Example:
+
+.. code-block:: yaml
+
+    render-table:
+      columns:
+        p-value:
+          spell:
+            url: "v1.0.0/stats/p-value"
+            with:
+              significance_threshold: 0.05
