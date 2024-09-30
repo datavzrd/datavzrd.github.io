@@ -100,7 +100,7 @@ features:
         !columns!:
           !p-value!:
             !spell!:
-              !url!: %"v1.0.0/stats/p-value"%
+              !url!: %v1.0.0/stats/p-value%
               !with!:
                 !significance_threshold!: %0.05%
 
