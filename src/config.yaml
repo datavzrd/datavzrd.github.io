@@ -91,6 +91,20 @@ features:
             !domain!:
               - %20%
               - %100%
+              
+  - title: Spells
+    desc: |
+       Datavzrd offers so called spells to simplify the process of creating reports by allowing users to define common configurations in a modular way. 
+    code: |
+      !render-table!:
+        !columns!:
+          !p-value!:
+            !spell!:
+              !url!: %"v1.0.0/stats/p-value"%
+              !with!:
+                !significance_threshold!: %0.05%
+
+  
       
 docs:
   src: docs
