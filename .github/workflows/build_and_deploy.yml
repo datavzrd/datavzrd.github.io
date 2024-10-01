@@ -1,10 +1,12 @@
 name: build-and-deploy
 
 on:
+  schedule:
+    - cron: '0 18 * * *'
   push:
     branches:
       - main
-    workflow_dispatch:
+  workflow_dispatch:
 
 permissions:
   contents: read
