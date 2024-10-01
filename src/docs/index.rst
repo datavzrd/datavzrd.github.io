@@ -23,4 +23,5 @@ Explore Datavzrd's capabilities by checking out an `example report online <https
     tutorial
     configuration
     wrapper
+    spells
     contributing
