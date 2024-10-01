@@ -11,7 +11,6 @@ Below is a list of all the available spells in the **datavzrd-spells** repositor
 p-value
 -------
 
-Description:
 
 This spell generates a heatmap visualization to represent the distribution of p-values or statistical significance in data.
 The heatmap uses a linear color scale to map values to a gradient from green over white to organge.
