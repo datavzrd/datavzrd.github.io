@@ -1,6 +1,8 @@
 name: Generate Spell Documentation
 
 on:
+  schedule:
+    - cron: '0 17 * * *'
   push:
     branches:
       - main
@@ -31,12 +33,16 @@ jobs:
       run: |
         python scripts/generate_docs.py
 
-    - name: Commit and push changes
+
+    - name: Check for changes to spells.rst
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git add src/docs/spells.rst
-        git commit -m "Auto-generate spell documentation"
+        git diff --cached --exit-code || git commit -m "Auto-generate spell documentation"
+
+    - name: Push changes
+      run: |
         git push
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
