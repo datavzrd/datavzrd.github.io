@@ -31,7 +31,7 @@ def format_rst(spell_meta):
     rst_content.append("-" * len(spell_meta['name']))  # Underline
     
     # Description
-    rst_content.append("\nDescription:\n")
+    rst_content.append("\n")
     rst_content.append(spell_meta.get('description', 'No description available.'))
 
     # Example
