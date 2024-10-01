@@ -1,3 +1,12 @@
+
+datavzrd Spells Documentation
+=============================
+
+Spells provide reusable configuration snippets for **datavzrd**.
+These spells simplify the process of creating reports by allowing users to define common configurations in a modular way. Users can easily pull spells from local files or remote URLs, facilitating consistency and efficiency in data visualization workflows.
+
+Below is a list of all the available spells in the **datavzrd-spells** repository:
+
 p-value
 =======
 
