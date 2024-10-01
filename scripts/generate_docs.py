@@ -7,8 +7,9 @@ OUTPUT_FILE = "src/docs/spells.rst"
 
 # Header content to be added at the top of spells.rst
 HEADER_CONTENT = """
-datavzrd Spells Documentation
-=============================
+******
+Spells
+******
 
 Spells provide reusable configuration snippets for **datavzrd**.
 These spells simplify the process of creating reports by allowing users to define common configurations in a modular way. Users can easily pull spells from local files or remote URLs, facilitating consistency and efficiency in data visualization workflows.
@@ -27,7 +28,7 @@ def format_rst(spell_meta):
     
     # Spell Name
     rst_content.append(f"{spell_meta['name']}")
-    rst_content.append("=" * len(spell_meta['name']))  # Underline
+    rst_content.append("-" * len(spell_meta['name']))  # Underline
     
     # Description
     rst_content.append("\nDescription:\n")
