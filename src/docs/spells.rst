@@ -25,16 +25,47 @@ Example:
 
 
   render-table:
-  columns:
-    p-value:
-      spell:
-        url: v1.0.0/stats/p-value
-        with:
-          significance_threshold: 0.05
+    columns:
+      p-value:
+        spell:
+          url: v1.0.0/stats/p-value
+          with:
+            significance_threshold: 0.05
 
 
 Authors:
 
 Johannes Köster, Felix Wiegand
+
+
+
+boolean
+-------
+
+
+This spell visualizes boolean values via colored +/- symbols.
+
+
+
+Example:
+
+.. code-block:: yaml
+
+
+
+  render-table:
+    columns:
+      some_boolean_column:
+        spell:
+          url: v1.1.0/logic/boolean
+          with:
+            # specify which values should be interpreted as true or false
+            true_value: "true"
+            false_value: "false"
+
+
+Authors:
+
+Johannes Köster
 
 
