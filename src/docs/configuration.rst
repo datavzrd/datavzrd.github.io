@@ -149,6 +149,9 @@ views
    * - :ref:`render-html`
      - Configuration of a custom html view
      - 
+   * - :ref:`render-img`
+     - Configuration of an image view
+     - 
    * - hidden
      - Whether or not the view is shown in the menu navigation
      - false
@@ -392,6 +395,29 @@ Example:
 
     render-html:
         script-path: "scripts/my-page.js"
+
+
+.. _render-img:
+
+render-img
+===========
+
+``render-img`` allows confiuring a datvazrd view displaying a simple ``png`` or ``svg`` image.
+
+.. list-table::
+   :header-rows: 1
+
+   * - keyword
+     - explanation
+   * - path
+     - A path to the image file that shall berendered into the resulting view
+
+Example:
+
+.. code-block:: yaml
+
+    render-img:
+        path: "resources/my-plot.png"
 
 
 links
