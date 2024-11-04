@@ -6,41 +6,8 @@ Spells
 Spells provide reusable configuration snippets for **datavzrd**.
 These spells simplify the process of creating reports by allowing users to define common configurations in a modular way. Users can easily pull spells from local files or remote URLs, facilitating consistency and efficiency in data visualization workflows.
 
-Below is a list of all the available spells in the **datavzrd-spells** repository:
-
-
-boolean
-=======
-
-.. image:: https://img.shields.io/badge/code-github-blue
-  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.1.3/logic/boolean
-
-This spell visualizes boolean values via colored +/- symbols.
-
-
-Example
--------
-
-.. code-block:: yaml
-
-
-
-  render-table:
-    columns:
-      some boolean column:
-        spell:
-          url: v1.1.3/logic/boolean
-          with:
-            # specify which values should be interpreted as true or false
-            true_value: "true"
-            false_value: "false"
-
-Authors
--------
-
-Johannes Köster
-
-
+Below is a list of all the available spells in the `datavzrd-spells repository <https://github.com/datavzrd/datavzrd-spells>`__.
+For adding new spells, please see the instructions in the `datavzrd-spells repository <https://github.com/datavzrd/datavzrd-spells>`__.
 
 
 p-value
@@ -73,5 +40,39 @@ Authors
 -------
 
 Johannes Köster, Felix Wiegand
+
+
+
+
+boolean
+=======
+
+.. image:: https://img.shields.io/badge/code-github-blue
+  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.1.3/logic/boolean
+
+This spell visualizes boolean values via colored +/- symbols.
+
+
+Example
+-------
+
+.. code-block:: yaml
+
+
+
+  render-table:
+    columns:
+      some boolean column:
+        spell:
+          url: v1.1.3/logic/boolean
+          with:
+            # specify which values should be interpreted as true or false
+            true_value: "true"
+            false_value: "false"
+
+Authors
+-------
+
+Johannes Köster
 
 
