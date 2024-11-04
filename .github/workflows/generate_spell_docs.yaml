@@ -15,8 +15,6 @@ jobs:
     steps:
     - name: Checkout the current repository
       uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
 
     - name: Clone the datavzrd-spells repository
       run: |
@@ -34,7 +32,6 @@ jobs:
     - name: Generate spell documentation
       run: |
         python scripts/generate_docs.py
-
 
     - name: Check for changes to spells.rst
       run: |

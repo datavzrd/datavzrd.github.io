@@ -7,7 +7,8 @@ import git
 SPELLS_REPO_PATH = "datavzrd-spells"
 OUTPUT_FILE = "src/docs/spells.rst"
 repo = git.Repo("datavzrd-spells")
-TAG = next(tag for tag in repo.tags if tag.commit == repo.head.commit)
+# get latest tag
+TAG = repo.tags[-1]
 
 # Header content to be added at the top of spells.rst
 HEADER_CONTENT = """
