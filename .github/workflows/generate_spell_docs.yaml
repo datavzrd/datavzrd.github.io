@@ -27,7 +27,7 @@ jobs:
 
     - name: Install PyYAML for parsing YAML
       run: |
-        python -m pip install pyyaml
+        python -m pip install pyyaml gitpython
 
     - name: Generate spell documentation
       run: |
