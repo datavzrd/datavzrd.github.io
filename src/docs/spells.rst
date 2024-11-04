@@ -8,17 +8,54 @@ These spells simplify the process of creating reports by allowing users to defin
 
 Below is a list of all the available spells in the **datavzrd-spells** repository:
 
-p-value
+
+boolean
+=======
+
+.. image:: https://img.shields.io/badge/code-github-blue
+  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.1.3/logic/boolean
+
+This spell visualizes boolean values via colored +/- symbols.
+
+
+Example
 -------
 
+.. code-block:: yaml
+
+
+
+  render-table:
+    columns:
+      some boolean column:
+        spell:
+          url: v1.1.3/logic/boolean
+          with:
+            # specify which values should be interpreted as true or false
+            true_value: "true"
+            false_value: "false"
+
+Authors
+-------
+
+Johannes Köster
+
+
+
+
+p-value
+=======
+
+.. image:: https://img.shields.io/badge/code-github-blue
+  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.1.3/stats/p-value
 
 This spell generates a heatmap visualization to represent the distribution of p-values or statistical significance in data.
 The heatmap uses a linear color scale to map values to a gradient from green over white to organge.
 The significance_threshold (e.g., p = 0.05) - a boundary between statistical significance and non-significance - can be adjusted dynamically based on the context or dataset.
 
 
-
-Example:
+Example
+-------
 
 .. code-block:: yaml
 
@@ -26,46 +63,15 @@ Example:
 
   render-table:
     columns:
-      p-value:
+      some p-value column:
         spell:
-          url: v1.0.0/stats/p-value
+          url: v1.1.3/stats/p-value
           with:
             significance_threshold: 0.05
 
-
-Authors:
-
-Johannes Köster, Felix Wiegand
-
-
-
-boolean
+Authors
 -------
 
-
-This spell visualizes boolean values via colored +/- symbols.
-
-
-
-Example:
-
-.. code-block:: yaml
-
-
-
-  render-table:
-    columns:
-      some_boolean_column:
-        spell:
-          url: v1.1.0/logic/boolean
-          with:
-            # specify which values should be interpreted as true or false
-            true_value: "true"
-            false_value: "false"
-
-
-Authors:
-
-Johannes Köster
+Johannes Köster, Felix Wiegand
 
 

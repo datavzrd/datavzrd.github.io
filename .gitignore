@@ -1,3 +1,4 @@
 .snakemake
 build
 node_modules
+/src/docs/spells.rst
