@@ -18,7 +18,7 @@ p-value
 
 This spell generates a heatmap visualization to represent the distribution of p-values or statistical significance in data.
 The heatmap uses a linear color scale to map values to a gradient from green over white to organge.
-The significance_threshold (e.g., p = 0.05) - a boundary between statistical significance and non-significance - can be adjusted dynamically based on the context or dataset.
+The significance\_threshold (e.g., p = 0.05) - a boundary between statistical significance and non-significance - can be adjusted dynamically based on the context or dataset.
 
 
 Example
