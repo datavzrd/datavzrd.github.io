@@ -699,6 +699,9 @@ spell
 
 ``spell`` simplify the process of creating reports by allowing users to define common configurations in a modular way.
 
+.. list-table::
+   :header-rows: 1
+
    * - keyword
      - explanation
    * - url
