@@ -45,7 +45,8 @@ def format_rst(spell_meta, spell_url):
     rst_content.append(f"  :target: https://github.com/datavzrd/datavzrd-spells/tree/{spell_url}\n")
     
     # Description
-    rst_content.append(spell_meta.get('description', 'No description available.'))
+    description = spell_meta.get('description', 'No description available.').replace('_', '\\_').replace(':', '\\:')
+    rst_content.append(description)
 
     # Example
     example = spell_meta['example']["code"]
