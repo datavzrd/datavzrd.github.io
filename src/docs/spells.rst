@@ -14,7 +14,7 @@ p-value
 =======
 
 .. image:: https://img.shields.io/badge/code-github-blue
-  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.1.3/stats/p-value
+  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.2.1/stats/p-value
 
 This spell generates a heatmap visualization to represent the distribution of p-values or statistical significance in data.
 The heatmap uses a linear color scale to map values to a gradient from green over white to organge.
@@ -32,7 +32,7 @@ Example
     columns:
       some p-value column:
         spell:
-          url: v1.1.3/stats/p-value
+          url: v1.2.1/stats/p-value
           with:
             significance_threshold: 0.05
 
@@ -48,7 +48,7 @@ boolean
 =======
 
 .. image:: https://img.shields.io/badge/code-github-blue
-  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.1.3/logic/boolean
+  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.2.1/logic/boolean
 
 This spell visualizes boolean values via colored +/- symbols.
 
@@ -64,7 +64,7 @@ Example
     columns:
       some boolean column:
         spell:
-          url: v1.1.3/logic/boolean
+          url: v1.2.1/logic/boolean
           with:
             # specify which values should be interpreted as true or false
             true_value: "true"
@@ -74,5 +74,36 @@ Authors
 -------
 
 Johannes Köster
+
+
+
+
+clin-sig
+========
+
+.. image:: https://img.shields.io/badge/code-github-blue
+  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.2.1/med/clin-sig
+
+This spell visualizes the clinical significance, given in clinvar significance terms (https\://www.ncbi.nlm.nih.gov/clinvar/)
+The values should be given in a column consisting of strings and separated by ','
+
+
+Example
+-------
+
+.. code-block:: yaml
+
+
+
+  render-table:
+    columns: 
+      some clinical significance column:
+        spell:
+          url: v1.2.1/med/clin-sig
+
+Authors
+-------
+
+Benjamin Orlik
 
 
