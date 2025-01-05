@@ -10,6 +10,37 @@ Below is a list of all the available spells in the `datavzrd-spells repository <
 For adding new spells, please see the instructions in the `datavzrd-spells repository <https://github.com/datavzrd/datavzrd-spells>`__.
 
 
+clin-sig
+========
+
+.. image:: https://img.shields.io/badge/code-github-blue
+  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.2.1/med/clin-sig
+
+This spell visualizes the clinical significance, given in clinvar significance terms (https\://www.ncbi.nlm.nih.gov/clinvar/)
+The values should be given in a column consisting of strings and separated by ','
+
+
+Example
+-------
+
+.. code-block:: yaml
+
+
+
+  render-table:
+    columns: 
+      some clinical significance column:
+        spell:
+          url: v1.2.1/med/clin-sig
+
+Authors
+-------
+
+Benjamin Orlik
+
+
+
+
 p-value
 =======
 
@@ -74,36 +105,5 @@ Authors
 -------
 
 Johannes Köster
-
-
-
-
-clin-sig
-========
-
-.. image:: https://img.shields.io/badge/code-github-blue
-  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.2.1/med/clin-sig
-
-This spell visualizes the clinical significance, given in clinvar significance terms (https\://www.ncbi.nlm.nih.gov/clinvar/)
-The values should be given in a column consisting of strings and separated by ','
-
-
-Example
--------
-
-.. code-block:: yaml
-
-
-
-  render-table:
-    columns: 
-      some clinical significance column:
-        spell:
-          url: v1.2.1/med/clin-sig
-
-Authors
--------
-
-Benjamin Orlik
 
 
