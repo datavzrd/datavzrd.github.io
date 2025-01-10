@@ -68,3 +68,80 @@ Command Line Arguments
      - Argument
      - Yes
      - N/A
+
+Subcommands
+===========
+
+Datavzrd also supports additional functionality through subcommands. Below are the available subcommands:
+
+Publish
+-------
+
+The `publish` subcommand allows you to publish a generated report to GitHub Pages. This requires the user to have `gh` installed and authenticated.
+
+.. code-block:: bash
+
+   $ datavzrd publish --repo-name <repo_name> --report-path <report_path> [--org <organization>]
+
+Command Line Arguments for `publish`:
+
+.. list-table:: `publish` Subcommand Arguments
+   :widths: 20 40 10 10 20
+   :header-rows: 1
+
+   * - Name
+     - Description
+     - Type
+     - Required
+     - Default Value
+   * - ``--repo-name``
+     - GitHub repository name to publish to.
+     - Option
+     - Yes
+     - N/A
+   * - ``--report-path``
+     - Path to the report directory.
+     - Option
+     - Yes
+     - N/A
+   * - ``--org``
+     - Optional: Specify the organization for the repository.
+     - Option
+     - No
+     - N/A
+
+Suggest
+-------
+
+The `suggest` subcommand generates a configuration file based on the provided tabular input files. The suggested configuration is written to stdout.
+
+.. code-block:: bash
+
+   $ datavzrd suggest --files <file_paths> --separators <separators> [--name <report_name>]
+
+Command Line Arguments for `suggest`:
+
+.. list-table:: `suggest` Subcommand Arguments
+   :widths: 20 40 10 10 20
+   :header-rows: 1
+
+   * - Name
+     - Description
+     - Type
+     - Required
+     - Default Value
+   * - ``--files``
+     - List of paths to input files.
+     - Option
+     - Yes
+     - N/A
+   * - ``--separators``
+     - Separators for the corresponding input files (e.g., comma for CSV, tab for TSV).
+     - Option
+     - Yes
+     - N/A
+   * - ``--name``
+     - Name of the report.
+     - Option
+     - No
+     - ``Datavzrd Report``
