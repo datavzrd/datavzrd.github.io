@@ -528,7 +528,7 @@ Example:
 plot
 ====
 
-``plot`` allows the rendering of either a `tick-plot <https://vega.github.io/vega-lite/docs/tick.html>`_ for numeric values or a heatmap for nominal values.
+``plot`` allows the rendering of either a `tick-plot <https://vega.github.io/vega-lite/docs/tick.html>`_ or a bar-pplot for numeric values or a heatmap for nominal or numeric values. Multiple values separated by a comma or other separator can be displayed as colored pills.
 
 .. list-table::
    :header-rows: 1
@@ -541,6 +541,8 @@ plot
      - Defines a heatmap for numeric or nominal values
    * - :ref:`bars`
      - Defines a `bar-plot <https://vega.github.io/vega-lite/docs/bar.html>`_ for numeric values
+   * - :ref:`pills`
+     - Defines pills for nominal values separated by a comma or other separator
 
 Example:
 
@@ -626,6 +628,39 @@ Example:
     plot:
         heatmap:
             scale: ordinal
+            color-scheme: category20
+
+pills
+=====
+
+``pills`` defines the attributes of a visualization for multiple values displayed as colored pills.
+
+.. list-table::
+   :header-rows: 1
+
+   * - keyword
+     - explanation
+     - default
+   * - separator
+     - Defines the separator of the values.
+     - ,
+   * - color-scheme
+     - Defines the `color-scheme <https://vega.github.io/vega/docs/schemes/#categorical>`_ of the pills for nominal values
+     - 
+   * - range
+     - Defines the color range of the heatmap as a list
+     - 
+   * - domain
+     - Defines the domain of the heatmap as a list
+     - 
+
+Example:
+
+.. code-block:: yaml
+
+    plot:
+        pills:
+            separator: ";"
             color-scheme: category20
 
 
