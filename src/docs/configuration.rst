@@ -653,6 +653,9 @@ pills
    * - domain
      - Defines the domain of the heatmap as a list
      - 
+   * - ellipsis
+     - Allows to shorten the length of the displayed String in the pills to *n* characters.
+     - 
 
 Example:
 
