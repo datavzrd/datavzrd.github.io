@@ -665,6 +665,7 @@ Example:
         pills:
             separator: ";"
             color-scheme: category20
+            ellipsis: 10
 
 
 bars
