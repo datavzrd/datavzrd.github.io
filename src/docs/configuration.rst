@@ -19,7 +19,7 @@ Example:
 default-view
 ============
 
-``default-view`` allows the user to optionally specify a view for the generated report that will be shown when opening the index file.
+``default-view`` allows the user to optionally specify a view for the generated report that will be shown when opening the index file. If not set Datavzrd will automatically generate a landing page with an overview over all views.
 
 Example:
 
