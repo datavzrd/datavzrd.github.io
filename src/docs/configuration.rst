@@ -311,7 +311,7 @@ Example:
 
     add-columns:
         my-new-column:
-            value: function(value) { return value + 3 }
+            value: function(row) { return row["another column"] + 3 }
 
 headers
 =======
