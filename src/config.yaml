@@ -24,6 +24,8 @@ header:
       url: https://github.com/datavzrd
     - text: Live-Preview
       url: https://datavzrd.github.io/datavzrd/index.html
+    - text: Discipline-agnostic
+      url: https://datavzrd.github.io/docs/examples.html
 
 hero:
   img: 
