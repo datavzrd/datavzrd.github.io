@@ -1,6 +1,6 @@
-***************
-Example Reports
-***************
+********
+Examples
+********
 
 To demonstrate the versatility of Datavzrd across different research fields, we have created four example reports based on papers from various domains. These reports showcase how Datavzrd can be used to create interactive and visual reports from tabular datasets in biology, environmental science, planetary research, and archaeology.
 
