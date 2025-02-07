@@ -15,7 +15,7 @@ Datavzrd aims to create a solution for reporting this data in a sharable format 
 Example Report
 ==============
 
-Explore Datavzrd's capabilities by checking out an `example report online <https://datavzrd.github.io/datavzrd/index.html>`_ along with its corresponding `config file <https://github.com/datavzrd/datavzrd/tree/main/.examples/example-config.yaml>`_.
+Explore Datavzrd's capabilities by checking out an `example report online <https://datavzrd.github.io/datavzrd/index.html>`_ along with its corresponding `config file <https://github.com/datavzrd/datavzrd/tree/main/.examples/example-config.yaml>`_. For more examples check out the example section.
 
 .. toctree::
     installation
