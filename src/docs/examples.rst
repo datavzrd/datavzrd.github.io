@@ -7,9 +7,10 @@ To demonstrate the versatility of Datavzrd across different research fields, we 
 1. **Mapping Cells Through Time and Space with Moscot**  
    Klein, Dominik, et al. "Mapping cells through time and space with moscot." *Nature* (2025): 1-11. `DOI: 10.1038/s41586-024-08453-2 <https://doi.org/10.1038/s41586-024-08453-2>`_  
    - **Access the report**: `https://datavzrd.github.io/example-report-moscot/ <https://datavzrd.github.io/example-report-moscot/>`_
-   .. image:: ../img/moscot.png
-   :alt: Moscot report
-   :width: 500px
+
+      .. image:: ../img/moscot.png
+      :alt: Moscot report
+      :width: 500px
 
 
 2. **Estrategias Silvopastoriles para Mitigar Efectos del Cambio Climático en Sistemas Ganaderos del Sur de México**  
