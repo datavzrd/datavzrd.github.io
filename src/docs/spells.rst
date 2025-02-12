@@ -10,14 +10,15 @@ Below is a list of all the available spells in the `datavzrd-spells repository <
 For adding new spells, please see the instructions in the `datavzrd-spells repository <https://github.com/datavzrd/datavzrd-spells>`__.
 
 
-clin-sig
-========
+p-value
+=======
 
 .. image:: https://img.shields.io/badge/code-github-blue
-  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.2.2/med/clin-sig
+  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.2.2/stats/p-value
 
-This spell visualizes the clinical significance, given in clinvar significance terms (https\://www.ncbi.nlm.nih.gov/clinvar/)
-The values should be given in a column consisting of strings and separated by ','
+This spell generates a heatmap visualization to represent the distribution of p-values or statistical significance in data.
+The heatmap uses a linear color scale to map values to a gradient from green over white to organge.
+The significance\_threshold (e.g., p = 0.05) - a boundary between statistical significance and non-significance - can be adjusted dynamically based on the context or dataset.
 
 
 Example
@@ -28,15 +29,17 @@ Example
 
 
   render-table:
-    columns: 
-      some clinical significance column:
+    columns:
+      some p-value column:
         spell:
-          url: v1.2.2/med/clin-sig
+          url: v1.2.2/stats/p-value
+          with:
+            significance_threshold: 0.05
 
 Authors
 -------
 
-Benjamin Orlik
+Johannes Köster, Felix Wiegand
 
 
 
@@ -75,15 +78,14 @@ Johannes Köster
 
 
 
-p-value
-=======
+clin-sig
+========
 
 .. image:: https://img.shields.io/badge/code-github-blue
-  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.2.2/stats/p-value
+  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.2.2/med/clin-sig
 
-This spell generates a heatmap visualization to represent the distribution of p-values or statistical significance in data.
-The heatmap uses a linear color scale to map values to a gradient from green over white to organge.
-The significance\_threshold (e.g., p = 0.05) - a boundary between statistical significance and non-significance - can be adjusted dynamically based on the context or dataset.
+This spell visualizes the clinical significance, given in clinvar significance terms (https\://www.ncbi.nlm.nih.gov/clinvar/)
+The values should be given in a column consisting of strings and separated by ','
 
 
 Example
@@ -94,16 +96,14 @@ Example
 
 
   render-table:
-    columns:
-      some p-value column:
+    columns: 
+      some clinical significance column:
         spell:
-          url: v1.2.2/stats/p-value
-          with:
-            significance_threshold: 0.05
+          url: v1.2.2/med/clin-sig
 
 Authors
 -------
 
-Johannes Köster, Felix Wiegand
+Benjamin Orlik
 
 
