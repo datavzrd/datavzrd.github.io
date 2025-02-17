@@ -145,3 +145,9 @@ Command Line Arguments for `suggest`:
      - Option
      - No
      - ``Datavzrd Report``
+
+Example:
+
+.. code-block:: bash
+
+    $ datavzrd suggest -f data1.csv -s , -f data2.tsv -s $'\t'
