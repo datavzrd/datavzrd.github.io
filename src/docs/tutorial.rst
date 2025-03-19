@@ -606,7 +606,7 @@ We add a new section ``add-columns`` with the following content to the ``render-
             }
           }
 
-In other words, we add a column named ``birth_season`` that calculates its value via a Javascript_ function that accesses the column ``birht_mo`` from the same row, and returns a season-representing icon (which here are in fact a special unicode/font characters) depending on the month.
+In other words, we add a column named ``birth_season`` that calculates its value via a Javascript_ function that accesses the column ``birth_mo`` from the same row, and returns a season-representing icon (which here are in fact a special unicode/font characters) depending on the month.
 
 Let us assume that only the season is relevant in this context.
 Datavzrd offers the ability to hide irrelevant columns in two ways: not displaying them completely, or displaying them upon request.
