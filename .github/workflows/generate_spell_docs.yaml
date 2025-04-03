@@ -33,12 +33,17 @@ jobs:
       run: |
         python scripts/generate_docs.py
 
-    - name: Check for changes to spells.rst
+    - name: Update datavzrd version
+      run: |
+        python scripts/update_version.py
+
+    - name: Check for changes to spells.rst and version in configuration
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git add src/docs/spells.rst
-        git diff --cached --exit-code || git commit -m "Auto-generate spell documentation"
+        git add src/config.yaml
+        git diff --cached --exit-code || git commit -m "Auto-generate documentation"
 
     - name: Push changes
       run: |
