@@ -13,12 +13,13 @@ def update_version():
     with open(config_path) as f:
         config = yaml.safe_load(f)
     
-    config["version"] = str(tag)
+    config["project"]["version"] = str(tag)
     
     with open(config_path, "w") as f:
-        yaml.dump(config, f, default_flow_style=False)
-    
-    print(f"Updated {config_path} to version {tag}")
+        yaml.dump(config, f, default_flow_style=False, indent=2)
+
+    print(f"Found the following tags: {', '.join([str(tag) for tag in repo.tags])}")
+    print(f"Updated {config_path} to latest tagged version {tag}")
 
 if __name__ == "__main__":
     update_version()
