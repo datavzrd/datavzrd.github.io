@@ -1,114 +1,89 @@
-project:
-  name: Datavzrd
-  version: 2.50.5
-  copyright: 2024, Koesterlab
-  authors: Felix Wiegand, Johannes Koester
-
 color: blue
-logo:
-  dark: datavzrd_logo_white.svg # add a logo
-  light: datavzrd_logo_black.svg # add a logo
-
-repo: 
-  name: datavzrd/datavzrd
-  contributors:
-    skip:
-      - github-actions[bot]
-      - dependabot[bot]
-
-header:
-  logo: datavzrd_white.svg
-  name: Datavzrd
-  links:
-    - text: Github
-      url: https://github.com/datavzrd
-    - text: Live-Preview
-      url: https://datavzrd.github.io/datavzrd/index.html
-
-hero:
-  img: 
-    dark: datavzrd_white.svg
-    light: datavzrd_white.svg
-  statements:
-    - A zero/low-code, interactive, visual, server-free, browser-based reporting tool for tabular datasets
-  links: 
-    - url: https://datavzrd.github.io/datavzrd/oscars/index_1.html
-      text: Check Live Demo
-    - url: https://datavzrd.github.io/docs/tutorial.html
-      text: Tutorial
-    - text: Discipline-agnostic
-      url: https://datavzrd.github.io/docs/examples.html
-
-features:
-  - title: Easily configurable interactive reports
-    desc: |
-      With exponentially growing gathered data per year, its representation becomes more important than ever to make it comprehensible and interpretable for humans.
-      Datavzrd aims to create a solution for reporting tabular data in a sharable format that is highly customizable and easy to use with simple configuration using the yaml syntax.
-    img: preview.png
-    img-width: min(30vw, 550px)
-    url: https://datavzrd.github.io/datavzrd/movies/index_1.html
-
-  - title: Datasets
-    desc: |
-        Organize your datasets in a single place with few lines of code. Use links to connect them and make your reports interactive. 
-    code: |
-      !datasets!:
-        !table-a!:
-          !path!: %table-a.csv%
-          !links!:
-            !gene! !details!:
-              !column!: %gene%
-              !view!: %gene-{value}%
-            !gene! !expression!:
-              !column!: %gene%
-              !table-row!: %table-b/gene%
-
-  - title: Linkouts
-    desc: |
-        Add links to external resources to your reports to provide additional information and context.
-    code: |
-      !Gene!:
-        !link-to-url!:
-          !ncbi!:
-            !url!: %https://www.ncbi.nlm.nih.gov/gene/{gene}%
-            
-  - title: Heatmaps
-    desc: |
-       Datavzrd makes it easy to create heatmaps from tabular data. Heatmaps can be used for numerical or categorical data with predefined color schemes or continuous color scales.
-    code: |
-      !Rated!:
-        !plot!:
-          !heatmap!:
-            !scale!: %ordinal%
-            !color-scheme!: %tableau20%
-            
-  - title: Plots
-    desc: |
-       Use custom vega-lite json specs to create any plot suitable for your needs or rely on Datavzrds easy to configure plot or bar plots.
-    code: |
-      !age!:
-        !plot!:
-          !ticks!:
-            !scale!: %linear%
-            !domain!:
-              - %20%
-              - %100%
-              
-  - title: Spells
-    desc: |
-       Datavzrd offers so called spells to simplify the process of creating reports by allowing users to define common configurations in a modular way. 
-    code: |
-      !render-table!:
-        !columns!:
-          !p-value!:
-            !spell!:
-              !url!: %v1.0.0/stats/p-value%
-              !with!:
-                !significance_threshold!: %0.05%
-
-  
-      
 docs:
-  src: docs
   links:
     Homepage: https://datavzrd.github.io
+  src: docs
+features:
+- desc: 'With exponentially growing gathered data per year, its representation becomes
+    more important than ever to make it comprehensible and interpretable for humans.
+
+    Datavzrd aims to create a solution for reporting tabular data in a sharable format
+    that is highly customizable and easy to use with simple configuration using the
+    yaml syntax.
+
+    '
+  img: preview.png
+  img-width: min(30vw, 550px)
+  title: Easily configurable interactive reports
+  url: https://datavzrd.github.io/datavzrd/movies/index_1.html
+- code: "!datasets!:\n  !table-a!:\n    !path!: %table-a.csv%\n    !links!:\n    \
+    \  !gene! !details!:\n        !column!: %gene%\n        !view!: %gene-{value}%\n\
+    \      !gene! !expression!:\n        !column!: %gene%\n        !table-row!: %table-b/gene%\n"
+  desc: "Organize your datasets in a single place with few lines of code. Use links\
+    \ to connect them and make your reports interactive. \n"
+  title: Datasets
+- code: "!Gene!:\n  !link-to-url!:\n    !ncbi!:\n      !url!: %https://www.ncbi.nlm.nih.gov/gene/{gene}%\n\
+    \      \n"
+  desc: 'Add links to external resources to your reports to provide additional information
+    and context.
+
+    '
+  title: Linkouts
+- code: "!Rated!:\n  !plot!:\n    !heatmap!:\n      !scale!: %ordinal%\n      !color-scheme!:\
+    \ %tableau20%\n      \n"
+  desc: 'Datavzrd makes it easy to create heatmaps from tabular data. Heatmaps can
+    be used for numerical or categorical data with predefined color schemes or continuous
+    color scales.
+
+    '
+  title: Heatmaps
+- code: "!age!:\n  !plot!:\n    !ticks!:\n      !scale!: %linear%\n      !domain!:\n\
+    \        - %20%\n        - %100%\n        \n"
+  desc: 'Use custom vega-lite json specs to create any plot suitable for your needs
+    or rely on Datavzrds easy to configure plot or bar plots.
+
+    '
+  title: Plots
+- code: "!render-table!:\n  !columns!:\n    !p-value!:\n      !spell!:\n        !url!:\
+    \ %v1.0.0/stats/p-value%\n        !with!:\n          !significance_threshold!:\
+    \ %0.05%\n"
+  desc: "Datavzrd offers so called spells to simplify the process of creating reports\
+    \ by allowing users to define common configurations in a modular way. \n"
+  title: Spells
+header:
+  links:
+  - text: Github
+    url: https://github.com/datavzrd
+  - text: Live-Preview
+    url: https://datavzrd.github.io/datavzrd/index.html
+  logo: datavzrd_white.svg
+  name: Datavzrd
+hero:
+  img:
+    dark: datavzrd_white.svg
+    light: datavzrd_white.svg
+  links:
+  - text: Check Live Demo
+    url: https://datavzrd.github.io/datavzrd/oscars/index_1.html
+  - text: Tutorial
+    url: https://datavzrd.github.io/docs/tutorial.html
+  - text: Discipline-agnostic
+    url: https://datavzrd.github.io/docs/examples.html
+  statements:
+  - A zero/low-code, interactive, visual, server-free, browser-based reporting tool
+    for tabular datasets
+logo:
+  dark: datavzrd_logo_white.svg
+  light: datavzrd_logo_black.svg
+project:
+  authors: Felix Wiegand, Johannes Koester
+  copyright: 2024, Koesterlab
+  name: Datavzrd
+  version: 2.50.5
+repo:
+  contributors:
+    skip:
+    - github-actions[bot]
+    - dependabot[bot]
+  name: datavzrd/datavzrd
+version: v2.9.0
