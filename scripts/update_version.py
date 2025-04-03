@@ -6,7 +6,8 @@ def update_version():
     repo_url = "https://github.com/datavzrd/datavzrd.git"
     
     repo = git.Repo.clone_from(repo_url, "datavzrd")
-    tag = repo.tags[-1]
+    tags = sorted(repo.tags, key=lambda t: [int(i) for i in t.name.lstrip('v').split('.')], reverse=True)
+    tag = tags[0] if tags else None
     
     config_path = "src/config.yaml"
     
