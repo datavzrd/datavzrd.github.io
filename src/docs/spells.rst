@@ -14,7 +14,7 @@ clin-sig
 ========
 
 .. image:: https://img.shields.io/badge/code-github-blue
-  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.2.2/med/clin-sig
+  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.3.0/med/clin-sig
 
 This spell visualizes the clinical significance, given in clinvar significance terms (https\://www.ncbi.nlm.nih.gov/clinvar/)
 The values should be given in a column consisting of strings and separated by ','
@@ -31,7 +31,7 @@ Example
     columns: 
       some clinical significance column:
         spell:
-          url: v1.2.2/med/clin-sig
+          url: v1.3.0/med/clin-sig
 
 Authors
 -------
@@ -41,11 +41,43 @@ Benjamin Orlik
 
 
 
+genomic-coordinates
+===================
+
+.. image:: https://img.shields.io/badge/code-github-blue
+  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.3.0/med/genomic-coordinates
+
+This spell visualizes genomic coordinates in a structured and visually enhanced way.
+It formats the coordinates with color-coded pills for reference and alternate bases, making it easy to read and interpret genomic variant data.
+The values should be given in a column with the format "<chromosome>\:<reference><coordinates><alternate>" (e.g., "6\:G29942560A").
+
+
+Example
+-------
+
+.. code-block:: yaml
+
+
+
+  render-table:
+    columns: 
+      some clinical column containing genomic coordinates:
+        spell:
+          url: v1.3.0/med/genomic-coordinates
+
+Authors
+-------
+
+Felix Wiegand
+
+
+
+
 boolean
 =======
 
 .. image:: https://img.shields.io/badge/code-github-blue
-  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.2.2/logic/boolean
+  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.3.0/logic/boolean
 
 This spell visualizes boolean values via colored +/- symbols.
 
@@ -61,7 +93,7 @@ Example
     columns:
       some boolean column:
         spell:
-          url: v1.2.2/logic/boolean
+          url: v1.3.0/logic/boolean
           with:
             # specify which values should be interpreted as true or false
             true_value: "true"
@@ -79,7 +111,7 @@ p-value
 =======
 
 .. image:: https://img.shields.io/badge/code-github-blue
-  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.2.2/stats/p-value
+  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.3.0/stats/p-value
 
 This spell generates a heatmap visualization to represent the distribution of p-values or statistical significance in data.
 The heatmap uses a linear color scale to map values to a gradient from green over white to organge.
@@ -97,7 +129,7 @@ Example
     columns:
       some p-value column:
         spell:
-          url: v1.2.2/stats/p-value
+          url: v1.3.0/stats/p-value
           with:
             significance_threshold: 0.05
 
