@@ -63,7 +63,7 @@ hero:
     dark: datavzrd_white.svg
     light: datavzrd_white.svg
   links:
-  - text: Check Live Demo
+  - text: Live Demo
     url: https://datavzrd.github.io/datavzrd/oscars/index_1.html
   - text: Tutorial
     url: https://datavzrd.github.io/docs/tutorial.html
