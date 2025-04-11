@@ -21,6 +21,7 @@ Explore Datavzrd's capabilities by checking out an `example report online <https
     installation
     usage
     examples
+    publications
     interaction
     tutorial
     configuration
