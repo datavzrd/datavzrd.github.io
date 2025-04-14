@@ -247,9 +247,9 @@ columns
      - false
      - true, false
    * - display-mode
-     - Allows to hide columns from views by setting this to ``hidden`` or have a column only in `detail view <https://examples.bootstrap-table.com/#options/detail-view.html#view-source>`_ by setting this to ``detail``.
+     - Allows to hide columns permanently from views by setting this to ``hidden``. Setting this to ``available`` hides the column but allows users to unhide it via the report controls. It is also possible to move a column into the `detail view <https://examples.bootstrap-table.com/#options/detail-view.html#view-source>`_ by setting this to ``detail``.
      - normal
-     - detail, normal, hidden
+     - normal, detail, available, hidden
    * - precision
      - Allows to specify the precision of floats. It expects an integer specifying the decimal places that will be shown. Values smaller than $1 / (10^{precision})$ will be displayed in scientific notation with the same number of decimal places.
      - 2
