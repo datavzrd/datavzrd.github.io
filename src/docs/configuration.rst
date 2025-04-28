@@ -656,6 +656,9 @@ pills
    * - ellipsis
      - Allows to shorten the length of the displayed String in the pills to *n* characters.
      - 
+   * - merge
+     - Allows to eliminate the whitespace between individual pills and merging them into one multi-colored pill.
+     - false
 
 Example:
 
@@ -666,6 +669,7 @@ Example:
             separator: ";"
             color-scheme: category20
             ellipsis: 10
+            merge: true
 
 
 bars
