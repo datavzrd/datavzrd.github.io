@@ -620,6 +620,10 @@ heatmap
    * - custom-content
      - Allows to render custom content into any heatmap cell (while using the actual cell content for the heatmap color). Requires a ``function(value, row)`` that returns the text value that will be displayed in the cell.
      -
+   * - :ref:`legend`
+     - Allows to define a :ref:`legend` that will be rendered into the description above the table with a custom title. Cobine this with ``ellipsis: 0`` in the same column definition in order to minimize the width of the column.
+     -
+
 
 Example:
 
@@ -629,6 +633,8 @@ Example:
         heatmap:
             scale: ordinal
             color-scheme: category20
+            legend:
+                title: foo
 
 pills
 =====
@@ -763,3 +769,23 @@ Example:
             url: "v1.0.0/stats/p-value"
             with:
               significance_threshold: 0.05
+
+legend
+====
+
+``legend`` defines the attributes of a heatmap legend.
+
+.. list-table::
+   :header-rows: 1
+
+   * - keyword
+     - explanation
+   * - title
+     - Defines the title of the legend. If different legends share the same title they will only be rendered once to the description.
+
+Example:
+
+.. code-block:: yaml
+
+    legend:
+      title: foo
