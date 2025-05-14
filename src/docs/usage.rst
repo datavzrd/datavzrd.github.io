@@ -110,6 +110,14 @@ Command Line Arguments for `publish`:
      - No
      - N/A
 
+Example:
+
+.. code-block:: bash
+
+    $ datavzrd publish --repo-name my-awesome-report --report-path ./output --org my-awesome-org --entry index.html
+
+This command publishes the report located in ./output to the my-awesome-report repository of the organisation my-awesome-org on GitHub Pages, with index.html as the entry point. The repository will be created under https://my-awesome-org.github.io/my-awesome-report/ and can be accessed after GitHub pages is activated by the user. After successful publishing the user is provided with simple instructions on how to activate GitHub pages.
+
 Suggest
 -------
 
