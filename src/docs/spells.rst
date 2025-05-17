@@ -10,6 +10,69 @@ Below is a list of all the available spells in the `datavzrd-spells repository <
 For adding new spells, please see the instructions in the `datavzrd-spells repository <https://github.com/datavzrd/datavzrd-spells>`__.
 
 
+genomic-coordinates
+===================
+
+.. image:: https://img.shields.io/badge/code-github-blue
+  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.3.0/med/genomic-coordinates
+
+This spell visualizes genomic coordinates in a structured and visually enhanced way.
+It formats the coordinates with color-coded pills for reference and alternate bases, making it easy to read and interpret genomic variant data.
+The values should be given in a column with the format "<chromosome>\:<reference><coordinates><alternate>" (e.g., "6\:G29942560A").
+
+
+Example
+-------
+
+.. code-block:: yaml
+
+
+
+  render-table:
+    columns: 
+      some clinical column containing genomic coordinates:
+        spell:
+          url: v1.3.0/med/genomic-coordinates
+
+Authors
+-------
+
+Felix Wiegand
+
+
+
+
+clin-sig
+========
+
+.. image:: https://img.shields.io/badge/code-github-blue
+  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.3.0/med/clin-sig
+
+This spell visualizes the clinical significance, given in clinvar significance terms (https\://www.ncbi.nlm.nih.gov/clinvar/)
+The values should be given in a column consisting of strings and separated by ','
+
+
+Example
+-------
+
+.. code-block:: yaml
+
+
+
+  render-table:
+    columns: 
+      some clinical significance column:
+        spell:
+          url: v1.3.0/med/clin-sig
+
+Authors
+-------
+
+Benjamin Orlik
+
+
+
+
 boolean
 =======
 
@@ -74,68 +137,5 @@ Authors
 -------
 
 Johannes Köster, Felix Wiegand
-
-
-
-
-clin-sig
-========
-
-.. image:: https://img.shields.io/badge/code-github-blue
-  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.3.0/med/clin-sig
-
-This spell visualizes the clinical significance, given in clinvar significance terms (https\://www.ncbi.nlm.nih.gov/clinvar/)
-The values should be given in a column consisting of strings and separated by ','
-
-
-Example
--------
-
-.. code-block:: yaml
-
-
-
-  render-table:
-    columns: 
-      some clinical significance column:
-        spell:
-          url: v1.3.0/med/clin-sig
-
-Authors
--------
-
-Benjamin Orlik
-
-
-
-
-genomic-coordinates
-===================
-
-.. image:: https://img.shields.io/badge/code-github-blue
-  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.3.0/med/genomic-coordinates
-
-This spell visualizes genomic coordinates in a structured and visually enhanced way.
-It formats the coordinates with color-coded pills for reference and alternate bases, making it easy to read and interpret genomic variant data.
-The values should be given in a column with the format "<chromosome>\:<reference><coordinates><alternate>" (e.g., "6\:G29942560A").
-
-
-Example
--------
-
-.. code-block:: yaml
-
-
-
-  render-table:
-    columns: 
-      some clinical column containing genomic coordinates:
-        spell:
-          url: v1.3.0/med/genomic-coordinates
-
-Authors
--------
-
-Felix Wiegand
 
 
