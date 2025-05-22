@@ -621,7 +621,7 @@ heatmap
      - Allows to render custom content into any heatmap cell (while using the actual cell content for the heatmap color). Requires a ``function(value, row)`` that returns the text value that will be displayed in the cell.
      -
    * - :ref:`legend`
-     - Allows to define a :ref:`legend` that will be rendered into the description above the table with a custom title. Cobine this with ``ellipsis: 0`` in the same column definition in order to minimize the width of the column.
+     - Allows to define a :ref:`legend` that will be rendered into the description above the table with a custom title. Combine this with ``ellipsis: 0`` in the same column definition in order to minimize the width of the column.
      -
 
 
