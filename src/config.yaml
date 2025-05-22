@@ -81,7 +81,7 @@ project:
   authors: Felix Wiegand, Johannes Koester
   copyright: 2024, Koesterlab
   name: Datavzrd
-  version: v2.57.0
+  version: v2.57.1
 repo:
   contributors:
     skip:
