@@ -19,8 +19,7 @@ features:
 - code: "!datasets!:\n  !table-a!:\n    !path!: %table-a.csv%\n    !links!:\n    \
     \  !gene! !details!:\n        !column!: %gene%\n        !view!: %gene-{value}%\n\
     \      !gene! !expression!:\n        !column!: %gene%\n        !table-row!: %table-b/gene%\n"
-  desc: "Organize your datasets in a single place with few lines of code. Use links\
-    \ to connect them and make your reports interactive. \n"
+  desc: "Organize your datasets in a single place with few lines of code. Use links to connect them and make your reports interactive. Datavzrd supports CSV, TSV, JSON and parquet input files."
   title: Datasets
 - code: "!Gene!:\n  !link-to-url!:\n    !ncbi!:\n      !url!: %https://www.ncbi.nlm.nih.gov/gene/{gene}%\n\
     \      \n"
