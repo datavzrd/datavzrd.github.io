@@ -68,6 +68,10 @@ datasets
 
 ``datasets`` defines the different datasets of the report. This is also the place to define links between your individual datasets.
 
+.. note::
+
+    Nested JSON objects are automatically **flattened** using dot notation. This means that keys from nested structures are combined into a single, dot-separated path. For example, in ``{'person': {'name': 'Smith', 'surname': 'Alice'}, 'age': 27 }`` nested fields can be accessed via ``person.name`` and ``person.surname``. 
+
 .. list-table::
    :header-rows: 1
 
@@ -75,7 +79,7 @@ datasets
      - explanation
      - default
    * - path
-     - The path of the CSV/TSV file
+     - The path of the CSV/TSV, JSON or Parquet file
      - 
    * - separator
      - The delimiter of the file
@@ -96,7 +100,7 @@ Example:
 
     datasets:
         table-a:
-            path: "table-a.csv"
+            path: "table-a.parquet"
             links:
                 gene details:
                     column: gene
