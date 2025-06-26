@@ -10,40 +10,6 @@ Below is a list of all the available spells in the `datavzrd-spells repository <
 For adding new spells, please see the instructions in the `datavzrd-spells repository <https://github.com/datavzrd/datavzrd-spells>`__.
 
 
-boolean
-=======
-
-.. image:: https://img.shields.io/badge/code-github-blue
-  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.3.0/logic/boolean
-
-This spell visualizes boolean values via colored +/- symbols.
-
-
-Example
--------
-
-.. code-block:: yaml
-
-
-
-  render-table:
-    columns:
-      some boolean column:
-        spell:
-          url: v1.3.0/logic/boolean
-          with:
-            # specify which values should be interpreted as true or false
-            true_value: "true"
-            false_value: "false"
-
-Authors
--------
-
-Johannes Köster
-
-
-
-
 p-value
 =======
 
@@ -74,6 +40,38 @@ Authors
 -------
 
 Johannes Köster, Felix Wiegand
+
+
+
+
+genomic-coordinates
+===================
+
+.. image:: https://img.shields.io/badge/code-github-blue
+  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.3.0/med/genomic-coordinates
+
+This spell visualizes genomic coordinates in a structured and visually enhanced way.
+It formats the coordinates with color-coded pills for reference and alternate bases, making it easy to read and interpret genomic variant data.
+The values should be given in a column with the format "<chromosome>\:<reference><coordinates><alternate>" (e.g., "6\:G29942560A").
+
+
+Example
+-------
+
+.. code-block:: yaml
+
+
+
+  render-table:
+    columns: 
+      some clinical column containing genomic coordinates:
+        spell:
+          url: v1.3.0/med/genomic-coordinates
+
+Authors
+-------
+
+Felix Wiegand
 
 
 
@@ -109,15 +107,13 @@ Benjamin Orlik
 
 
 
-genomic-coordinates
-===================
+boolean
+=======
 
 .. image:: https://img.shields.io/badge/code-github-blue
-  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.3.0/med/genomic-coordinates
+  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.3.0/logic/boolean
 
-This spell visualizes genomic coordinates in a structured and visually enhanced way.
-It formats the coordinates with color-coded pills for reference and alternate bases, making it easy to read and interpret genomic variant data.
-The values should be given in a column with the format "<chromosome>\:<reference><coordinates><alternate>" (e.g., "6\:G29942560A").
+This spell visualizes boolean values via colored +/- symbols.
 
 
 Example
@@ -128,14 +124,18 @@ Example
 
 
   render-table:
-    columns: 
-      some clinical column containing genomic coordinates:
+    columns:
+      some boolean column:
         spell:
-          url: v1.3.0/med/genomic-coordinates
+          url: v1.3.0/logic/boolean
+          with:
+            # specify which values should be interpreted as true or false
+            true_value: "true"
+            false_value: "false"
 
 Authors
 -------
 
-Felix Wiegand
+Johannes Köster
 
 
