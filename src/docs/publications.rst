@@ -1,7 +1,7 @@
 Publications Using Datavzrd
 ===========================
 
-The table below lists publications using Datavzrd for communicating their research results. These examples demonstrate the practical applications of the tool. We strongly encourage users to look into the various Datavzrd reports created for the publications as inspiration.
+The table below lists publications and workflows using Datavzrd for communicating their research results. These examples demonstrate the practical applications of the tool. We strongly encourage users to look into the various Datavzrd reports created for the publications as inspiration.
 
 +------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | **Journal**            | **Link**                                                                                                                                                                                         |
@@ -13,4 +13,6 @@ The table below lists publications using Datavzrd for communicating their resear
 | BMC Bioinformatics     | `Orthanq: transparent and uncertainty-aware haplotype quantification with application in HLA-typing <https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-024-05832-4>`__         |
 +------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | bioRxiv Preprint       | `srahunter: a user-friendly tool to speed up and simplify data downloading from NCBI SRA <https://www.biorxiv.org/content/10.1101/2024.03.19.585745v2>`__                                        |
++------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                        | `variantinterpretation: nf-core pipeline for adding biological and clinical knowledge to genomic variants <https://github.com/cio-abcd/variantinterpretation>`__                                 |
 +------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
