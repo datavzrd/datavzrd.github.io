@@ -12,7 +12,9 @@ curl -L https://raw.githubusercontent.com/datavzrd/datavzrd/main/.examples/data/
 curl -L https://raw.githubusercontent.com/datavzrd/datavzrd/main/.examples/data/oscars.csv -o data/oscars.csv
 
 # Install micromamba
-bash <(curl -L micro.mamba.pm/install.sh)
+export MAMBA_ROOT_PREFIX="$HOME/micromamba"
+curl -L micro.mamba.pm/install.sh | bash -s -- -b -p $MAMBA_ROOT_PREFIX
+export PATH="$MAMBA_ROOT_PREFIX/bin:$PATH"
 
 # Activate micromamba and install datavzrd
 source ~/.bashrc
