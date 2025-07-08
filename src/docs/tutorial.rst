@@ -29,6 +29,14 @@ There are two options for conducting this tutorial:
 
 1. Install datavzrd on your own machine and conduct all steps there.
 2. Use a Gitpod based environment, which allows you to conduct all exercises from within your web browser.
+3. Use a GitHub Codespace environment, which allows you to conduct all exercises from within your web browser, similar to GitPod.
+
+Run the tutorial via GitHub Codespaces
+--------------------------------------
+
+GitHub Codespaces enable performing the exercises via your browser—including all required software, for free and in the cloud.
+In order to do this, simply open the `predefined datavzrd-tutorial GitHub Codespace <https://codespaces.new/datavzrd/datavzrd.github.io>`_ in your browser.
+The Codespace provides you with a `Visual Studio Code <https://code.visualstudio.com>`_ development environment, which you can learn about in the linked documentation.
 
 Run the tutorial via Gitpod
 ---------------------------
@@ -140,14 +148,14 @@ Open the main file, called ``index.html``, in your browser.
 
 .. note::
 
-  On Gitpod, you can open the file by executing the command
+  On Gitpod and within the GitHub Workspace, you can open the file by executing the command
 
   .. code-block:: bash
 
       show-report-url
   
   and clicking the link that is printed to the terminal.
-  Gitpod might ask you for confirmation to open the link.
+  Gitpod or GitHub Codespaces might ask you for confirmation to open the link.
   It is safe to do so.
 
 The report contains a rendered version of the ``data/movies.csv`` table.
