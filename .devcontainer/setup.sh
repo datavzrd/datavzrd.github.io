@@ -15,9 +15,9 @@ curl -L https://raw.githubusercontent.com/datavzrd/datavzrd/main/.examples/data/
 export MAMBA_ROOT_PREFIX="$HOME/micromamba"
 curl -L micro.mamba.pm/install.sh | bash -s -- -b -p $MAMBA_ROOT_PREFIX
 export PATH="$MAMBA_ROOT_PREFIX/bin:$PATH"
+eval "$(micromamba shell hook --shell bash)"
 
 # Activate micromamba and install datavzrd
-source ~/.bashrc
 micromamba create -n datavzrd -c conda-forge datavzrd --yes
 echo "micromamba activate datavzrd" >> ~/.bashrc
 
