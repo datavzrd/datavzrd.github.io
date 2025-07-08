@@ -2,6 +2,7 @@
   "name": "Datavzrd Tutorial",
   "image": "mcr.microsoft.com/devcontainers/python:3.11",  // Based on Ubuntu + Python
   "postCreateCommand": "bash .devcontainer/setup.sh",
+  "postStartCommand": "python -m http.server 8000",
   "customizations": {
     "vscode": {
       "extensions": [
