@@ -10,40 +10,6 @@ Below is a list of all the available spells in the `datavzrd-spells repository <
 For adding new spells, please see the instructions in the `datavzrd-spells repository <https://github.com/datavzrd/datavzrd-spells>`__.
 
 
-boolean
-=======
-
-.. image:: https://img.shields.io/badge/code-github-blue
-  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.3.0/logic/boolean
-
-This spell visualizes boolean values via colored +/- symbols.
-
-
-Example
--------
-
-.. code-block:: yaml
-
-
-
-  render-table:
-    columns:
-      some boolean column:
-        spell:
-          url: v1.3.0/logic/boolean
-          with:
-            # specify which values should be interpreted as true or false
-            true_value: "true"
-            false_value: "false"
-
-Authors
--------
-
-Johannes Köster
-
-
-
-
 p-value
 =======
 
@@ -78,14 +44,13 @@ Johannes Köster, Felix Wiegand
 
 
 
-clin-sig
-========
+boolean
+=======
 
 .. image:: https://img.shields.io/badge/code-github-blue
-  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.3.0/med/clin-sig
+  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.3.0/logic/boolean
 
-This spell visualizes the clinical significance, given in clinvar significance terms (https\://www.ncbi.nlm.nih.gov/clinvar/)
-The values should be given in a column consisting of strings and separated by ','
+This spell visualizes boolean values via colored +/- symbols.
 
 
 Example
@@ -96,15 +61,19 @@ Example
 
 
   render-table:
-    columns: 
-      some clinical significance column:
+    columns:
+      some boolean column:
         spell:
-          url: v1.3.0/med/clin-sig
+          url: v1.3.0/logic/boolean
+          with:
+            # specify which values should be interpreted as true or false
+            true_value: "true"
+            false_value: "false"
 
 Authors
 -------
 
-Benjamin Orlik
+Johannes Köster
 
 
 
@@ -137,5 +106,36 @@ Authors
 -------
 
 Felix Wiegand
+
+
+
+
+clin-sig
+========
+
+.. image:: https://img.shields.io/badge/code-github-blue
+  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.3.0/med/clin-sig
+
+This spell visualizes the clinical significance, given in clinvar significance terms (https\://www.ncbi.nlm.nih.gov/clinvar/)
+The values should be given in a column consisting of strings and separated by ','
+
+
+Example
+-------
+
+.. code-block:: yaml
+
+
+
+  render-table:
+    columns: 
+      some clinical significance column:
+        spell:
+          url: v1.3.0/med/clin-sig
+
+Authors
+-------
+
+Benjamin Orlik
 
 
