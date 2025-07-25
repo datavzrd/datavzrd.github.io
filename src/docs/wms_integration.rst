@@ -41,7 +41,7 @@ This way, Datavzrd's interative exploration capabilities are further enriched by
 Nextflow
 ********
 
-Datavzrd is available as an `nf‑core` module for inclusion in Nextflow pipelines. It can be installed via:
+Datavzrd is available as an `nf‑core module <https://nf-co.re/modules/datavzrd/>`__ for inclusion in Nextflow pipelines. It can be installed via:
 
 .. code-block:: bash
 
