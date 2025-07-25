@@ -70,8 +70,8 @@ hero:
     url: https://datavzrd.github.io/docs/tutorial.html
   - text: Discipline-agnostic
     url: https://datavzrd.github.io/docs/examples.html
-  - text: Read the preprint
-    url: https://www.biorxiv.org/content/10.1101/2025.04.03.647146v1
+  - text: Read the paper
+    url: https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0323079
   statements:
   - A zero/low-code, interactive, visual, server-free, browser-based reporting tool
     for tabular datasets
