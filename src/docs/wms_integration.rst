@@ -34,3 +34,6 @@ Snakemake's `datavzrd wrapper <https://snakemake-wrappers.readthedocs.io/en/late
       wrapper:
           "v3.13.4/utils/datavzrd"
 
+
+Importantly, the ``report()`` marker instructs Snakemake to embed the Datavzrd report into the Snakemake report.
+This way, Datavzrd's interative exploration capabilities are further enriched by the data provenance and reproducibility information as well as the result navigation features available in `Snakemake reports <https://snakemake.readthedocs.io/en/stable/snakefiles/reporting.html>`__.
