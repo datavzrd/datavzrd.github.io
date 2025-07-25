@@ -25,6 +25,6 @@ Explore Datavzrd's capabilities by checking out an `example report online <https
     interaction
     tutorial
     configuration
-    wrapper
+    wms_integration
     spells
     contributing

@@ -1,10 +1,13 @@
-******************
-Wrapper
-******************
+********************************************
+Integration with workflow management systems
+********************************************
 
-Datavzrd integrates easily into any `snakemake <https://snakemake.readthedocs.io/en/stable/>`_ workflow by using its own wrapper.
+Snakemake
+*********
 
-The `datavzrd wrapper <https://snakemake-wrappers.readthedocs.io/en/latest/wrappers/datavzrd.html>`_ can be used in the following way:
+Datavzrd integrates easily into any `Snakemake <https://snakemake.github.io>`__ workflow by using its own wrapper.
+
+Snakemake's `datavzrd wrapper <https://snakemake-wrappers.readthedocs.io/en/latest/wrappers/datavzrd.html>`__ can be used in the following way:
 
 .. code-block:: python
 
