@@ -29,9 +29,9 @@ or
 
 This installs Datavzrd along with all its dependencies.
 
-.. note::
+.. tip::
 
-  **Tip:** To isolate Datavzrd in its own environment, you can create and activate a dedicated Conda environment:
+  To isolate Datavzrd in its own environment, you can create and activate a dedicated Conda environment:
 
   .. code-block:: bash
   
