@@ -42,7 +42,7 @@ This installs Datavzrd along with all its dependencies.
 Cargo
 =====
 
-If you prefer using Rust's native package manager, you can install Datavzrd using Cargo. Please note that Datavzrd depends on Python packages via `pyo3` and `yte <https://github.com/yte-template-engine/yte>`__ and also various JavaScript libraries via `pnpm <https://pnpm.io>`__. Therefore you must have the following installed beforehand:
+If you prefer using Rust's native package manager, you can install Datavzrd using Cargo. Please note that Datavzrd depends on Python packages via `pyo3 <https://pyo3.rs/>`__ and `yte <https://github.com/yte-template-engine/yte>`__ and also various JavaScript libraries via `pnpm <https://pnpm.io>`__. Therefore you must have the following installed beforehand:
 
 - `Rust <https://rustup.rs>`__
 - `Python <https://www.python.org>`__
