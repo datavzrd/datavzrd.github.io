@@ -4,7 +4,7 @@
 Installation Guide
 ******************
 
-Datavzrd can be installed in several ways. We recommend **Conda** as the preferred method due to ease of setup and integration of dependencies. To install **Conda** check their `installation guide <https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html>__`.
+Datavzrd can be installed in several ways. We recommend **Conda** as the preferred method due to ease of setup and integration of dependencies. To install **Conda** check their `installation guide <https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html>`__.
 
 Conda
 =====
