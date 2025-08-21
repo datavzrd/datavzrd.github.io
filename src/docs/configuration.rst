@@ -604,7 +604,10 @@ heatmap
      - Defines the `scale <https://vega.github.io/vega-lite/docs/scale.html>`_ of the heatmap
      - 
    * - color-scheme
-     - Defines the `color-scheme <https://vega.github.io/vega/docs/schemes/#categorical>`_ of the heatmap for nominal values
+     - Defines the `color-scheme <https://vega.github.io/vega/docs/schemes/#categorical>`_ of the heatmap for nominal values.
+       For sequential (numeric) values, the following schemes are supported:
+
+       ``blues``\ , ``greens``\ , ``greys``\ , ``oranges``\ , ``purples``\ , ``reds``\ , ``viridis``\ , ``inferno``\ , ``magma``\ , ``plasma``\ , ``cividis``
      - 
    * - range
      - Defines the color range of the heatmap as a list
