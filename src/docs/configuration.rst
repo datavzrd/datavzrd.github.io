@@ -545,6 +545,8 @@ plot
      - Defines a heatmap for numeric or nominal values
    * - :ref:`bars`
      - Defines a `bar-plot <https://vega.github.io/vega-lite/docs/bar.html>`_ for numeric values
+   * - :ref:`bubbles`
+     - Defines a bubble-plot using the vega-lite `circle mark <https://vega.github.io/vega-lite/docs/circle.html>`_ to display a numeric values via the size of a bubble.
    * - :ref:`pills`
      - Defines pills for nominal values separated by a comma or other separator
 
@@ -719,6 +721,42 @@ Example:
                 range:
                     - red
                     - green
+
+
+bubbles
+=======
+
+``bubbles`` defines the attributes of a bubble-plot which uses the vega-lite `circle mark <https://vega.github.io/vega-lite/docs/circle.html>`_ to display a numeric values via the size of a bubble.
+
+.. list-table::
+   :header-rows: 1
+
+   * - keyword
+     - explanation
+   * - scale
+     - Defines the `scale <https://vega.github.io/vega-lite/docs/scale.html>`_ of the bubble size.
+   * - domain
+     - Defines the domain of the bubble plot. If not present datavzrd will automatically use the minimum and maximum values for the domain
+   * - aux-domain-columns
+     - Allows to specify a list of other columns that will be additionally used to determine the domain of the bubble plot. Regular expression (e.g. ``"regex('prob:.+')"`` for matching all columns starting with ``prob:``\ ) are also supported.
+   * - :ref:`color`
+     - Defines the color of the bubble plot
+
+Example:
+
+.. code-block:: yaml
+
+    plot:
+        bubbles:
+            scale: linear
+            domain:
+                - 1
+                - 100
+            color:
+                scale: linear
+                range:
+                    - blue
+                    - orange
 
 
 color
