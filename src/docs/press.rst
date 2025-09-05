@@ -8,14 +8,19 @@ In addition, Datavzrd has been mentioned in various other media:
 +--------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------+
 | **Source**                                 | **Link**                                                                                                                                       |
 +============================================+================================================================================================================================================+
-| Universität Duisburg-Essen                 | `Datavzrd makes complex data understandable <https://www.bigdata-insider.de/datavzrd-wandelt-tabellen-in-html-berichte-a-d18fefe76ea5d1e89faef75e3261dc35>`_                                                                                        |
+| Universität Duisburg-Essen                 | `Datavzrd makes complex data understandable <uni_due>`_                                                                                        |
 +--------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------+
-| Science News Today                         | `This simple tool transforms raw data into living science <https://www.sciencenewstoday.org/this-simple-tool-transforms-raw-data-into-living-science>`_                                                               |
+| Science News Today                         | `This simple tool transforms raw data into living science <science_news_today>`_                                                               |
 +--------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------+
-| BigData Insider                            | `Datavzrd wandelt Tabellen in HTML-Berichte <https://www.uni-due.de/2025-07-23-datavzrd-makes-complex-data-understandable>`_                                                                                |
+| BigData Insider                            | `Datavzrd wandelt Tabellen in HTML-Berichte <bigdata_insider>`_                                                                                |
 +--------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------+
-| BioSpektrum                                | `Komplexe Tabellen verständlich machen <https://link.springer.com/article/10.1007/s12268-025-2553-2>`_                                                                                         |
+| BioSpektrum                                | `Komplexe Tabellen verständlich machen <biospektrum>`_                                                                                         |
 +--------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 We welcome further mentions! If you have written about Datavzrd or seen it featured somewhere, feel free to let us know `here <https://github.com/datavzrd/datavzrd.github.io/edit/main/src/docs/press.rst>`__.
+
+.. _bigdata_insider: https://www.bigdata-insider.de/datavzrd-wandelt-tabellen-in-html-berichte-a-d18fefe76ea5d1e89faef75e3261dc35
+.. _science_news_today: https://www.sciencenewstoday.org/this-simple-tool-transforms-raw-data-into-living-science
+.. _uni_due: https://www.uni-due.de/2025-07-23-datavzrd-makes-complex-data-understandable
+.. _biospektrum: https://link.springer.com/article/10.1007/s12268-025-2553-2
