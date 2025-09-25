@@ -22,7 +22,7 @@ To fetch all these we will run the following curl command that downloads and ext
 
     curl -L https://raw.githubusercontent.com/datavzrd/datavzrd.github.io/main/resources/companies.zip | unzip -d data -
 
-Our data directory should now include a directory named `companies` with one csv file per movie named based on its imdbID.
+Our data directory should now include a directory named ``companies`` with one csv file per movie named based on its imdbID.
 
 Step 1: Adding the tables to the report
 =======================================
@@ -67,8 +67,8 @@ Next up we can add the new tables to the report. We will do that by adding the f
           desc: ?f"All companies involved in the making of {movie}"
 
 
-To break these changes down let us start with `__definitions__:`. This special YTE_ keyword allows us to define variables that can be used within the template. In this case we are importing the `re` and `pathlib` modules and defining a list of movie IDs we parse from the file names located in the `data/companies` directory.
-Within our `datasets` definition we can now use the `tt_numbers` variable to generate the table names and paths dynamically for each movie.
+To break these changes down let us start with ``__definitions__:``. This special YTE_ keyword allows us to define variables that can be used within the template. In this case we are importing the ``re`` and ``pathlib`` modules and defining a list of movie IDs we parse from the file names located in the `data/companies` directory.
+Within our ``datasets`` definition we can now use the ``tt_numbers`` variable to generate the table names and paths dynamically for each movie.
 
 To render the template we simply have to call YTE_ via the command line:
 
@@ -92,8 +92,8 @@ Step 2: Adding a heatmap with a custom color palette and legend
 ===============================================================
 
 Let us now bring some color into our report by adding a heatmap with a custom color palette. This can be done by explicitly specifying a domain and a range of colors for a column.
-Using the `legend` keyword, we can also add a legend for the column to the description of our view.
-Add the following `heatmap` definition to the `company_type` column:
+Using the ``legend`` keyword, we can also add a legend for the column to the description of our view.
+Add the following ``heatmap`` definition to the ``company_type`` column:
 
 .. code-block:: yaml
 
@@ -120,7 +120,7 @@ Re-render the template using YTE_ as well as the report using the previous comma
 Step 3: Linking the detailed views to the main table
 ====================================================
 
-Since each movie has its own detailed view about the involved companies it makes sense to link them to the main table. This can be done by adding a `links` keyword to dataset definition of our `movies` table:
+Since each movie has its own detailed view about the involved companies it makes sense to link them to the main table. This can be done by adding a ``links`` keyword to dataset definition of our ``movies`` table:
 
 .. code-block:: yaml
 
@@ -141,7 +141,7 @@ After re-runnning YTE_ and Datvazrd open the movies view in the report and use t
 Step 4: Hiding the company view from the main menu
 ===================================================
 
-If you havent already, have a look into the view menu of the report and see how our company views take up a lot of space in the menu. We can actually hide them by adding a `hidden` keyword to the view definition:
+If you havent already, have a look into the view menu of the report and see how our company views take up a lot of space in the menu. We can actually hide them by adding a ``hidden`` keyword to the view definition:
 
 .. code-block:: yaml
 
