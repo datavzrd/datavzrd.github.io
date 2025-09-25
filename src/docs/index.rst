@@ -2,8 +2,8 @@
 Datavzrd: A low-code interactive reporting tool for tabular datasets
 ====================================================================
 
-A tool to create visual and interactive HTML reports from collections of CSV/TSV tables. Reports include automatically generated vega-lite histograms per column. 
-Plots can be fully customized by users via a config file. These also allow the user to add linkouts to other websites or link between multiple tables. 
+A tool to create visual and interactive HTML reports from collections of CSV/TSV tables. Reports include automatically generated vega-lite histograms per column.
+Plots can be fully customized by users via a config file. These also allow the user to add linkouts to other websites or link between multiple tables.
 
 ************
 Introduction
@@ -25,6 +25,7 @@ Explore Datavzrd's capabilities by checking out an `example report online <https
     press
     interaction
     tutorial
+    advanced_tutorial
     configuration
     wms_integration
     spells

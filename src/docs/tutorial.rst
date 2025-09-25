@@ -104,7 +104,7 @@ We define a minimal configuration file as follows:
     datasets:
       movies:
         path: data/movies.csv
-    
+
     views:
       movies:
         dataset: movies
@@ -153,7 +153,7 @@ Open the main file, called ``index.html``, in your browser.
   .. code-block:: bash
 
       show-report-url
-  
+
   and clicking the link that is printed to the terminal.
   Gitpod or GitHub Codespaces might ask you for confirmation to open the link.
   It is safe to do so.
@@ -200,7 +200,7 @@ The full configuration file now looks like this:
     datasets:
       movies:
         path: data/movies.csv
-    
+
     views:
       movies:
         dataset: movies
@@ -223,7 +223,7 @@ Execute Datavzrd again with this updated configuration file:
 .. note::
 
     The additional ``--overwrite-output`` argument tells Datavzrd to overwrite the contents of the given directory if it already exists. This ensures that Datavzrd does not accidentally overwrite existing reports by requiring explicit permission to overwrite files.
-    
+
 Open the main file, called ``index.html``, in your browser and check out the added name (top left) and description (above the table).
 The description can also be hidden via the "x"-button at its top right, and opened again via the "hamburger"-menu.
 
@@ -256,7 +256,7 @@ The full configuration file now looks like this:
 
       oscars:
         path: data/oscars.csv
-    
+
     views:
       movies:
         dataset: movies
@@ -317,7 +317,7 @@ The full configuration file now looks like this:
 
       oscars:
         path: data/oscars.csv
-    
+
     views:
       movies:
         dataset: movies
@@ -387,7 +387,7 @@ The full configuration file now looks like this:
           movie:
             column: movie
             table-row: movies/Title
-    
+
     views:
       movies:
         dataset: movies
@@ -462,7 +462,7 @@ In total, the updated configuration looks like this:
           movie:
             column: movie
             table-row: movies/Title
-    
+
     views:
       movies:
         dataset: movies
@@ -543,7 +543,7 @@ The updated configuration looks like this:
           movie:
             column: movie
             table-row: movies/Title
-    
+
     views:
       movies:
         dataset: movies
@@ -623,7 +623,7 @@ For this purpose, we add entries for the three columns to the ``columns`` sectio
 
 .. code-block:: yaml
 
-    columns: 
+    columns:
       birth_d:
         display-mode: hidden
       birth_mo:
@@ -656,7 +656,7 @@ The updated configuration looks like this:
           movie:
             column: movie
             table-row: movies/Title
-    
+
     views:
       movies:
         dataset: movies
@@ -779,7 +779,7 @@ The updated configuration looks like this:
           movie:
             column: movie
             table-row: movies/Title
-    
+
     views:
       movies:
         dataset: movies
@@ -1009,6 +1009,7 @@ The updated configuration file looks like this:
 As always run datavzrd on this configuration to obtain an updated report.
 Investigate the resulting new view, and be suprised (or not) about the systematic age difference between actors and actresses and how that reflects some of the issues we have in the society.
 
-With this, we are at the end of the Datavzrd tutorial.
+With this, we end the first part of the Datavzrd tutorial.
+You can continue with the second part to learn about more advanced features and options including templating configuration files for hierarchical data in the :doc:`second part <advanced_tutorial>`.
 Naturally, there are numerous options and features that we did not cover here.
 For a comprehensive overview, we refer to the `Datavzrd homepage <https://datavzrd.github.io>`_ and the documentation that can be reached from there.
