@@ -14,7 +14,8 @@ The focus of this tutorial is on advanced usage, in particular templating your c
 Setup
 =====
 
-We will extend our datasets with more information about each oscar winning movie. In particular we will add one full table per movie containing information about the companies involved in producing this movie.
+We will extend our datasets with more information about each oscar winning movie.
+In particular we will add one full table per movie containing information about the companies involved in producing this movie.
 This means we will end up with quite a few tables.
 To fetch all these we will run the following curl command that downloads and extracts the compressed data:
 
