@@ -49,8 +49,8 @@ Next up we can add the new tables to the report. We will do that by adding the f
 .. code-block:: yaml
 
     __definitions__:
-    - import re, pathlib
-    - tt_numbers = [re.match(r"(tt\d+)_", f.name).group(1) for f in pathlib.Path("data/companies").glob("tt*_companies.csv")]
+      - import re, pathlib
+      - tt_numbers = [re.match(r"(tt\d+)_", f.name).group(1) for f in pathlib.Path("data/companies").glob("tt*_companies.csv")]
 
     name: Oscars and movies
 
