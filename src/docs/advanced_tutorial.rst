@@ -82,6 +82,7 @@ Next up we can add the new tables to the report. We will do that by adding the f
 To break these changes down let us start with ``__definitions__:``. This special YTE_ keyword allows us to define variables that can be used within the template.
 In this case we are importing the ``re`` and ``pathlib`` modules and defining a list of movie IDs we parse from the file names located in the ``data/companies`` directory.
 Within our ``datasets`` definition we can now use the ``tt_numbers`` variable to generate the table names and paths dynamically for each movie.
+Similarly we iterate all movies in the ``views`` definition to add one additional view for each movie.
 
 .. note::
 
