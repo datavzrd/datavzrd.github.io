@@ -2,9 +2,9 @@
 .. _YTE: https://github.com/yte-template-engine/yte
 .. _Python: https://www.python.org
 
-********
-Overview
-********
+*****************
+Advanced Tutorial
+*****************
 
 This advanced tutorial builds directly on the :doc:`basic tutorial <tutorial>` and continues from the code produced in its final step.
 If you have not yet completed the basic tutorial, we recommend doing so first, as all examples here assume familiarity with the foundations introduced there.
