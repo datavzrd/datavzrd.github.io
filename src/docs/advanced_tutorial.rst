@@ -25,7 +25,7 @@ You can make sure it is installed by running the following command:
 
 .. code-block:: bash
 
-    yte --version
+    yte -h
 
 Fetching new data
 -----------------
