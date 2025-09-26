@@ -14,6 +14,22 @@ The focus of this tutorial is on advanced usage, in particular templating your c
 Setup
 =====
 
+When running the tutorial via GitHub Codespaces YTE_ should already be installed.
+If not we can do this by running the following command:
+
+.. code-block:: bash
+
+    conda install -c conda-forge yte
+
+You can make sure it is installed by running the following command:
+
+.. code-block:: bash
+
+    yte --version
+
+Fetching new data
+-----------------
+
 We will extend our datasets with more information about each oscar winning movie.
 In particular we will add one full table per movie containing information about the companies involved in producing this movie.
 This means we will end up with quite a few tables.
@@ -26,7 +42,7 @@ To fetch all these we will run the following curl command that downloads and ext
 Our data directory should now include a directory named ``companies`` with one csv file per movie named based on its imdbID.
 
 Step 1: Adding the tables to the report
-=======================================
+---------------------------------------
 
 Since our movies dataset contain more than 180 movies, adding one table per movie will result in a lot of manual typing and makes the configuration file large and difficult to maintain.
 To avoid this, we will use the YTE_ template engine to generate the configuration file dynamically.
@@ -38,19 +54,14 @@ We can do that using our IDE with right-clicking on the file and renaming it to 
 
     mv config.yaml config.yte.yaml
 
-Before we can start using YTE_ we need to install it. We can do this by running the following command:
-
-.. code-block:: bash
-
-    conda install -c conda-forge yte
 
 Next up we can add the new tables to the report. We will do that by adding the following section to or config file ``config.yte.yaml``:
 
 .. code-block:: yaml
 
     __definitions__:
-      - import re, pathlib
-      - tt_numbers = [re.match(r"(tt\d+)_", f.name).group(1) for f in pathlib.Path("data/companies").glob("tt*_companies.csv")]
+    - import re, pathlib
+    - tt_numbers = [re.match(r"(tt\d+)_", f.name).group(1) for f in pathlib.Path("data/companies").glob("tt*_companies.csv")]
 
     name: Oscars and movies
 
@@ -95,7 +106,7 @@ Have a look at the generated report to see how very few lines added that many da
 
 
 Step 2: Adding a heatmap with a custom color palette and legend
-===============================================================
+---------------------------------------------------------------
 
 Let us now bring some color into our report by adding a heatmap with a custom color palette. This can be done by explicitly specifying a domain and a range of colors for a column.
 Using the ``legend`` keyword, we can also add a legend for the column to the description of our view.
@@ -124,7 +135,7 @@ Re-render the template using YTE_ as well as the report using the previous comma
 
 
 Step 3: Linking the detailed views to the main table
-====================================================
+----------------------------------------------------
 
 Since each movie has its own detailed view about the involved companies it makes sense to link them to the main table. This can be done by adding a ``links`` keyword to dataset definition of our ``movies`` table:
 
@@ -145,7 +156,7 @@ Since each movie has its own detailed view about the involved companies it makes
 After re-runnning YTE_ and Datvazrd open the movies view in the report and use the linkout in the most right column to jump to the corresponding company view for a movie of your choice.
 
 Step 4: Hiding the company view from the main menu
-===================================================
+--------------------------------------------------
 
 If you havent already, have a look into the view menu of the report and see how our company views take up a lot of space in the menu. We can actually hide them by adding a ``hidden`` keyword to the view definition:
 
@@ -172,7 +183,7 @@ If you havent already, have a look into the view menu of the report and see how 
 Re-render the template and report using the previous command and inspect the changes.
 
 Step 5: Using a spell
-=====================
+---------------------
 
 Spells are reusable configuration snippets in Datavzrd.
 They make report creation easier by letting users define common setups in a modular way.
