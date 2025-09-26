@@ -170,3 +170,52 @@ If you havent already, have a look into the view menu of the report and see how 
 
 
 Re-render the template and report using the previous command and inspect the changes.
+
+Step 5: Using a spell
+=====================
+
+Spells are reusable configuration snippets in Datavzrd.
+They make report creation easier by letting users define common setups in a modular way.
+Spells can be loaded from local files or remote URLs directing to the `datavzrd-spells repository <https://github.com/datavzrd/datavzrd-spells>`__.
+Users can also create their own spells and share them with the community by contributing to the repository.
+
+For our report we want to use the `boolean spell <https://datavzrd.github.io/docs/spells.html#boolean>`__ for the column ``is_major_studio``.
+It is possible to pass different parameters to spells using the ``with`` keyword.
+These parameters vary depending on the spell.
+For the boolean spell, the parameters are ``true_value`` and ``false_value``.
+These specify the values that the spell should use to represent them as colored boxes with a plus and minus sign.
+The ``url`` keyword can either take a remote url to any YTE_ template holding the spell, a local file path to a YTE_ template or lastly a pattern that consists out of a version number, spell category and spell name.
+For this example we will use the latter:
+
+.. code-block:: yaml
+
+    views:
+    ?for movie in tt_numbers:
+        ?f"{movie}":
+        dataset: ?movie
+        desc: ?f"All companies involved in the making of {movie}"
+        hidden: true
+        render-table:
+            columns:
+            is_major_studio:
+                spell:
+                url: v1.4.1/logic/boolean
+                with:
+                    true_value: "True"
+                    false_value: "False"
+            company_type:
+                plot:
+                heatmap:
+                    scale: ordinal
+                    domain: ["distribution", "sales", "production", "specialEffects", "miscellaneous"]
+                    range: ["blue", "green", "red", "yellow", "cyan"]
+                    legend:
+                    title: "Company Type"
+
+
+After adding the spell to your YTE_ template, rerender the template and the reports afterwards and verify that the boolean spell is working as expected.
+
+This concludes the advanced tutorial.
+For more information on how to use YTE_ templates, please refer to its `documentation <https://yte-template-engine.github.io/>`__.
+To see what other spells are available, visit the `spells documentation <https://datavzrd.github.io/docs/spells.html>`__.
+Finally you can also explore `publications using Datavzrd reports <https://datavzrd.github.io/docs/publications.html>`__ for more inspiration on what is possible.
