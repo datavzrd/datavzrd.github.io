@@ -169,4 +169,4 @@ If you havent already, have a look into the view menu of the report and see how 
                     title: "Company Type"
 
 
-Re-render the temaplte and report using the previous command and inspect the changes.
+Re-render the template and report using the previous command and inspect the changes.
