@@ -95,7 +95,8 @@ To render the template we simply have to call YTE_ via the command line:
     yte < config.yte.yaml > config.yaml
 
 
-Now look into the generated `config.yaml` file we can see that the table names and paths have been generated dynamically for each movie.
+Now look into the generated `config.yaml` file.
+We can see that the table names and paths have been generated dynamically for each movie.
 The configuration is now ready to be used with Datavzrd to generate the report:
 
 .. code-block:: bash
