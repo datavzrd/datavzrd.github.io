@@ -144,15 +144,15 @@ Since each movie has its own detailed view about the involved companies it makes
 .. code-block:: yaml
 
     datasets:
-    movies:
-        path: data/movies.csv
-        links:
-        oscar:
-            column: Title
-            table-row: oscars/movie
-        companies:
-            column: imdbID
-            view: "{value}"
+        movies:
+            path: data/movies.csv
+            links:
+            oscar:
+                column: Title
+                table-row: oscars/movie
+            companies:
+                column: imdbID
+                view: "{value}"
 
 
 After re-runnning YTE_ and Datvazrd open the movies view in the report and use the linkout in the most right column to jump to the corresponding company view for a movie of your choice.
@@ -203,27 +203,27 @@ For this example we will use the latter:
 .. code-block:: yaml
 
     views:
-    ?for movie in tt_numbers:
-        ?f"{movie}":
-        dataset: ?movie
-        desc: ?f"All companies involved in the making of {movie}"
-        hidden: true
-        render-table:
-            columns:
-            is_major_studio:
-                spell:
-                url: v1.4.1/logic/boolean
-                with:
-                    true_value: "True"
-                    false_value: "False"
-            company_type:
-                plot:
-                heatmap:
-                    scale: ordinal
-                    domain: ["distribution", "sales", "production", "specialEffects", "miscellaneous"]
-                    range: ["blue", "green", "red", "yellow", "cyan"]
-                    legend:
-                    title: "Company Type"
+        ?for movie in tt_numbers:
+            ?f"{movie}":
+            dataset: ?movie
+            desc: ?f"All companies involved in the making of {movie}"
+            hidden: true
+            render-table:
+                columns:
+                is_major_studio:
+                    spell:
+                    url: v1.4.1/logic/boolean
+                    with:
+                        true_value: "True"
+                        false_value: "False"
+                company_type:
+                    plot:
+                    heatmap:
+                        scale: ordinal
+                        domain: ["distribution", "sales", "production", "specialEffects", "miscellaneous"]
+                        range: ["blue", "green", "red", "yellow", "cyan"]
+                        legend:
+                        title: "Company Type"
 
 
 After adding the spell to your YTE_ template, rerender the template and the reports afterwards and verify that the boolean spell is working as expected.
