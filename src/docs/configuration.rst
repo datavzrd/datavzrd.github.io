@@ -79,7 +79,7 @@ datasets
      - explanation
      - default
    * - path
-     - The path of the CSV/TSV, JSON or Parquet file
+     - The path of the CSV/TSV, JSON or Parquet file, relative to the directory from which datavzrd is run.
      - 
    * - separator
      - The delimiter of the file
