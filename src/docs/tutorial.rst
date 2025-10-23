@@ -116,8 +116,9 @@ We define a minimal configuration file as follows:
                   scale: ordinal
                   color-scheme: category20
 
-Save this configuration file as ``config.yaml`` in your working directory.
+Save this configuration file as ``config.yaml`` in your working directory alongside - **not** inside - the data/ folder.
 The file specifies that the table to be visualized is stored in the file ``data/movies.csv``.
+Paths in the configuration file are interpreted relative to the directory from which you run Datavzrd.
 There shall be a single view for this table, which renders the table while coloring the ``Rated`` column using a heatmap visualization.
 We configure the heatmap to have an ordinal scale and to use the `category20 <https://vega.github.io/vega/docs/schemes/#categorical>`_ color scheme.
 
