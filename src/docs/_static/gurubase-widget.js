@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Add widget settings as data attributes
     Object.entries({
-        "data-widget-id": "XDztDiqWzDJbUC8HgYE3QTKfoY1r1dXsdkfTzLIzH9g", // TODO: Change once Guru is fixed?
+        "data-widget-id": "ao3Yf4RcOguLV7ecYB9L4_9eLe-eOk8LYUkx3xa9lIQ",
         "data-text": "Ask AI",
         "data-overlap-content": "false"
     }).forEach(([key, value]) => {
