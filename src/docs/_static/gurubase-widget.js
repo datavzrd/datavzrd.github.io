@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Add widget settings as data attributes
     Object.entries({
-        "data-widget-id": "ao3Yf4RcOguLV7ecYB9L4_9eLe-eOk8LYUkx3xa9lIQ",
+        "data-widget-id": "CEROsBwruOF2qc_umgR-LdmGqixSwytwYbQ6NPs_p40",
         "data-text": "Ask AI",
         "data-overlap-content": "false"
     }).forEach(([key, value]) => {
