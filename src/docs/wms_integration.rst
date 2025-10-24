@@ -7,7 +7,7 @@ Snakemake
 
 Datavzrd integrates easily into any `Snakemake <https://snakemake.github.io>`__ workflow by using its own wrapper.
 
-Snakemake's `datavzrd wrapper <https://snakemake-wrappers.readthedocs.io/en/latest/wrappers/datavzrd.html>`__ can be used in the following way:
+Snakemake's `datavzrd wrapper <https://snakemake-wrappers.readthedocs.io/en/stable/wrappers/utils/datavzrd.html>`__ can be used in the following way:
 
 .. code-block:: python
 
