@@ -90,3 +90,5 @@ repo:
     - dependabot[bot]
   name: datavzrd/datavzrd
 version: v2.9.0
+javascript_assets:
+  - "gurubase-widget.js‎"
