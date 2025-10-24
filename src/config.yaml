@@ -75,6 +75,8 @@ hero:
   statements:
   - A zero/low-code, interactive, visual, server-free, browser-based reporting tool
     for tabular datasets
+javascript_assets:
+- "gurubase-widget.js\u200E"
 logo:
   dark: datavzrd_logo_white.svg
   light: datavzrd_logo_black.svg
@@ -90,5 +92,3 @@ repo:
     - dependabot[bot]
   name: datavzrd/datavzrd
 version: v2.9.0
-javascript_assets:
-  - "gurubase-widget.js‎"
