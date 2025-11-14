@@ -14,7 +14,7 @@ genomic-coordinates
 ===================
 
 .. image:: https://img.shields.io/badge/code-github-blue
-  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.5.0/med/genomic-coordinates
+  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.5.1/med/genomic-coordinates
 
 This spell visualizes genomic coordinates in a structured and visually enhanced way.
 It formats the coordinates with color-coded pills for reference and alternate bases, making it easy to read and interpret genomic variant data.
@@ -32,7 +32,7 @@ Example
     columns: 
       some clinical column containing genomic coordinates:
         spell:
-          url: v1.5.0/med/genomic-coordinates
+          url: v1.5.1/med/genomic-coordinates
 
 Authors
 -------
@@ -46,7 +46,7 @@ clin-sig
 ========
 
 .. image:: https://img.shields.io/badge/code-github-blue
-  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.5.0/med/clin-sig
+  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.5.1/med/clin-sig
 
 This spell visualizes the clinical significance, given in clinvar significance terms (https\://www.ncbi.nlm.nih.gov/clinvar/)
 The values should be given in a column consisting of strings and separated by ','
@@ -63,7 +63,7 @@ Example
     columns: 
       some clinical significance column:
         spell:
-          url: v1.5.0/med/clin-sig
+          url: v1.5.1/med/clin-sig
 
 Authors
 -------
@@ -77,7 +77,7 @@ alleles
 =======
 
 .. image:: https://img.shields.io/badge/code-github-blue
-  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.5.0/med/alleles
+  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.5.1/med/alleles
 
 This spell visualizes alleles (e.g. A, T, G, C or any longer string composed out of these nucleotides) using merged pills with color-coded bases.
 Coloring is based on the same color scheme used by alignoth.
@@ -94,7 +94,7 @@ Example
     columns:
       some clinical column containing alleles:
         spell:
-          url: v1.5.0/med/alleles
+          url: v1.5.1/med/alleles
 
 Authors
 -------
@@ -108,7 +108,7 @@ boolean
 =======
 
 .. image:: https://img.shields.io/badge/code-github-blue
-  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.5.0/logic/boolean
+  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.5.1/logic/boolean
 
 This spell visualizes boolean values via colored +/- symbols.
 
@@ -124,7 +124,7 @@ Example
     columns:
       some boolean column:
         spell:
-          url: v1.5.0/logic/boolean
+          url: v1.5.1/logic/boolean
           with:
             # specify which values should be interpreted as true or false
             true_value: "true"
@@ -142,7 +142,7 @@ text
 ====
 
 .. image:: https://img.shields.io/badge/code-github-blue
-  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.5.0/utils/text
+  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.5.1/utils/text
 
 This spell allows to split long text after a certain number of characters (always at whitespace).
 
@@ -158,7 +158,7 @@ Example
     columns:
       text:
         spell:
-          url: v1.5.0/utils/text
+          url: v1.5.1/utils/text
           with:
             # specify how many characters should be used per line
             chars_per_line: 50
@@ -175,7 +175,7 @@ p-value
 =======
 
 .. image:: https://img.shields.io/badge/code-github-blue
-  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.5.0/stats/p-value
+  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.5.1/stats/p-value
 
 This spell generates a heatmap visualization to represent the distribution of p-values or statistical significance in data.
 The heatmap uses a linear color scale to map values to a gradient from green over white to organge.
@@ -193,7 +193,7 @@ Example
     columns:
       some p-value column:
         spell:
-          url: v1.5.0/stats/p-value
+          url: v1.5.1/stats/p-value
           with:
             significance_threshold: 0.05
 
