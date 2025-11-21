@@ -76,7 +76,7 @@ hero:
   - A zero/low-code, interactive, visual, server-free, browser-based reporting tool
     for tabular datasets
 javascript_assets:
-- "gurubase-widget.js\u200E"
+- "gurubase-widget.js"
 logo:
   dark: datavzrd_logo_white.svg
   light: datavzrd_logo_black.svg
