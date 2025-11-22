@@ -27,7 +27,7 @@ jobs:
         uses: actions/checkout@v4
       
       - name: locosopa
-        uses: koesterlab/locosopa@main
+        uses: koesterlab/locosopa@v1.0.6
         with:
           config: src/config.yaml
           path: build
