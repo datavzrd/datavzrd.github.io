@@ -118,6 +118,13 @@ Example:
 
 This command publishes the report located in ./output to the my-awesome-report repository of the organisation my-awesome-org on GitHub Pages, with index.html as the entry point. The repository will be created under https://my-awesome-org.github.io/my-awesome-report/ and can be accessed after GitHub pages is activated by the user. After successful publishing the user is provided with simple instructions on how to activate GitHub pages.
 
+.. note::
+
+    When publishing a Snakemake report, make sure it was generated with
+    ``snakemake --report report.zip`` and properly unzipped afterwards. Do **not** use
+    ``snakemake report report.html``. For details, see the `Snakemake reporting documentation <https://snakemake.readthedocs.io/en/stable/snakefiles/reporting.html>`_.
+
+
 Suggest
 -------
 
