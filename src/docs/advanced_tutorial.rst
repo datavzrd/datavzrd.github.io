@@ -37,7 +37,7 @@ To fetch all these we will run the following curl command that downloads and ext
 
 .. code-block:: bash
 
-    curl -L https://raw.githubusercontent.com/datavzrd/datavzrd.github.io/main/resources/companies.zip | unzip -d data -
+    curl -L -o companies.zip https://raw.githubusercontent.com/datavzrd/datavzrd.github.io/main/resources/companies.zip && unzip -d data companies.zip && rm companies.zip
 
 Our data directory should now include a directory named ``companies`` with one csv file per movie named based on its imdbID.
 
