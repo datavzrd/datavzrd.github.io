@@ -70,7 +70,7 @@ Next up we can add the new tables to the report. We will do that by adding the f
     datasets:
     ?for movie in tt_numbers:
         ?f"{movie}":
-        path: ?f"data/companies/{movie}_companies.csv"
+            path: ?f"data/companies/{movie}_companies.csv"
 
     views:
       ?for movie in tt_numbers:
