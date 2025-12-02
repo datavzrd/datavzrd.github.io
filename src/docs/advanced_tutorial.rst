@@ -210,20 +210,20 @@ For this example we will use the latter:
                 hidden: true
                 render-table:
                     columns:
-                    is_major_studio:
-                        spell:
-                            url: v1.4.1/logic/boolean
-                            with:
-                                true_value: "True"
-                                false_value: "False"
-                    company_type:
-                        plot:
-                        heatmap:
-                            scale: ordinal
-                            domain: ["distribution", "sales", "production", "specialEffects", "miscellaneous"]
-                            range: ["blue", "green", "red", "yellow", "cyan"]
-                            legend:
-                            title: "Company Type"
+                        is_major_studio:
+                            spell:
+                                url: v1.4.1/logic/boolean
+                                with:
+                                    true_value: "True"
+                                    false_value: "False"
+                        company_type:
+                            plot:
+                            heatmap:
+                                scale: ordinal
+                                domain: ["distribution", "sales", "production", "specialEffects", "miscellaneous"]
+                                range: ["blue", "green", "red", "yellow", "cyan"]
+                                legend:
+                                title: "Company Type"
 
 
 After adding the spell to your YTE_ template, rerender the template and the reports afterwards and verify that the boolean spell is working as expected.
