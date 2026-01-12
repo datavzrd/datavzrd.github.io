@@ -474,6 +474,9 @@ custom-plot
    * - vega-controls
      - Whether or not the resulting vega-lite plot is supposed to have action-links in the embedded view
      - false
+   * - legend
+     - Whether or not a legend shall be rendered into the table description.
+     - false
 
 Example:
 
