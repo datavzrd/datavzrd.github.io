@@ -38,7 +38,7 @@ Command Line Arguments
      - Flag
      - No
      - N/A
-   * - ``--overwrite-output``
+   * - ``-x``, ``--overwrite-output``
      - Overwrites the contents of the given output directory if it is not empty.
      - Flag
      - No
