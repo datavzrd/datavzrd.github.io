@@ -463,7 +463,7 @@ custom-plot
      - explanation
      - default
    * - data
-     - A function to return the data needed for the schema (see below) from the content of the column cell
+     - A function to return the data needed for the schema (see below) from the content of the column cell. Beware that access to the full table via the third parameter is only available when the table does not exceed the :ref:`max-in-memory-rows` limit.
      - 
    * - spec
      - The vega-lite spec for a vega plot that is rendered into each cell of this column
@@ -484,8 +484,14 @@ Example:
 
     custom-plot:
         data: |
-            function(value, row) {
-                // Generate data for this cell, having access to the value and any other values from the same row.
+            function(value, row, table) {
+                // Generate data for this cells custom plot.
+                //
+                // - value: value of the current cell
+                // - row: object containing all values from the same row, keyed by column title
+                //        (e.g. row["column_title"])
+                // - table: array of all rows in the table; each row is structured like `row`
+                //          (e.g. table[3]["column_title"])
                 return [{"significance": value, "threshold": value > 60}]
             }
         spec: |
