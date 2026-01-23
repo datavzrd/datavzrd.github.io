@@ -348,7 +348,7 @@ Example:
 render-plot
 ===========
 
-``render-plot`` contains individual configurations for generating a single plot from the given CSV/TSV file.
+``render-plot`` contains individual configurations for generating a single plot from the given CSV/TSV file. To use links between datasets within a plot view add ``href`` to the specs encoding (see example below) together with the name of the link defined in :ref:`links` as the field.
 
 .. list-table::
    :header-rows: 1
@@ -372,7 +372,7 @@ Example:
                 "encoding": {
                  "size": {"field": "significance", "type": "quantitative", "scale": {"domain": [0,100]}},
                  "color": {"field": "threshold", "scale": {"domain": [true,false]}},
-                 "href": {"field": "some expression"}
+                 "href": {"field": "link to another table"}
                 },
                 "config": {"legend": {"disable": true}}
             }
@@ -427,7 +427,7 @@ Example:
 links
 =====
 
-``links`` can configure linkouts between multiple items.
+``links`` can configure linkouts between multiple items. They can also be used to connect data points of a plot view. See  :ref:`render-plot` for more information.
 
 .. list-table::
    :header-rows: 1
