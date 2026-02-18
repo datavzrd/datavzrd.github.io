@@ -55,7 +55,7 @@ We can do that using our IDE with right-clicking on the file and renaming it to 
     mv config.yaml config.yte.yaml
 
 
-Next up we can add the new tables to the report. We will do that by adding the following section to or config file ``config.yte.yaml``:
+Next up we can add the new tables to the report. We will do that by adding the following section to our config file ``config.yte.yaml``:
 
 .. code-block:: yaml
 
