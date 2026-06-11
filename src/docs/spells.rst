@@ -10,74 +10,6 @@ Below is a list of all the available spells in the `datavzrd-spells repository <
 For adding new spells, please see the instructions in the `datavzrd-spells repository <https://github.com/datavzrd/datavzrd-spells>`__.
 
 
-p-value
-=======
-
-.. image:: https://img.shields.io/badge/code-github-blue
-  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.6.0/stats/p-value
-
-This spell generates a heatmap visualization to represent the distribution of p-values or statistical significance in data.
-The heatmap uses a linear color scale to map values to a gradient from green over white to organge.
-The significance\_threshold (e.g., p = 0.05) - a boundary between statistical significance and non-significance - can be adjusted dynamically based on the context or dataset.
-
-
-Example
--------
-
-.. code-block:: yaml
-
-
-
-  render-table:
-    columns:
-      some p-value column:
-        spell:
-          url: v1.6.0/stats/p-value
-          with:
-            significance_threshold: 0.05
-
-Authors
--------
-
-Johannes Köster, Felix Wiegand
-
-
-
-
-separated-links
-===============
-
-.. image:: https://img.shields.io/badge/code-github-blue
-  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.6.0/stats/separated-links
-
-This spell separates a cell on a given separator (default\: comma) and creates clickable links for each element. Each element can be formatted as a URL using a configurable URL template with `${value}` as a placeholder.
-Perfect for lists of genes, proteins, or other entities that should link to external resources.
-
-
-Example
--------
-
-.. code-block:: yaml
-
-
-
-  render-table:
-    columns:
-      genes:
-        spell:
-          url: v1.6.0/stats/separated-links
-          with:
-            separator: ","
-            url_template: "https://www.genecards.org/cgi-bin/carddisp.pl?gene=${value}"
-
-Authors
--------
-
-Adrian Prinz
-
-
-
-
 text
 ====
 
@@ -235,5 +167,73 @@ Authors
 -------
 
 Johannes Köster
+
+
+
+
+p-value
+=======
+
+.. image:: https://img.shields.io/badge/code-github-blue
+  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.6.0/stats/p-value
+
+This spell generates a heatmap visualization to represent the distribution of p-values or statistical significance in data.
+The heatmap uses a linear color scale to map values to a gradient from green over white to organge.
+The significance\_threshold (e.g., p = 0.05) - a boundary between statistical significance and non-significance - can be adjusted dynamically based on the context or dataset.
+
+
+Example
+-------
+
+.. code-block:: yaml
+
+
+
+  render-table:
+    columns:
+      some p-value column:
+        spell:
+          url: v1.6.0/stats/p-value
+          with:
+            significance_threshold: 0.05
+
+Authors
+-------
+
+Johannes Köster, Felix Wiegand
+
+
+
+
+separated-links
+===============
+
+.. image:: https://img.shields.io/badge/code-github-blue
+  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.6.0/stats/separated-links
+
+This spell separates a cell on a given separator (default\: comma) and creates clickable links for each element. Each element can be formatted as a URL using a configurable URL template with `${value}` as a placeholder.
+Perfect for lists of genes, proteins, or other entities that should link to external resources.
+
+
+Example
+-------
+
+.. code-block:: yaml
+
+
+
+  render-table:
+    columns:
+      genes:
+        spell:
+          url: v1.6.0/stats/separated-links
+          with:
+            separator: ","
+            url_template: "https://www.genecards.org/cgi-bin/carddisp.pl?gene=${value}"
+
+Authors
+-------
+
+Adrian Prinz
 
 
