@@ -251,7 +251,7 @@ columns
      - false
      - true, false
    * - display-mode
-     - Allows to hide columns permanently from views by setting this to ``hidden``. Setting this to ``available`` hides the column but allows users to unhide it via the report controls. It is also possible to move a column into the `detail view <https://examples.bootstrap-table.com/#options/detail-view.html#view-source>`_ by setting this to ``detail``. ``pinned`` allows to remove the column from the multi-select column search.
+     - Allows to hide columns permanently from views by setting this to ``hidden``. Setting this to ``available`` hides the column but allows users to unhide it via the report controls. It is also possible to move a column into the `detail view <https://examples.bootstrap-table.com/#options/detail-view.html#view-source>`_ by setting this to ``detail``. Setting this to ``pinned`` keeps the column always visible by removing it from the multi-select column search and anchors it in place, so that it cannot be repositioned by dragging or moved when sorting by an additional header row.
      - normal
      - normal, detail, available, hidden, pinned
    * - precision
