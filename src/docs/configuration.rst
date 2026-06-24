@@ -683,6 +683,9 @@ pills
    * - merge
      - By default each value is rendered as a separate, rounded pill with spacing in between. When set to ``true``, the pills are joined edge-to-edge into a single connected bar without gaps (only the outer corners are rounded), so a cell with multiple values becomes one pill split into differently colored segments.
      - false
+   * - :ref:`legend`
+     - Allows to define a :ref:`legend` that will be rendered into the description above the table with a custom title, mapping each value to its pill color.
+     -
 
 Example:
 
@@ -694,6 +697,8 @@ Example:
             color-scheme: category20
             ellipsis: 10
             merge: true
+            legend:
+                title: foo
 
 
 bars
@@ -827,7 +832,7 @@ Example:
 legend
 ====
 
-``legend`` defines the attributes of a heatmap legend.
+``legend`` defines the attributes of a heatmap or pills legend.
 
 .. list-table::
    :header-rows: 1
