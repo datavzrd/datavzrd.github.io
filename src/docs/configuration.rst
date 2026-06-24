@@ -681,7 +681,7 @@ pills
      - Allows to shorten the length of the displayed String in the pills to *n* characters.
      - 
    * - merge
-     - Allows to eliminate the whitespace between individual pills and merging them into one multi-colored pill.
+     - By default each value is rendered as a separate, rounded pill with spacing in between. When set to ``true``, the pills are joined edge-to-edge into a single connected bar without gaps (only the outer corners are rounded), so a cell with multiple values becomes one pill split into differently colored segments.
      - false
 
 Example:
