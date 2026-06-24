@@ -159,6 +159,9 @@ views
    * - hidden
      - Whether or not the view is shown in the menu navigation
      - false
+   * - narrow
+     - Whether the view opens with narrow columns by default. Every column that is not pinned collapses into a thin strip, hiding its header label and controls (the column name is shown as a tooltip), so very wide tables stay compact. Columns using a tick, bar or pills plot stay unaffected. This can always be toggled at runtime via the top-right menu.
+     - false
    * - max-in-memory-rows
      - Overwrites the global settings for :ref:`max-in-memory-rows`
      -
