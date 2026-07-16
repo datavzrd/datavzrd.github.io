@@ -10,6 +10,40 @@ Below is a list of all the available spells in the `datavzrd-spells repository <
 For adding new spells, please see the instructions in the `datavzrd-spells repository <https://github.com/datavzrd/datavzrd-spells>`__.
 
 
+boolean
+=======
+
+.. image:: https://img.shields.io/badge/code-github-blue
+  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.6.0/logic/boolean
+
+This spell visualizes boolean values via colored +/- symbols.
+
+
+Example
+-------
+
+.. code-block:: yaml
+
+
+
+  render-table:
+    columns:
+      some boolean column:
+        spell:
+          url: v1.6.0/logic/boolean
+          with:
+            # specify which values should be interpreted as true or false
+            true_value: "true"
+            false_value: "false"
+
+Authors
+-------
+
+Johannes Köster
+
+
+
+
 text
 ====
 
@@ -34,6 +68,37 @@ Example
           with:
             # specify how many characters should be used per line
             chars_per_line: 50
+
+Authors
+-------
+
+Felix Wiegand
+
+
+
+
+alleles
+=======
+
+.. image:: https://img.shields.io/badge/code-github-blue
+  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.6.0/med/alleles
+
+This spell visualizes alleles (e.g. A, T, G, C or any longer string composed out of these nucleotides) using merged pills with color-coded bases.
+Coloring is based on the same color scheme used by alignoth.
+
+
+Example
+-------
+
+.. code-block:: yaml
+
+
+
+  render-table:
+    columns:
+      some clinical column containing alleles:
+        spell:
+          url: v1.6.0/med/alleles
 
 Authors
 -------
@@ -75,37 +140,6 @@ Felix Wiegand
 
 
 
-alleles
-=======
-
-.. image:: https://img.shields.io/badge/code-github-blue
-  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.6.0/med/alleles
-
-This spell visualizes alleles (e.g. A, T, G, C or any longer string composed out of these nucleotides) using merged pills with color-coded bases.
-Coloring is based on the same color scheme used by alignoth.
-
-
-Example
--------
-
-.. code-block:: yaml
-
-
-
-  render-table:
-    columns:
-      some clinical column containing alleles:
-        spell:
-          url: v1.6.0/med/alleles
-
-Authors
--------
-
-Felix Wiegand
-
-
-
-
 clin-sig
 ========
 
@@ -133,40 +167,6 @@ Authors
 -------
 
 Benjamin Orlik
-
-
-
-
-boolean
-=======
-
-.. image:: https://img.shields.io/badge/code-github-blue
-  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.6.0/logic/boolean
-
-This spell visualizes boolean values via colored +/- symbols.
-
-
-Example
--------
-
-.. code-block:: yaml
-
-
-
-  render-table:
-    columns:
-      some boolean column:
-        spell:
-          url: v1.6.0/logic/boolean
-          with:
-            # specify which values should be interpreted as true or false
-            true_value: "true"
-            false_value: "false"
-
-Authors
--------
-
-Johannes Köster
 
 
 
