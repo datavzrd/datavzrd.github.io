@@ -14,9 +14,8 @@ jobs:
 
       - name: locosopa
         uses: koesterlab/locosopa@main
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           config: src/config.yaml
           path: build
           deploy: "false"
+          token: ${{ secrets.GITHUB_TOKEN }}
