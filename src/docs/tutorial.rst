@@ -55,6 +55,10 @@ Check out the docs for installing WSL `here <https://learn.microsoft.com/en-us/w
 First, install Datavzrd as instructed :ref:`here <installation>`.
 Second, create a working directory for your tutorial excercises in some reasonable place of your file system and enter it.
 In the following, we will always assume that you are in this working directory.
+
+Download example data
+.....................
+
 Create a subdirectory ``data`` and download the Oscar winners dataset via the following commands:
 
 .. code-block:: bash
@@ -864,7 +868,7 @@ The updated configuration looks like this:
 Execute Datavzrd again with this updated configuration file and explore the introduced changes.
 
 Step 10: Add a plot view
------------------------
+------------------------
 
 Apart from displaying table views, Datavzrd offers the ability to define so-called plot views, which only contain a custom plot instead of a table.
 Again, plots can be defined using Vega-Lite_.
