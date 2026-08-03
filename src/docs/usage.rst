@@ -33,6 +33,11 @@ Command Line Arguments
      - Flag
      - No
      - N/A
+   * - ``-n``, ``--dryrun``
+     - Do not execute anything. Only validate the configuration and report what would be rendered, without writing any output.
+     - Flag
+     - No
+     - N/A
    * - ``-h``, ``--help``
      - Prints help information.
      - Flag
