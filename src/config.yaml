@@ -72,6 +72,8 @@ hero:
     url: https://datavzrd.github.io/docs/examples.html
   - text: Read the paper
     url: https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0323079
+  - text: Live playground
+    url: https://sandbox.bio/playgrounds/datavzrd
   statements:
   - A zero/low-code, interactive, visual, server-free, browser-based reporting tool
     for tabular datasets
