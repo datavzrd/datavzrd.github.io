@@ -10,48 +10,13 @@ Below is a list of all the available spells in the `datavzrd-spells repository <
 For adding new spells, please see the instructions in the `datavzrd-spells repository <https://github.com/datavzrd/datavzrd-spells>`__.
 
 
-text
-====
-
-.. image:: https://img.shields.io/badge/code-github-blue
-  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.6.0/utils/text
-
-This spell allows to split long text after a certain number of characters (always at whitespace).
-
-
-Example
--------
-
-.. code-block:: yaml
-
-
-
-  render-table:
-    columns:
-      text:
-        spell:
-          url: v1.6.0/utils/text
-          with:
-            # specify how many characters should be used per line
-            chars_per_line: 50
-
-Authors
--------
-
-Felix Wiegand
-
-
-
-
-p-value
+boolean
 =======
 
 .. image:: https://img.shields.io/badge/code-github-blue
-  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.6.0/stats/p-value
+  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.6.0/logic/boolean
 
-This spell generates a heatmap visualization to represent the distribution of p-values or statistical significance in data.
-The heatmap uses a linear color scale to map values to a gradient from green over white to organge.
-The significance\_threshold (e.g., p = 0.05) - a boundary between statistical significance and non-significance - can be adjusted dynamically based on the context or dataset.
+This spell visualizes boolean values via colored +/- symbols.
 
 
 Example
@@ -63,16 +28,18 @@ Example
 
   render-table:
     columns:
-      some p-value column:
+      some boolean column:
         spell:
-          url: v1.6.0/stats/p-value
+          url: v1.6.0/logic/boolean
           with:
-            significance_threshold: 0.05
+            # specify which values should be interpreted as true or false
+            true_value: "true"
+            false_value: "false"
 
 Authors
 -------
 
-Johannes Köster, Felix Wiegand
+Johannes Köster
 
 
 
@@ -111,14 +78,15 @@ Adrian Prinz
 
 
 
-clin-sig
-========
+p-value
+=======
 
 .. image:: https://img.shields.io/badge/code-github-blue
-  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.6.0/med/clin-sig
+  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.6.0/stats/p-value
 
-This spell visualizes the clinical significance, given in clinvar significance terms (https\://www.ncbi.nlm.nih.gov/clinvar/)
-The values should be given in a column consisting of strings and separated by ','
+This spell generates a heatmap visualization to represent the distribution of p-values or statistical significance in data.
+The heatmap uses a linear color scale to map values to a gradient from green over white to organge.
+The significance\_threshold (e.g., p = 0.05) - a boundary between statistical significance and non-significance - can be adjusted dynamically based on the context or dataset.
 
 
 Example
@@ -129,15 +97,50 @@ Example
 
 
   render-table:
-    columns: 
-      some clinical significance column:
+    columns:
+      some p-value column:
         spell:
-          url: v1.6.0/med/clin-sig
+          url: v1.6.0/stats/p-value
+          with:
+            significance_threshold: 0.05
 
 Authors
 -------
 
-Benjamin Orlik
+Johannes Köster, Felix Wiegand
+
+
+
+
+text
+====
+
+.. image:: https://img.shields.io/badge/code-github-blue
+  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.6.0/utils/text
+
+This spell allows to split long text after a certain number of characters (always at whitespace).
+
+
+Example
+-------
+
+.. code-block:: yaml
+
+
+
+  render-table:
+    columns:
+      text:
+        spell:
+          url: v1.6.0/utils/text
+          with:
+            # specify how many characters should be used per line
+            chars_per_line: 50
+
+Authors
+-------
+
+Felix Wiegand
 
 
 
@@ -205,13 +208,14 @@ Felix Wiegand
 
 
 
-boolean
-=======
+clin-sig
+========
 
 .. image:: https://img.shields.io/badge/code-github-blue
-  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.6.0/logic/boolean
+  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.6.0/med/clin-sig
 
-This spell visualizes boolean values via colored +/- symbols.
+This spell visualizes the clinical significance, given in clinvar significance terms (https\://www.ncbi.nlm.nih.gov/clinvar/)
+The values should be given in a column consisting of strings and separated by ','
 
 
 Example
@@ -222,18 +226,14 @@ Example
 
 
   render-table:
-    columns:
-      some boolean column:
+    columns: 
+      some clinical significance column:
         spell:
-          url: v1.6.0/logic/boolean
-          with:
-            # specify which values should be interpreted as true or false
-            true_value: "true"
-            false_value: "false"
+          url: v1.6.0/med/clin-sig
 
 Authors
 -------
 
-Johannes Köster
+Benjamin Orlik
 
 
