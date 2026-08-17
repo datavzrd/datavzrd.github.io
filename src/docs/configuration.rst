@@ -527,19 +527,27 @@ link-to-url
      - Whether or not the rendered link will be opened in a new window or not
      - true
 
-It is also possible to use `custom-content` to change the content of the dropdown button.
+Each link is a named entry that holds a ``url``. Providing more than one named entry renders them as a dropdown menu.
 
 Example:
 
 .. code-block:: yaml
 
     link-to-url:
-        custom-content: function(value, row) { return `Find out more about ${value}`; }
         Wikipedia:
-                url: "https://de.wikipedia.org/wiki/{value}"
+            url: "https://de.wikipedia.org/wiki/{value}"
         Letterboxd:
-                url: "https://letterboxd.com/search/{value}"
-                new-window: false
+            url: "https://letterboxd.com/search/{value}"
+            new-window: false
+
+Optionally, ``custom-content`` customizes the text shown on the link or dropdown button through a JavaScript function of ``value`` and ``row`` that returns the label to display:
+
+.. code-block:: yaml
+
+    link-to-url:
+        Wikipedia:
+            url: "https://de.wikipedia.org/wiki/{value}"
+        custom-content: function(value, row) { return `Find out more about ${value}`; }
 
 plot
 ====
