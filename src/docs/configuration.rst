@@ -527,7 +527,7 @@ link-to-url
      - Whether or not the rendered link will be opened in a new window or not
      - true
 
-Each link is a named entry that holds a ``url``. Providing more than one named entry renders them as a dropdown menu.
+Each link is a named entry that holds a ``url``. At least one such entry is required, and providing more than one renders them as a dropdown menu. ``custom-content`` on its own is not enough: it only changes the label, so a ``link-to-url`` without any ``url`` entry has nothing to point to and results in an error.
 
 Example:
 
@@ -613,6 +613,8 @@ heatmap
 
 ``heatmap`` defines the attributes of a heatmap for numeric or nominal values.
 
+To color the cells the heatmap needs at least a ``type``, a ``color-scheme`` or a ``range``. Setting ``type`` is the quickest way, as it also picks a matching scale and scheme. When none of the three is set, this results in an error.
+
 .. list-table::
    :header-rows: 1
 
@@ -669,6 +671,8 @@ pills
 =====
 
 ``pills`` defines the attributes of a visualization for multiple values displayed as colored pills.
+
+Pills are always colored, so they need either a ``color-scheme`` or a ``range``. When both are left out, this results in an error instead of rendering pills without color.
 
 .. list-table::
    :header-rows: 1
