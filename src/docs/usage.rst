@@ -133,7 +133,7 @@ This command publishes the report located in ./output to the my-awesome-report r
 Suggest
 -------
 
-The `suggest` subcommand generates a configuration file based on the provided tabular input files. The suggested configuration is written to stdout.
+The `suggest` subcommand generates a configuration file based on the provided tabular input files. The suggested configuration is written to stdout. When an LLM endpoint is passed via ``--llm-url``, the configuration is drafted by that model instead of the built-in heuristic and validated against datavzrd before it is written.
 
 .. code-block:: bash
 
@@ -150,12 +150,12 @@ Command Line Arguments for `suggest`:
      - Type
      - Required
      - Default Value
-   * - ``--files``
+   * - ``-f``, ``--files``
      - List of paths to input files.
      - Option
      - Yes
      - N/A
-   * - ``--separators``
+   * - ``-s``, ``--separators``
      - Separators for the corresponding input files (e.g., comma for CSV, tab for TSV).
      - Option
      - Yes
@@ -165,9 +165,37 @@ Command Line Arguments for `suggest`:
      - Option
      - No
      - ``Datavzrd Report``
+   * - ``--llm-url``
+     - Base URL of an OpenAI-compatible chat completions endpoint, including the API version (e.g. ``http://localhost:11434/v1`` for Ollama). When set, the configuration is drafted by the LLM.
+     - Option
+     - No
+     - N/A
+   * - ``--llm-model``
+     - Model to request from the LLM endpoint.
+     - Option
+     - With ``--llm-url``
+     - N/A
+   * - ``--llm-token``
+     - API token for the LLM endpoint, sent as a bearer token. Can also be set via the ``DATAVZRD_LLM_TOKEN`` environment variable.
+     - Option
+     - No
+     - N/A
+   * - ``-p``, ``--prompt``
+     - Description of the desired report passed to the LLM. If omitted, it is requested interactively.
+     - Option
+     - No
+     - N/A
 
 Example:
 
 .. code-block:: bash
 
     $ datavzrd suggest -f data1.csv -s , -f data2.tsv -s $'\t'
+
+To let an LLM draft the configuration, point ``--llm-url`` at an OpenAI-compatible endpoint and pass a model and a prompt:
+
+.. code-block:: bash
+
+    $ datavzrd suggest -f data.csv -s , --llm-url http://localhost:11434/v1 --llm-model qwen2.5:1.5b --prompt "Hide id columns, pin the sample name, viridis heatmap for p-values"
+
+If the endpoint requires a token, set ``DATAVZRD_LLM_TOKEN`` in your environment or pass it with ``--llm-token``.
