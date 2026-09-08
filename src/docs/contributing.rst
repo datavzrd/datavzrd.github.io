@@ -11,7 +11,7 @@ Before you can fully build Datvazrd make sure to install ``pnpm``. This is neede
 
 .. code-block:: shell
 
-    cargo run -- .examples/example-config.yaml -o out
+    cargo run -- .examples/example.datavzrd.yaml -o out
 
 This creates a directory named ``out`` where the generated report will be located. Open it by clicking on the file named ``index.html``.
 .

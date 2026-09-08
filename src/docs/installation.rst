@@ -79,5 +79,5 @@ This will compile Datavzrd. To run it with the alredy included example material 
 
 .. code-block:: bash
 
-    cargo run .examples/example-config.yaml -o report
+    cargo run .examples/example.datavzrd.yaml -o report
 
