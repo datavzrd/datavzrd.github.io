@@ -1,3 +1,6 @@
+assets:
+- schema/latest/datavzrd.schema.json
+- schema/v2.72.2/datavzrd.schema.json
 color: blue
 docs:
   links:
