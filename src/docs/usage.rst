@@ -199,3 +199,19 @@ To let an LLM draft the configuration, point ``--llm-url`` at an OpenAI-compatib
     $ datavzrd suggest -f data.csv -s , --llm-url http://localhost:11434/v1 --llm-model qwen2.5:1.5b --prompt "Hide id columns, pin the sample name, viridis heatmap for p-values"
 
 If the endpoint requires a token, set ``DATAVZRD_LLM_TOKEN`` in your environment or pass it with ``--llm-token``.
+
+
+Schema
+------
+
+The `schema` subcommand prints the JSON schema of the configuration file to stdout. It enables autocompletion and inline validation in editors that support JSON schema for YAML.
+
+.. code-block:: bash
+
+   $ datavzrd schema
+
+Example:
+
+.. code-block:: bash
+
+    $ datavzrd schema > datavzrd.schema.json
