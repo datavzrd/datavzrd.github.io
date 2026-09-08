@@ -1,0 +1,45 @@
+name: Generate Configuration Schema
+
+on:
+  schedule:
+    - cron: '0 16 * * *'
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  generate-schema:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash -el {0}
+
+    steps:
+    - name: Checkout the current repository
+      uses: actions/checkout@v4
+
+    - name: Set up datavzrd
+      uses: conda-incubator/setup-miniconda@v3
+      with:
+        miniforge-version: latest
+        channels: conda-forge
+        activate-environment: datavzrd
+
+    - name: Install datavzrd
+      run: mamba install -y datavzrd pyyaml
+
+    - name: Generate configuration schema
+      run: python scripts/generate_schema.py
+
+    - name: Check for changes to the schema and configuration
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add src/schema src/config.yaml
+        git diff --cached --exit-code || git commit -m "Auto-generate configuration schema"
+
+    - name: Push changes
+      run: git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
