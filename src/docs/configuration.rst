@@ -549,6 +549,19 @@ Optionally, ``custom-content`` customizes the text shown on the link or dropdown
             url: "https://de.wikipedia.org/wiki/{value}"
         custom-content: function(value, row) { return `Find out more about ${value}`; }
 
+``link-to-url`` can also be combined with a :ref:`heatmap` or :ref:`pills` plot on the same column. With a heatmap the colored cell itself becomes the link. With pills each pill becomes its own link; use ``{pill-value}`` for the value of the individual pill, while ``{value}`` still refers to the whole cell.
+
+.. code-block:: yaml
+
+    Genre:
+        plot:
+            pills:
+                separator: ","
+                color-scheme: category20
+        link-to-url:
+            IMDb genre:
+                url: "https://www.imdb.com/search/title/?genres={pill-value}"
+
 plot
 ====
 
