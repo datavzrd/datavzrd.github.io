@@ -54,7 +54,7 @@ Command Line Arguments
      - No
      - N/A
    * - ``-v``, ``--verbose``
-     - Verbose mode (-v, -vv, -vvv, etc.).
+     - Print rendering progress while the report is generated. Repeat for more detail (``-v`` progress, ``-vv`` debug, ``-vvv`` trace).
      - Flag
      - No
      - N/A
