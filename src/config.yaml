@@ -5,6 +5,7 @@ assets:
 - schema/v2.73.3/datavzrd.schema.json
 - schema/v2.74.0/datavzrd.schema.json
 - schema/v2.75.0/datavzrd.schema.json
+- schema/v2.75.1/datavzrd.schema.json
 color: blue
 docs:
   links:
