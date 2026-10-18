@@ -1119,7 +1119,8 @@ Investigate the resulting new view, and be surprised (or not) about the systemat
 
     Plots like this can also be created interactively in the report.
     Click the "Plot against another column" icon in the headers of two columns of a table view (e.g. ``oscar_yr`` and ``age`` in the oscars view), and a dialog with a plot of both columns opens, where you can adjust e.g. the mark type and colors.
-    Clicking "Export as view" in this dialog shows a view definition that you can paste into the ``views`` section of your configuration file.
+    Clicking "Export as view" in this dialog shows a view definition starting with ``views:``.
+    Copy the entry below this line into the ``views`` section of your configuration file.
 
 With this, we end the first part of the Datavzrd tutorial.
 You can continue with the second part to learn about more advanced features and options including templating configuration files for hierarchical data in the :doc:`second part <advanced_tutorial>`.
