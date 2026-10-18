@@ -170,6 +170,7 @@ Next, we execute Datavzrd with this configuration file in order to generate our 
     datavzrd config.datavzrd.yaml --output example-report
 
 Running this command a second time will fail because ``example-report`` already exists, but we will see how to deal with this in the next step.
+If Datavzrd reports any other error, have a look at the :doc:`troubleshooting page <troubleshooting>`.
 
 The resulting report has the following structure:
 
@@ -666,6 +667,7 @@ We add a new section ``add-columns`` with the following content to the ``render-
           }
 
 In other words, we add a column named ``birth_season`` that calculates its value via a Javascript_ function that accesses the column ``birth_mo`` from the same row, and returns a season-representing icon (which here are in fact a special unicode/font characters) depending on the month.
+If such a function contains an error, the report shows an error dialog when you open it (see :ref:`troubleshooting <error when calling custom function>`).
 
 Let us assume that only the season is relevant in this context.
 Datavzrd offers the ability to hide irrelevant columns in two ways: not displaying them completely, or displaying them upon request.

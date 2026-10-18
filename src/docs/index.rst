@@ -30,4 +30,5 @@ Explore Datavzrd's capabilities by checking out an `example report online <https
     configuration
     wms_integration
     spells
+    troubleshooting
     contributing
