@@ -53,7 +53,7 @@ First, create a working directory for your tutorial exercises in some reasonable
 
 In the following, we will always assume that you are in this working directory.
 
-Second, install Datavzrd into an isolated software environment and activate it.
+Second, install Datavzrd.
 We recommend using `Pixi <https://pixi.sh>`_, but `Conda <https://docs.conda.io>`_ works as well.
 
 .. tab-set::
@@ -61,15 +61,14 @@ We recommend using `Pixi <https://pixi.sh>`_, but `Conda <https://docs.conda.io>
     .. tab-item:: Pixi
 
         If you do not have Pixi yet, install it as instructed `here <https://pixi.sh/latest/installation/>`__.
-        Then, create an environment with Datavzrd in your working directory and activate it via:
+        Then, install Datavzrd via:
 
         .. code-block:: bash
 
-            pixi init
-            pixi add datavzrd
-            pixi shell
+            pixi global install datavzrd --expose datavzrd --expose yte
 
-        You can leave the environment via ``exit`` and enter it again later by running ``pixi shell`` in your working directory.
+        This makes the ``datavzrd`` command available everywhere on your system, so there is nothing to activate and you can easily come back to it later.
+        The ``yte`` command is exposed as well, since we will need it in the :doc:`advanced tutorial <advanced_tutorial>`.
 
     .. tab-item:: Conda
 
