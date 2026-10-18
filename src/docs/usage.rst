@@ -14,7 +14,7 @@ Example:
 
 .. code-block:: bash
 
-   $ datavzrd path/to/my-config.yaml --output my-report
+   $ datavzrd path/to/my-config.datavzrd.yaml --output my-report
 
 Command Line Arguments
 ======================
@@ -205,6 +205,7 @@ Schema
 ------
 
 The `schema` subcommand prints the JSON schema of the configuration file to stdout. It enables autocompletion and inline validation in editors that support JSON schema for YAML.
+For configuration files ending with ``.datavzrd.yaml``, editors that use the `SchemaStore <https://www.schemastore.org>`__ catalog (e.g. VSCode with the `YAML extension <https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml>`__) pick up the schema automatically.
 
 .. code-block:: bash
 
