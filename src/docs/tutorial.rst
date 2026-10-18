@@ -44,9 +44,51 @@ While datavzrd is platform independent, it is in general advisable to conduct su
 In case you only have access to Microsoft Windows, note that Windows nowadays offers its own Linux subsystem (`WSL <https://learn.microsoft.com/en-us/windows/wsl/about>`_).
 Check out the docs for installing WSL `here <https://learn.microsoft.com/en-us/windows/wsl/install>`_, enter WSL and proceed below as if you were on a plain Linux system.
 
-First, install Datavzrd as instructed :ref:`here <installation>`.
-Second, create a working directory for your tutorial exercises in some reasonable place of your file system and enter it.
+First, create a working directory for your tutorial exercises in some reasonable place of your file system and enter it, e.g.:
+
+.. code-block:: bash
+
+    mkdir datavzrd-tutorial
+    cd datavzrd-tutorial
+
 In the following, we will always assume that you are in this working directory.
+
+Second, install Datavzrd.
+We recommend using `Pixi <https://pixi.sh>`_, but `Conda <https://docs.conda.io>`_ works as well.
+
+.. tab-set::
+
+    .. tab-item:: Pixi
+
+        If you do not have Pixi yet, install it via:
+
+        .. code-block:: bash
+
+            curl -fsSL https://pixi.sh/install.sh | sh
+
+        This should work for most users. Afterwards, restart your terminal so that the ``pixi`` command is found.
+        If it does not work for you, check out the `Pixi installation guide <https://pixi.sh/latest/installation/>`__.
+        Then, install Datavzrd via:
+
+        .. code-block:: bash
+
+            pixi global install datavzrd
+
+        This makes the ``datavzrd`` command available everywhere on your system, so there is nothing to activate and you can easily come back to it later.
+
+    .. tab-item:: Conda
+
+        If you do not have Conda yet, we recommend installing it via `Miniforge <https://github.com/conda-forge/miniforge>`__.
+        Then, create an environment with Datavzrd and activate it via:
+
+        .. code-block:: bash
+
+            conda create -n datavzrd -c conda-forge datavzrd
+            conda activate datavzrd
+
+        You can leave the environment via ``conda deactivate`` and enter it again later by running ``conda activate datavzrd``.
+
+Other ways of installing Datavzrd are described :ref:`here <installation>`.
 
 Download example data
 .....................

@@ -14,7 +14,23 @@ The focus of this tutorial is on advanced usage, in particular templating your c
 Setup
 =====
 
-YTE_ is installed together with Datavzrd as one of its dependencies, so it should already be available if you installed Datavzrd via Conda or use the GitHub Codespace.
+Depending on how you installed Datavzrd in the basic tutorial, you might first have to install YTE_.
+When running the tutorial via GitHub Codespaces, it is already installed.
+
+.. tab-set::
+
+    .. tab-item:: Pixi
+
+        Install YTE via:
+
+        .. code-block:: bash
+
+            pixi global install yte
+
+    .. tab-item:: Conda
+
+        YTE is installed together with Datavzrd as one of its dependencies, so it is already available in your ``datavzrd`` environment.
+
 You can make sure it is installed by running the following command:
 
 .. code-block:: bash

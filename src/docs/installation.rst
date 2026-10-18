@@ -4,39 +4,64 @@
 Installation Guide
 ******************
 
-Datavzrd can be installed in several ways. We recommend **Conda** as the preferred method due to ease of setup and integration of dependencies. To install **Conda** check their `installation guide <https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html>`__.
+Datavzrd can be installed in several ways. We recommend **Pixi** or **Conda** as the preferred methods due to ease of setup and integration of dependencies.
 
-Conda
-=====
+Pixi and Conda
+==============
 
-To install Datavzrd via Conda, use one of the following commands:
+.. tab-set::
 
-.. code-block:: bash
+    .. tab-item:: Pixi
 
-    conda install -c conda-forge datavzrd
+        To install **Pixi** check their `installation guide <https://pixi.sh/latest/installation/>`__.
+        Then, install Datavzrd via:
 
-or
+        .. code-block:: bash
 
-.. code-block:: bash
+            pixi global install datavzrd
 
-    mamba install -c conda-forge datavzrd
+        This installs Datavzrd along with all its dependencies and makes the ``datavzrd`` command available on your system.
 
-or
+        .. tip::
 
-.. code-block:: bash
+          Datavzrd comes with `YTE <https://github.com/yte-template-engine/yte>`__ for templating configuration files (see the :doc:`advanced tutorial <advanced_tutorial>`).
+          To use the ``yte`` command yourself, install it via:
 
-    micromamba install -c conda-forge datavzrd
+          .. code-block:: bash
 
-This installs Datavzrd along with all its dependencies.
+              pixi global install yte
 
-.. tip::
+    .. tab-item:: Conda
 
-  To isolate Datavzrd in its own environment, you can create and activate a dedicated Conda environment:
+        To install **Conda** check their `installation guide <https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html>`__.
+        Then, install Datavzrd via one of the following commands:
 
-  .. code-block:: bash
-  
-      conda create -n datavzrd -c conda-forge datavzrd
-      conda activate datavzrd
+        .. code-block:: bash
+
+            conda install -c conda-forge datavzrd
+
+        or
+
+        .. code-block:: bash
+
+            mamba install -c conda-forge datavzrd
+
+        or
+
+        .. code-block:: bash
+
+            micromamba install -c conda-forge datavzrd
+
+        This installs Datavzrd along with all its dependencies.
+
+        .. tip::
+
+          To isolate Datavzrd in its own environment, you can create and activate a dedicated Conda environment:
+
+          .. code-block:: bash
+
+              conda create -n datavzrd -c conda-forge datavzrd
+              conda activate datavzrd
 
 
 Cargo
