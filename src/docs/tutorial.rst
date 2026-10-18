@@ -65,10 +65,9 @@ We recommend using `Pixi <https://pixi.sh>`_, but `Conda <https://docs.conda.io>
 
         .. code-block:: bash
 
-            pixi global install datavzrd --expose datavzrd --expose yte
+            pixi global install datavzrd
 
         This makes the ``datavzrd`` command available everywhere on your system, so there is nothing to activate and you can easily come back to it later.
-        The ``yte`` command is exposed as well, since we will need it in the :doc:`advanced tutorial <advanced_tutorial>`.
 
     .. tab-item:: Conda
 

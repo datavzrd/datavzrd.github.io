@@ -25,11 +25,11 @@ Pixi and Conda
         .. tip::
 
           Datavzrd comes with `YTE <https://github.com/yte-template-engine/yte>`__ for templating configuration files (see the :doc:`advanced tutorial <advanced_tutorial>`).
-          To make the ``yte`` command available as well, install Datavzrd via:
+          To use the ``yte`` command yourself, install it via:
 
           .. code-block:: bash
 
-              pixi global install datavzrd --expose datavzrd --expose yte
+              pixi global install yte
 
     .. tab-item:: Conda
 
