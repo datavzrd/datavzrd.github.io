@@ -1,4 +1,5 @@
 .. _YAML: https://yaml.org
+.. _Vega-Lite: https://vega.github.io/vega-lite
 
 ***************
 Troubleshooting
@@ -194,6 +195,27 @@ This error occurs if a file is saved in another encoding, e.g. when the column n
 In Excel, export your table via "Save As" and choose "CSV UTF-8 (Comma delimited)" as file type.
 Depending on the language settings of your system, Excel might still separate the columns by semicolons (see :ref:`Column cannot be found <column cannot be found>`).
 
+A line is not valid UTF-8
+-------------------------
+
+.. code-block:: text
+
+    Error: Line 3 of data/samples.csv is not valid UTF-8, please save the file with UTF-8 encoding
+
+Like the error above, this means that the file is not saved as UTF-8, but here only the values of the given line contain special characters like umlauts.
+Export the table again as described in :ref:`The file appears to be binary <the file appears to be binary>`.
+
+A line has a different number of fields
+---------------------------------------
+
+.. code-block:: text
+
+    Error: Line 3 of data/samples.csv has a different number of fields (3) than the header (2)
+
+Every row of a table needs the same number of fields as its header.
+Typical causes are a missing or additional separator in the given line, or values that contain the separator without being quoted.
+For example, in a comma-separated file the value ``Drama, Romance`` has to be written as ``"Drama, Romance"``.
+
 No numeric values for a quantitative scale
 ------------------------------------------
 
@@ -222,3 +244,30 @@ If a Javascript function in your configuration (e.g. in ``custom`` or ``add-colu
 The first line names the column whose function failed, followed by the error message of the browser.
 In this example, the function accessed a column that does not exist (e.g. a misspelled ``row['imdbRatin']``), which yields ``undefined``.
 Fix the function in your configuration file and run Datavzrd again.
+
+Error when rendering custom plot
+--------------------------------
+
+If a custom plot cannot be rendered, the report shows a dialog like this:
+
+.. code-block:: text
+
+    Error when rendering custom plot for column imdbRating (please fix the plot specification in the datavzrd config):
+
+    TypeError: Cannot read properties of undefined (reading 'filled')
+
+The Vega-Lite_ specification given via ``custom-plot`` for this column is invalid, e.g. because of an unknown mark type, and the second part of the dialog shows the error reported by Vega-Lite_.
+Plot views defined via ``render-plot`` show a similar dialog when their specification is invalid.
+
+Custom functions could not be loaded
+------------------------------------
+
+When rendering the report, Datavzrd prints a warning like this:
+
+.. code-block:: text
+
+    [WARN] The custom function of column "Title" in view "movies" contains a syntax error (ExpectedSyntax("expression operand") [token=Some(Semicolon)] around ```;```), so none of the custom functions of this view will work in the report.
+
+When opening the affected view, the report shows a dialog saying that its custom functions could not be loaded.
+A syntax error, e.g. a missing bracket, in one Javascript function prevents all custom functions of the view from being loaded.
+The warning names the column and shows the part of the function around the error, so fix the function of this column in your configuration file and run Datavzrd again.
