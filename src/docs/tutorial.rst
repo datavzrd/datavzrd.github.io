@@ -60,7 +60,14 @@ We recommend using `Pixi <https://pixi.sh>`_, but `Conda <https://docs.conda.io>
 
     .. tab-item:: Pixi
 
-        If you do not have Pixi yet, install it as instructed `here <https://pixi.sh/latest/installation/>`__.
+        If you do not have Pixi yet, install it via:
+
+        .. code-block:: bash
+
+            curl -fsSL https://pixi.sh/install.sh | sh
+
+        This should work for most users. Afterwards, restart your terminal so that the ``pixi`` command is found.
+        If it does not work for you, check out the `Pixi installation guide <https://pixi.sh/latest/installation/>`__.
         Then, install Datavzrd via:
 
         .. code-block:: bash
