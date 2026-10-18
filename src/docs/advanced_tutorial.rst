@@ -14,7 +14,7 @@ The focus of this tutorial is on advanced usage, in particular templating your c
 Setup
 =====
 
-YTE_ is installed together with Datavzrd, so it should already be available.
+YTE_ is installed together with Datavzrd as one of its dependencies, so it should already be available if you installed Datavzrd via Conda or use the GitHub Codespace.
 You can make sure it is installed by running the following command:
 
 .. code-block:: bash
