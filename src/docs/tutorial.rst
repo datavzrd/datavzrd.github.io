@@ -499,8 +499,8 @@ Execute Datavzrd again with this updated configuration file and see how the link
 
 .. admonition:: Exercise
 
-    1. Add a link to the oscars table that links the ``name`` column to the corresponding IMDb search (use the URL pattern ``https://www.imdb.com/find/?q={value}``) page of the respective award.
-    2. Modify the link to Wikipedia in the movies table such that it opens the page in a new tab. For this purpose, Datavzrd offers the possibility to add an entry ``new-window: true`` next to the ``url:`` entry of the ``link-to-url`` structure.
+    1. Add a link to the oscars table that links the ``name`` column to the corresponding IMDb search page (use the URL pattern ``https://www.imdb.com/find/?q={value}``) of the respective actress or actor.
+    2. Add a third link to the ``Title`` column of the movies table that leads directly to the IMDb page of the movie. The IMDb page of a movie has the URL pattern ``https://www.imdb.com/title/<id>``, where the id can be found in the ``imdbID`` column of the movies table.
 
 Step 7: Add a tick plot
 -----------------------
@@ -518,7 +518,7 @@ We will now add a tick plot for the ``age`` column of the oscars table, by addin
 The ``scale`` of the tick plot can be chosen from the available `Vega-Lite continuous scales <https://vega.github.io/vega-lite/docs/scale.html#continuous-scales>`_.
 In this case, we choose a linear scale, meaning that the distance between any two ticks in the plots is proportional to the distance between their underlying values.
 
-The updated configuration looks like this:
+The updated configuration, including the solutions of the previous exercises, looks like this:
 
 .. code-block:: yaml
 
@@ -554,6 +554,8 @@ The updated configuration looks like this:
                   url: https://en.wikipedia.org/wiki/{value}
                 Letterboxd:
                   url: https://letterboxd.com/search/{value}
+                IMDb:
+                  url: https://www.imdb.com/title/{imdbID}
             Rated:
               plot:
                 heatmap:
@@ -571,6 +573,10 @@ The updated configuration looks like this:
                 heatmap:
                   scale: ordinal
                   color-scheme: category20
+            name:
+              link-to-url:
+                IMDb:
+                  url: https://www.imdb.com/find/?q={value}
             age:
               plot:
                 ticks:
@@ -631,7 +637,7 @@ For this purpose, we add entries for the three columns to the ``columns`` sectio
 For the former two, ``display-mode: hidden`` is used, which means that the columns are not displayed at all.
 For the latter, ``display-mode: detail`` is used, which means that the value appears with all others of the same display mode when a ``+`` button at the beginning of the row is clicked.
 
-The updated configuration looks like this:
+The updated configuration, including the solution of the previous exercise, looks like this:
 
 .. code-block:: yaml
 
@@ -667,11 +673,17 @@ The updated configuration looks like this:
                   url: https://en.wikipedia.org/wiki/{value}
                 Letterboxd:
                   url: https://letterboxd.com/search/{value}
+                IMDb:
+                  url: https://www.imdb.com/title/{imdbID}
             Rated:
               plot:
                 heatmap:
                   scale: ordinal
                   color-scheme: category20
+            imdbRating:
+              plot:
+                bars:
+                  scale: linear
 
       oscars:
         dataset: oscars
@@ -684,6 +696,10 @@ The updated configuration looks like this:
                 heatmap:
                   scale: ordinal
                   color-scheme: category20
+            name:
+              link-to-url:
+                IMDb:
+                  url: https://www.imdb.com/find/?q={value}
             age:
               plot:
                 ticks:
@@ -790,11 +806,17 @@ The updated configuration looks like this:
                   url: https://en.wikipedia.org/wiki/{value}
                 Letterboxd:
                   url: https://letterboxd.com/search/{value}
+                IMDb:
+                  url: https://www.imdb.com/title/{imdbID}
             Rated:
               plot:
                 heatmap:
                   scale: ordinal
                   color-scheme: category20
+            imdbRating:
+              plot:
+                bars:
+                  scale: linear
 
       oscars:
         dataset: oscars
@@ -807,6 +829,10 @@ The updated configuration looks like this:
                 heatmap:
                   scale: ordinal
                   color-scheme: category20
+            name:
+              link-to-url:
+                IMDb:
+                  url: https://www.imdb.com/find/?q={value}
             age:
               plot:
                 ticks:
@@ -921,11 +947,17 @@ The updated configuration file looks like this:
                   url: https://en.wikipedia.org/wiki/{value}
                 Letterboxd:
                   url: https://letterboxd.com/search/{value}
+                IMDb:
+                  url: https://www.imdb.com/title/{imdbID}
             Rated:
               plot:
                 heatmap:
                   scale: ordinal
                   color-scheme: category20
+            imdbRating:
+              plot:
+                bars:
+                  scale: linear
 
       oscars:
         dataset: oscars
@@ -938,6 +970,10 @@ The updated configuration file looks like this:
                 heatmap:
                   scale: ordinal
                   color-scheme: category20
+            name:
+              link-to-url:
+                IMDb:
+                  url: https://www.imdb.com/find/?q={value}
             age:
               plot:
                 ticks:
