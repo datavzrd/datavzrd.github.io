@@ -124,6 +124,8 @@ Next, we execute Datavzrd with this configuration file in order to generate our 
 
     datavzrd config.yaml --output example-report
 
+Running this command a second time will fail because ``example-report`` already exists, but we will see how to deal with this in the next step.
+
 The resulting report has the following structure:
 
 .. code-block:: bash
@@ -279,11 +281,12 @@ The full configuration file now looks like this:
                   scale: ordinal
                   color-scheme: category20
 
-Execute Datavzrd again with this updated configuration file:
+Execute Datavzrd again with this updated configuration file.
+This time we use ``-x``, which is the short form of ``--overwrite-output`` and does exactly the same:
 
 .. code-block:: bash
 
-    datavzrd config.yaml --output example-report --overwrite-output
+    datavzrd config.yaml --output example-report -x
 
 Open the main file, called ``index.html``, in your browser and check out the added oscars table.
 
