@@ -104,7 +104,9 @@ Create a subdirectory ``data`` and download the Oscar winners dataset via the fo
 The tutorial (and using Datavzrd in general) requires you to use a text editor for editing Datavzrd configuration files.
 If you are an experienced developer and know all the formats and terms that are used here, you can of course use any editor you like and will have no issues.
 If you are new to editing text files and using command line tools like Datavzrd, we recommend `Visual Studio Code (VSCode) <https://code.visualstudio.com>`_.
-VSCode offers plugins which will help to write and edit such configuration files, in particular we recommend installing `indent-rainbow <https://marketplace.visualstudio.com/items?itemName=oderwat.indent-rainbow>`_, which simplifies getting the indentation in YAML_ files right.
+VSCode offers plugins which will help to write and edit such configuration files, in particular we recommend installing `YAML <https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml>`__ and `indent-rainbow <https://marketplace.visualstudio.com/items?itemName=oderwat.indent-rainbow>`_.
+The YAML plugin checks Datavzrd configuration files for mistakes while you type and offers autocompletion, as long as their file name ends with ``.datavzrd.yaml``.
+indent-rainbow simplifies getting the indentation in YAML_ files right.
 
 Basic usage
 ===========
@@ -116,9 +118,9 @@ The basic structure of the datavzrd command is
 
 .. code-block:: bash
 
-    datavzrd config.yaml --output example-report
+    datavzrd config.datavzrd.yaml --output example-report
 
-The first command line parameter (here ``config.yaml``) is a configuration file that specifies the data to be visualized and the visualizations to be used.
+The first command line parameter (here ``config.datavzrd.yaml``) is a configuration file that specifies the data to be visualized and the visualizations to be used.
 The second parameter (here ``--output example-report``) specifies the output directory for the generated report.
 The output directory will contain the generated report as a main HTML file and a subdirectory with all required resources for displaying the report.
 
@@ -154,7 +156,8 @@ We define a minimal configuration file as follows:
                   scale: ordinal
                   color-scheme: category20
 
-Save this configuration file as ``config.yaml`` in your working directory alongside - **not** inside - the data/ folder.
+Save this configuration file as ``config.datavzrd.yaml`` in your working directory alongside - **not** inside - the data/ folder.
+The ending ``.datavzrd.yaml`` lets editors like VSCode recognize the file as a Datavzrd configuration (see above).
 The file specifies that the table to be visualized is stored in the file ``data/movies.csv``.
 Paths in the configuration file are interpreted relative to the directory from which you run Datavzrd.
 There shall be a single view for this table, which renders the table while coloring the ``Rated`` column using a heatmap visualization.
@@ -164,7 +167,7 @@ Next, we execute Datavzrd with this configuration file in order to generate our 
 
 .. code-block:: bash
 
-    datavzrd config.yaml --output example-report
+    datavzrd config.datavzrd.yaml --output example-report
 
 Running this command a second time will fail because ``example-report`` already exists, but we will see how to deal with this in the next step.
 
@@ -215,7 +218,7 @@ Step 2: Add a report name and a description
 
 Reports become more transparent and understandable if they are self-descriptive.
 For this purpose, Datavzrd offers the ability to provide a report-wide name (annotating the global topic of the report) and a description for each view.
-We now extend our configuration from before (``config.yaml``) by defining a report name via adding the following to the top level of the configuration:
+We now extend our configuration from before (``config.datavzrd.yaml``) by defining a report name via adding the following to the top level of the configuration:
 
 .. code-block:: yaml
 
@@ -259,7 +262,7 @@ Execute Datavzrd again with this updated configuration file:
 
 .. code-block:: bash
 
-    datavzrd config.yaml --output example-report --overwrite-output
+    datavzrd config.datavzrd.yaml --output example-report --overwrite-output
 
 .. note::
 
@@ -328,7 +331,7 @@ This time we use ``-x``, which is the short form of ``--overwrite-output`` and d
 
 .. code-block:: bash
 
-    datavzrd config.yaml --output example-report -x
+    datavzrd config.datavzrd.yaml --output example-report -x
 
 Open the main file, called ``index.html``, in your browser and check out the added oscars table.
 
@@ -459,7 +462,7 @@ Execute Datavzrd again with this updated configuration file:
 
 .. code-block:: bash
 
-    datavzrd config.yaml --output example-report --overwrite-output
+    datavzrd config.datavzrd.yaml --output example-report --overwrite-output
 
 Open the main file, called ``index.html``, in your browser and check out the added link buttons that allow you to jump between corresponding entries of the tables.
 

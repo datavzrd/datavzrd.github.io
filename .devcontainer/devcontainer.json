@@ -6,6 +6,7 @@
   "customizations": {
     "vscode": {
       "extensions": [
+        "redhat.vscode-yaml",
         "oderwat.indent-rainbow",
         "mechatroner.rainbow-csv"
       ]

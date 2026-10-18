@@ -58,11 +58,12 @@ Since our movies dataset contain more than 180 movies, adding one table per movi
 To avoid this, we will use the YTE_ template engine to generate the configuration file dynamically.
 YTE_ allows us to use Python_ expressions within a YAML_ file while still maintaining a valid YAML syntax.
 As our configuration now becomes a template, we should rename it to clearly indicate its purpose.
+Since the template itself is not a valid Datavzrd configuration anymore, we also drop the ``.datavzrd.yaml`` ending, so that editors do not check it against the Datavzrd configuration schema.
 We can do that using our IDE with right-clicking on the file and renaming it to ``config.yte.yaml`` or running the following command:
 
 .. code-block:: bash
 
-    mv config.yaml config.yte.yaml
+    mv config.datavzrd.yaml config.yte.yaml
 
 
 Next up we can add the new tables to the report. We will do that by adding the following section to our config file ``config.yte.yaml``:
@@ -104,16 +105,16 @@ To render the template we simply have to call YTE_ via the command line:
 
 .. code-block:: bash
 
-    yte < config.yte.yaml > config.yaml
+    yte < config.yte.yaml > config.datavzrd.yaml
 
 
-Now look into the generated `config.yaml` file.
+Now look into the generated ``config.datavzrd.yaml`` file.
 We can see that the table names and paths have been generated dynamically for each movie.
 The configuration is now ready to be used with Datavzrd to generate the report:
 
 .. code-block:: bash
 
-    datavzrd config.yaml --output example-report --overwrite-output
+    datavzrd config.datavzrd.yaml --output example-report --overwrite-output
 
 
 Have a look at the generated report to see how very few lines added that many datasets and views to the report.
