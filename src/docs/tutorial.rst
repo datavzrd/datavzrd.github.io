@@ -45,7 +45,7 @@ In case you only have access to Microsoft Windows, note that Windows nowadays of
 Check out the docs for installing WSL `here <https://learn.microsoft.com/en-us/windows/wsl/install>`_, enter WSL and proceed below as if you were on a plain Linux system.
 
 First, install Datavzrd as instructed :ref:`here <installation>`.
-Second, create a working directory for your tutorial excercises in some reasonable place of your file system and enter it.
+Second, create a working directory for your tutorial exercises in some reasonable place of your file system and enter it.
 In the following, we will always assume that you are in this working directory.
 
 Download example data
@@ -61,7 +61,7 @@ Create a subdirectory ``data`` and download the Oscar winners dataset via the fo
 
 The tutorial (and using Datavzrd in general) requires you to use a text editor for editing Datavzrd configuration files.
 If you are an experienced developer and know all the formats and terms that are used here, you can of course use any editor you like and will have no issues.
-If you are new to editing text files and using command line tools like Datavzrd, we recomment `Visual Studio Code (VSCode) <https://code.visualstudio.com>`_.
+If you are new to editing text files and using command line tools like Datavzrd, we recommend `Visual Studio Code (VSCode) <https://code.visualstudio.com>`_.
 VSCode offers plugins which will help to write and edit such configuration files, in particular we recommend installing `indent-rainbow <https://marketplace.visualstudio.com/items?itemName=oderwat.indent-rainbow>`_, which simplifies getting the indentation in YAML_ files right.
 
 Basic usage
@@ -165,7 +165,7 @@ Take your time to explore the interactive capabilities of this very minimal vers
 
 .. note::
 
-    The report is self-contained and can be shared with others by simply compressing the output directory into a zip file and e.g. sending it around to sharing it via cloud storage.
+    The report is self-contained and can be shared with others by simply compressing the output directory into a zip file and e.g. sending it around or sharing it via cloud storage.
     The report can be opened in any modern browser without requiring any additional software or server infrastructure.
 
 Step 2: Add a report name and a description
@@ -188,7 +188,7 @@ Description can make use of Markdown_ syntax for formatting text.
       Movies that won an **Oscar**.
 
 Note the leading ``|`` in the description entry, which is a YAML_ operator that allows for multi-line text below (one indentation deeper).
-Also note the ``**`` around the word "Oscar", which Markdown_ syntax for bold text.
+Also note the ``**`` around the word "Oscar", which is Markdown_ syntax for bold text.
 
 The full configuration file now looks like this:
 
@@ -293,8 +293,8 @@ Open the main file, called ``index.html``, in your browser and check out the add
 Step 4: Specifying a default view
 ---------------------------------
 
-Once a report has two or more views, it is important to inform Datavzrd about the default view that shall be displayed when the report is opened.
-We set the default view by specifying
+Once a report has two or more views, Datavzrd shows an overview of all views when the report is opened, as you might have noticed in the previous step.
+Instead, we can tell Datavzrd which view shall be displayed directly when the report is opened by specifying
 
 .. code-block:: yaml
 
@@ -598,7 +598,7 @@ Step 8: Adding derived columns and hiding columns
 Sometimes, tabular data might contain information that should rather be visualized in a different way.
 In the oscars table, there are columns ``birth_d``, ``birth_mo``, and ``birth_y``, denoting the birthdate of the actress or actor.
 We will now add a derived column ``birth_season`` that displays the birth date as an icon that represents the season.
-For such tasks, Datavzrd offers the possibility do use custom functions (written in Javascript_).
+For such tasks, Datavzrd offers the possibility to use custom functions (written in Javascript_).
 We add a new section ``add-columns`` with the following content to the ``render-table`` section of the oscars table view
 (note: you can find the suggested or other emojis (they are actually just special text characters) in `Emojipedia <https://emojipedia.org>`__):
 
@@ -1026,24 +1026,25 @@ The updated configuration file looks like this:
                     return '❄️';
                   }
                 }
+
       year_vs_age:
-          dataset: oscars
-          desc: |
-            Relationship between year of the Oscar award and the age of the actress/actor.
-          render-plot:
-            spec: |
-              {
-                "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-                "mark": {"type": "circle", "tooltip": true},
-                "encoding": {
-                  "x": {"field": "oscar_yr", "type": "temporal"},
-                  "y": {"field": "age", "type": "quantitative"},
-                  "color": {"field": "award", "type": "nominal"}
-                }
+        dataset: oscars
+        desc: |
+          Relationship between year of the Oscar award and the age of the actress/actor.
+        render-plot:
+          spec: |
+            {
+              "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+              "mark": {"type": "circle", "tooltip": true},
+              "encoding": {
+                "x": {"field": "oscar_yr", "type": "temporal"},
+                "y": {"field": "age", "type": "quantitative"},
+                "color": {"field": "award", "type": "nominal"}
               }
+            }
 
 As always run datavzrd on this configuration to obtain an updated report.
-Investigate the resulting new view, and be suprised (or not) about the systematic age difference between actors and actresses and how that reflects some of the issues we have in the society.
+Investigate the resulting new view, and be surprised (or not) about the systematic age difference between actors and actresses and how that reflects some of the issues we have in the society.
 
 With this, we end the first part of the Datavzrd tutorial.
 You can continue with the second part to learn about more advanced features and options including templating configuration files for hierarchical data in the :doc:`second part <advanced_tutorial>`.

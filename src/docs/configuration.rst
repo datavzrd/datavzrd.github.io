@@ -166,7 +166,7 @@ views
      - Overwrites the global settings for :ref:`max-in-memory-rows`
      -
    * - :ref:`spell`
-     - Uses a datavzrd spell to configure a view. Any other defitions for the view will be overwritten by the spell.
+     - Uses a datavzrd spell to configure a view. Any other definitions for the view will be overwritten by the spell.
      - 
 
 Example:
@@ -212,7 +212,7 @@ Example:
 columns
 =======
 
-``columns`` contains individual configurations for each column that can either be adressed by its name defined in the header of the CSV/TSV file, its 0-based index (e.g. ``index(5)`` for the 6th column), a range expression (e.g. ``range(5, 10)`` for the 5th column to 9th column) or a regular expression (e.g. ``"regex('prob:.+')"`` for matching all columns starting with ``prob:``\ ):
+``columns`` contains individual configurations for each column that can either be addressed by its name defined in the header of the CSV/TSV file, its 0-based index (e.g. ``index(5)`` for the 6th column), a range expression (e.g. ``range(5, 10)`` for the 5th column to 9th column) or a regular expression (e.g. ``"regex('prob:.+')"`` for matching all columns starting with ``prob:``\ ):
 
 .. list-table::
    :header-rows: 1
@@ -266,7 +266,7 @@ columns
      - false
      - true, false
    * - :ref:`spell`
-     - Uses a datavzrd spell to configure the column. Any other defitions for the column will be overwritten by the spell.
+     - Uses a datavzrd spell to configure the column. Any other definitions for the column will be overwritten by the spell.
      - 
      - 
 
@@ -409,7 +409,7 @@ Example:
 render-img
 ===========
 
-``render-img`` allows confiuring a datvazrd view displaying a simple ``png`` or ``svg`` image.
+``render-img`` allows configuring a datavzrd view displaying a simple ``png`` or ``svg`` image.
 
 .. list-table::
    :header-rows: 1
@@ -816,7 +816,7 @@ color
    * - domain
      - Defines the domain of the color scale of the tick or bar plot. If not present datavzrd will automatically use the minimum and maximum values for the domain
    * - domain-mid
-     - Defines a mid point of the domain. The argument is passed on straight to the `vega-lite domain defintion <https://vega.github.io/vega-lite/docs/scale.html#domain>`_
+     - Defines a mid point of the domain. The argument is passed on straight to the `vega-lite domain definition <https://vega.github.io/vega-lite/docs/scale.html#domain>`_
    * - range
      - Defines the color range of the tick or bar plot as a list
 
@@ -841,7 +841,7 @@ spell
    * - keyword
      - explanation
    * - url
-     - Specifies the spell to use. This can be any local file path, specific versioned URLs (e.g. ``v1.0.0/stats/p-value``), or any remote URL like ``https://github.com/datavzrd/datavzrd-spells/raw/main/stats/p-value/spell.yaml``
+     - Specifies the spell to use. This can be any local file path, specific versioned URLs (e.g. ``v1.6.0/stats/p-value``), or any remote URL like ``https://github.com/datavzrd/datavzrd-spells/raw/main/stats/p-value/spell.yaml``
    * - with
      - Defines the parameters passed to the spell.
 
@@ -853,12 +853,12 @@ Example:
       columns:
         p-value:
           spell:
-            url: "v1.0.0/stats/p-value"
+            url: "v1.6.0/stats/p-value"
             with:
               significance_threshold: 0.05
 
 legend
-====
+======
 
 ``legend`` defines the attributes of a heatmap or pills legend.
 
