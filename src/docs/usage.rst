@@ -29,7 +29,7 @@ Command Line Arguments
      - Required
      - Default Value
    * - ``--debug``
-     - Activates debug mode. Javascript files are not minified.
+     - Activates debug mode. Javascript files are not minified and table data is human readable.
      - Flag
      - No
      - N/A
@@ -59,7 +59,7 @@ Command Line Arguments
      - No
      - N/A
    * - ``-o``, ``--output``
-     - Output file.
+     - Output directory of the report.
      - Option
      - Yes
      - N/A
@@ -86,7 +86,7 @@ The `publish` subcommand allows you to publish a generated report to GitHub Page
 
 .. code-block:: bash
 
-   $ datavzrd publish --repo-name <repo_name> --report-path <report_path> [--org <organization>]
+   $ datavzrd publish --repo-name <repo_name> --report-path <report_path> [--org <organization>] [--entry <entry>]
 
 Command Line Arguments for `publish`:
 
@@ -99,18 +99,23 @@ Command Line Arguments for `publish`:
      - Type
      - Required
      - Default Value
-   * - ``--repo-name``
+   * - ``-n``, ``--repo-name``
      - GitHub repository name to publish to.
      - Option
      - Yes
      - N/A
-   * - ``--report-path``
+   * - ``-r``, ``--report-path``
      - Path to the report directory.
      - Option
      - Yes
      - N/A
    * - ``--org``
      - Optional: Specify the organization for the repository.
+     - Option
+     - No
+     - N/A
+   * - ``--entry``
+     - Optional: Specify the entry point for the report.
      - Option
      - No
      - N/A
@@ -160,7 +165,7 @@ Command Line Arguments for `suggest`:
      - Option
      - Yes
      - N/A
-   * - ``--name``
+   * - ``-n``, ``--name``
      - Name of the report.
      - Option
      - No
