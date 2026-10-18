@@ -269,5 +269,5 @@ When rendering the report, Datavzrd prints a warning like this:
     [WARN] The custom function of column "Title" in view "movies" contains a syntax error (ExpectedSyntax("expression operand") [token=Some(Semicolon)] around ```;```), so none of the custom functions of this view will work in the report.
 
 When opening the affected view, the report shows a dialog saying that its custom functions could not be loaded.
-A syntax error, e.g. a missing bracket, in one Javascript function prevents all custom functions of the view from being loaded.
+A syntax error, e.g. a missing parenthesis or an unclosed quote, in one Javascript function prevents all custom functions of the view from being loaded.
 The warning names the column and shows the part of the function around the error, so fix the function of this column in your configuration file and run Datavzrd again.
