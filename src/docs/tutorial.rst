@@ -500,7 +500,7 @@ Execute Datavzrd again with this updated configuration file and see how the link
 .. admonition:: Exercise
 
     1. Add a link to the oscars table that links the ``name`` column to the corresponding IMDb search page (use the URL pattern ``https://www.imdb.com/find/?q={value}``) of the respective actress or actor.
-    2. By default, links open in a new tab. Modify the link to Wikipedia in the movies table such that it opens the page in the same tab instead. For this purpose, Datavzrd offers the possibility to add an entry ``new-window: false`` next to the ``url:`` entry of the ``link-to-url`` structure.
+    2. Add a third link to the ``Title`` column of the movies table that leads directly to the IMDb page of the movie. The IMDb page of a movie has the URL pattern ``https://www.imdb.com/title/<id>``, where the id can be found in the ``imdbID`` column of the movies table.
 
 Step 7: Add a tick plot
 -----------------------
@@ -552,9 +552,10 @@ The updated configuration, including the solutions of the previous exercises, lo
               link-to-url:
                 Wikipedia:
                   url: https://en.wikipedia.org/wiki/{value}
-                  new-window: false
                 Letterboxd:
                   url: https://letterboxd.com/search/{value}
+                IMDb:
+                  url: https://www.imdb.com/title/{imdbID}
             Rated:
               plot:
                 heatmap:
@@ -670,9 +671,10 @@ The updated configuration, including the solution of the previous exercise, look
               link-to-url:
                 Wikipedia:
                   url: https://en.wikipedia.org/wiki/{value}
-                  new-window: false
                 Letterboxd:
                   url: https://letterboxd.com/search/{value}
+                IMDb:
+                  url: https://www.imdb.com/title/{imdbID}
             Rated:
               plot:
                 heatmap:
@@ -802,9 +804,10 @@ The updated configuration looks like this:
               link-to-url:
                 Wikipedia:
                   url: https://en.wikipedia.org/wiki/{value}
-                  new-window: false
                 Letterboxd:
                   url: https://letterboxd.com/search/{value}
+                IMDb:
+                  url: https://www.imdb.com/title/{imdbID}
             Rated:
               plot:
                 heatmap:
@@ -942,9 +945,10 @@ The updated configuration file looks like this:
               link-to-url:
                 Wikipedia:
                   url: https://en.wikipedia.org/wiki/{value}
-                  new-window: false
                 Letterboxd:
                   url: https://letterboxd.com/search/{value}
+                IMDb:
+                  url: https://www.imdb.com/title/{imdbID}
             Rated:
               plot:
                 heatmap:
