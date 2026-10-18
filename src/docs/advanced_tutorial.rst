@@ -241,6 +241,31 @@ For this example we will use the latter:
 
 After adding the spell to your YTE_ template, rerender the template and the reports afterwards and verify that the boolean spell is working as expected.
 
+Step 6: Using your own data
+---------------------------
+
+Now that you know how to configure Datavzrd reports, it is time to try it with your own data.
+Instead of starting with an empty configuration file, you can let Datavzrd suggest one based on your tables via its ``suggest`` subcommand.
+It takes the path of each table via ``-f`` and its separator via ``-s``, and prints the suggested configuration to the terminal, which we redirect into a new configuration file:
+
+.. code-block:: bash
+
+    datavzrd suggest -f path/to/my-table.csv -s , > my-report.datavzrd.yaml
+
+For tab-separated files, use ``-s $'\t'`` as separator.
+Multiple tables can be passed by repeating both options, e.g. ``-f table1.csv -s , -f table2.tsv -s $'\t'``.
+If you do not have a table at hand, you can also try it with ``data/movies.csv``.
+
+The suggested configuration can be rendered right away:
+
+.. code-block:: bash
+
+    datavzrd my-report.datavzrd.yaml --output my-report
+
+Note that the suggestion is only a starting point.
+Open it in your editor and refine it with what you have learned in this tutorial, e.g. by adding descriptions, links to external resources, plots or spells.
+Further options of the ``suggest`` subcommand, like drafting the configuration with a large language model, are described in the :ref:`usage section <suggest>`.
+
 This concludes the advanced tutorial.
 For more information on how to use YTE_ templates, please refer to its `documentation <https://yte-template-engine.github.io/>`__.
 To see what other spells are available, visit the `spells documentation <https://datavzrd.github.io/docs/spells.html>`__.
