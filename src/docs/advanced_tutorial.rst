@@ -14,13 +14,7 @@ The focus of this tutorial is on advanced usage, in particular templating your c
 Setup
 =====
 
-When running the tutorial via GitHub Codespaces YTE_ should already be installed.
-If not we can do this by running the following command:
-
-.. code-block:: bash
-
-    conda install -c conda-forge yte
-
+YTE_ is installed together with Datavzrd as one of its dependencies, so it should already be available if you installed Datavzrd via Conda or use the GitHub Codespace.
 You can make sure it is installed by running the following command:
 
 .. code-block:: bash
@@ -157,12 +151,12 @@ Since each movie has its own detailed view about the involved companies it makes
             view: "{value}"
 
 
-After re-runnning YTE_ and Datvazrd open the movies view in the report and use the linkout in the most right column to jump to the corresponding company view for a movie of your choice.
+After re-running YTE_ and Datavzrd, open the movies view in the report and use the linkout in the most right column to jump to the corresponding company view for a movie of your choice.
 
 Step 4: Hiding the company view from the main menu
 --------------------------------------------------
 
-If you havent already, have a look into the view menu of the report and see how our company views take up a lot of space in the menu. We can actually hide them by adding a ``hidden`` keyword to the view definition:
+If you haven't already, have a look into the view menu of the report and see how our company views take up a lot of space in the menu. We can actually hide them by adding a ``hidden`` keyword to the view definition:
 
 .. code-block:: yaml
 
@@ -214,7 +208,7 @@ For this example we will use the latter:
             columns:
               is_major_studio:
                 spell:
-                  url: v1.4.1/logic/boolean
+                  url: v1.6.0/logic/boolean
                   with:
                     true_value: "True"
                     false_value: "False"

@@ -69,15 +69,15 @@ To build Datavzrd from source, first clone the repository:
     git clone https://github.com/datavzrd/datavzrd
     cd datavzrd
 
-Ensure all prequisites listed in the above Cargo section are installed an then build via:
+Ensure all prerequisites listed in the above Cargo section are installed and then build via:
 
 .. code-block:: bash
 
     cargo build
 
-This will compile Datavzrd. To run it with the alredy included example material in the repository run:
+This will compile Datavzrd. To run it with the already included example material in the repository run:
 
 .. code-block:: bash
 
-    cargo run .examples/example.datavzrd.yaml -o report
+    cargo run -- .examples/example.datavzrd.yaml -o report
 
