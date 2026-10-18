@@ -206,6 +206,7 @@ Open the main file, called ``index.html``, in your browser.
 The report contains a rendered version of the ``data/movies.csv`` table.
 The ``Rated`` column is colored according to the heatmap configuration.
 The report is interactive, meaning that you can, by clicking on corresponding icons on the column headers, sort the table, filter it, hide columns and show summary statistics.
+You can also reorder the columns by dragging their headers.
 Also note the so-called "hamburger"-menu at the top right (the button with the three horizontal lines), which offers various view options.
 Take your time to explore the interactive capabilities of this very minimal version of the report.
 
@@ -635,8 +636,11 @@ Execute Datavzrd again with this updated configuration file and see how the tick
 
 .. admonition:: Exercise
 
-    Analogously to tick plots, Datavzrd offers bar plots for numerical values.
-    Add a bar plot for the ``imdbRating`` column of the movies table (the syntax is the same, just use ``bars`` instead of ``ticks``).
+    1. Analogously to tick plots, Datavzrd offers bar plots for numerical values.
+       Add a bar plot for the ``imdbRating`` column of the movies table (the syntax is the same, just use ``bars`` instead of ``ticks``).
+    2. The ``Genre`` column of the movies table contains multiple genres per movie, separated by commas.
+       Datavzrd can display such values as colored :ref:`pills`.
+       Add a ``pills`` plot for the ``Genre`` column that uses the same color scheme as our heatmaps, together with a :ref:`legend` titled ``Genre``.
 
 Step 8: Adding derived columns and hiding columns
 -------------------------------------------------
@@ -687,7 +691,7 @@ For this purpose, we add entries for the three columns to the ``columns`` sectio
 For the former two, ``display-mode: hidden`` is used, which means that the columns are not displayed at all.
 For the latter, ``display-mode: detail`` is used, which means that the value appears with all others of the same display mode when a ``+`` button at the beginning of the row is clicked.
 
-The updated configuration, including the solution of the previous exercise, looks like this:
+The updated configuration, including the solutions of the previous exercises, looks like this:
 
 .. code-block:: yaml
 
@@ -734,6 +738,12 @@ The updated configuration, including the solution of the previous exercise, look
               plot:
                 bars:
                   scale: linear
+            Genre:
+              plot:
+                pills:
+                  color-scheme: category20
+                  legend:
+                    title: Genre
 
       oscars:
         dataset: oscars
@@ -867,6 +877,12 @@ The updated configuration looks like this:
               plot:
                 bars:
                   scale: linear
+            Genre:
+              plot:
+                pills:
+                  color-scheme: category20
+                  legend:
+                    title: Genre
 
       oscars:
         dataset: oscars
@@ -1008,6 +1024,12 @@ The updated configuration file looks like this:
               plot:
                 bars:
                   scale: linear
+            Genre:
+              plot:
+                pills:
+                  color-scheme: category20
+                  legend:
+                    title: Genre
 
       oscars:
         dataset: oscars
@@ -1092,6 +1114,12 @@ The updated configuration file looks like this:
 
 As always run datavzrd on this configuration to obtain an updated report.
 Investigate the resulting new view, and be surprised (or not) about the systematic age difference between actors and actresses and how that reflects some of the issues we have in the society.
+
+.. tip::
+
+    Plots like this can also be created interactively in the report.
+    Click the "Plot against another column" icon in the headers of two columns of a table view (e.g. ``oscar_yr`` and ``age`` in the oscars view), and a dialog with a plot of both columns opens, where you can adjust e.g. the mark type and colors.
+    Clicking "Export as view" in this dialog shows a view definition that you can paste into the ``views`` section of your configuration file.
 
 With this, we end the first part of the Datavzrd tutorial.
 You can continue with the second part to learn about more advanced features and options including templating configuration files for hierarchical data in the :doc:`second part <advanced_tutorial>`.
