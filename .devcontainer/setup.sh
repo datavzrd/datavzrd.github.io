@@ -21,7 +21,7 @@ eval "$(micromamba shell hook --shell bash)"
 micromamba create -n datavzrd -c conda-forge datavzrd --yes
 echo "micromamba activate datavzrd" >> ~/.bashrc
 
-echo "alias show-report-url='echo https://0.0.0.0:8000/example-report'" >> ~/.bashrc
+echo "alias show-report-url='echo https://\${CODESPACE_NAME}-8000.\${GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN}/example-report/'" >> ~/.bashrc
 
 # Activate for current shell
 source ~/.bashrc
