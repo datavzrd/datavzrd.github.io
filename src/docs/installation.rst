@@ -6,9 +6,6 @@ Installation Guide
 
 Datavzrd can be installed in several ways. We recommend **Pixi** or **Conda** as the preferred methods due to ease of setup and integration of dependencies.
 
-Pixi and Conda
-==============
-
 .. tab-set::
 
     .. tab-item:: Pixi
@@ -63,46 +60,40 @@ Pixi and Conda
               conda create -n datavzrd -c conda-forge datavzrd
               conda activate datavzrd
 
+    .. tab-item:: Cargo
 
-Cargo
-=====
+        If you prefer using Rust's native package manager, you can install Datavzrd using Cargo. Please note that Datavzrd depends on Python packages via `pyo3 <https://pyo3.rs/>`__ and `yte <https://github.com/yte-template-engine/yte>`__ and also various JavaScript libraries via `pnpm <https://pnpm.io>`__. Therefore you must have the following installed beforehand:
 
-If you prefer using Rust's native package manager, you can install Datavzrd using Cargo. Please note that Datavzrd depends on Python packages via `pyo3 <https://pyo3.rs/>`__ and `yte <https://github.com/yte-template-engine/yte>`__ and also various JavaScript libraries via `pnpm <https://pnpm.io>`__. Therefore you must have the following installed beforehand:
+        - `Rust <https://rustup.rs>`__
+        - `Python <https://www.python.org>`__
+        - `pnpm <https://pnpm.io>`__
+        - `yte <https://github.com/yte-template-engine/yte>`__
 
-- `Rust <https://rustup.rs>`__
-- `Python <https://www.python.org>`__
-- `pnpm <https://pnpm.io>`__
-- `yte <https://github.com/yte-template-engine/yte>`__
+        Then install Datavzrd via Cargo:
 
-Then install Datavzrd via Cargo:
+        .. code-block:: bash
 
-.. code-block:: bash
+            cargo install datavzrd
 
-    cargo install datavzrd
+    .. tab-item:: From source
 
-----
+        To build Datavzrd from source, first clone the repository:
 
-Once installed, you can run `datavzrd` from the command line to generate interactive reports from tabular data.
+        .. code-block:: bash
 
-From Source
-===========
+            git clone https://github.com/datavzrd/datavzrd
+            cd datavzrd
 
-To build Datavzrd from source, first clone the repository:
+        Ensure all prerequisites listed in the Cargo tab are installed and then build via:
 
-.. code-block:: bash
+        .. code-block:: bash
 
-    git clone https://github.com/datavzrd/datavzrd
-    cd datavzrd
+            cargo build
 
-Ensure all prerequisites listed in the above Cargo section are installed and then build via:
+        This will compile Datavzrd. To run it with the already included example material in the repository run:
 
-.. code-block:: bash
+        .. code-block:: bash
 
-    cargo build
+            cargo run -- .examples/example.datavzrd.yaml -o report
 
-This will compile Datavzrd. To run it with the already included example material in the repository run:
-
-.. code-block:: bash
-
-    cargo run -- .examples/example.datavzrd.yaml -o report
-
+Once installed, you can run ``datavzrd`` from the command line to generate interactive reports from tabular data.
