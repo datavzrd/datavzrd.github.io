@@ -47,6 +47,7 @@ jobs:
 
     - name: Push changes
       run: |
+        git pull --rebase
         git push
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
