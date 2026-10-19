@@ -40,6 +40,8 @@ jobs:
         git diff --cached --exit-code || git commit -m "Auto-generate configuration schema"
 
     - name: Push changes
-      run: git push
+      run: |
+        git pull --rebase
+        git push
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
