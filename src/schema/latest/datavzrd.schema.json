@@ -883,7 +883,11 @@
           "default": {},
           "type": "object",
           "additionalProperties": {
-            "type": "string"
+            "type": [
+              "string",
+              "number",
+              "boolean"
+            ]
           }
         }
       },
