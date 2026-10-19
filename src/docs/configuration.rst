@@ -626,7 +626,7 @@ heatmap
 
 ``heatmap`` defines the attributes of a heatmap for numeric or nominal values.
 
-To color the cells the heatmap needs at least a ``type``, a ``color-scheme`` or a ``range``. Setting ``type`` is the quickest way, as it also picks a matching scale and scheme. When none of the three is set, this results in an error.
+To color the cells the heatmap needs either a ``type``, or a ``scale`` together with a ``color-scheme`` or a ``range``. Setting ``type`` is the quickest way, as it also picks a matching scale and scheme. Any other combination results in an error.
 
 .. list-table::
    :header-rows: 1
