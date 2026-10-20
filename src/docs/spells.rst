@@ -264,3 +264,46 @@ Authors
 Felix Wiegand
 
 
+
+
+View spells
+===========
+
+
+deseq2
+------
+
+.. image:: https://img.shields.io/badge/code-github-blue
+  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.6.0/tools/deseq2
+
+.. image:: https://img.shields.io/badge/example-report-green
+  :target: https://datavzrd.github.io/datavzrd-spells/tools/deseq2/index.html
+
+This spell renders the results of a differential expression analysis with `DESeq2 <https://bioconductor.org/packages/DESeq2>`__ as a table.
+Log2 fold changes are shown as a diverging heatmap that saturates at ``fold_change_color_limit`` (default 3, i.e. an 8-fold change), adjusted p-values are colored by ``significance_threshold`` and genes link to Ensembl.
+The threshold should match the ``alpha`` used in ``results()``, which defaults to 0.1 in DESeq2.
+DESeq2 itself does not write files, the spell expects the columns of ``results()`` or ``lfcShrink()`` as written by e.g. ``write.csv()``, with the Ensembl gene ids in the first column, named or not.
+``baseMean`` and ``log2FoldChange`` are required, ``lfcSE``, ``stat``, ``pvalue``, ``padj`` and ``svalue`` are shown if present, so shrunken fold changes from apeglm or ashr work as well.
+Combine it with the volcano-plot spell in another view to get a clickable volcano plot linking to the rows of this table.
+Such links need a named gene column, e.g. by writing ``data.frame(gene = rownames(res), res)``.
+
+
+Example
+^^^^^^^
+
+.. code-block:: yaml
+
+
+
+  spell:
+    url: v1.6.0/tools/deseq2
+    with:
+      significance_threshold: 0.05
+      fold_change_color_limit: 3
+
+Authors
+^^^^^^^
+
+Felix Wiegand
+
+
