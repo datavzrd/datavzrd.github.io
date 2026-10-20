@@ -34,7 +34,7 @@ def header(title, level, rst_content):
     rst_content.append((level * len(title)) + "\n")
 
 
-def format_rst(spell_meta, spell_url):
+def format_rst(spell_meta, spell_url, spell_path):
     """Converts the spell meta.yaml information into an .rst formatted string."""
     rst_content = []
     
@@ -43,6 +43,8 @@ def format_rst(spell_meta, spell_url):
 
     rst_content.append(f".. image:: https://img.shields.io/badge/code-github-blue")
     rst_content.append(f"  :target: https://github.com/datavzrd/datavzrd-spells/tree/{spell_url}\n")
+    rst_content.append(f".. image:: https://img.shields.io/badge/example-report-green")
+    rst_content.append(f"  :target: https://datavzrd.github.io/datavzrd-spells/{spell_path}/index.html\n")
     
     # Description
     description = spell_meta.get('description', 'No description available.').replace('_', '\\_').replace(':', '\\:')
@@ -74,8 +76,9 @@ def generate_docs():
         if "meta.yaml" in files:
             meta_file_path = os.path.join(root, "meta.yaml")
             spell_meta = parse_meta_yaml(meta_file_path)
-            spell_url = f"{TAG.name}/{Path(root).relative_to(SPELLS_REPO_PATH)}"
-            rst_content.extend(format_rst(spell_meta, spell_url))
+            spell_path = Path(root).relative_to(SPELLS_REPO_PATH)
+            spell_url = f"{TAG.name}/{spell_path}"
+            rst_content.extend(format_rst(spell_meta, spell_url, spell_path))
     
     # Write the content to spells.rst
     with open(OUTPUT_FILE, "w") as rst_file:
