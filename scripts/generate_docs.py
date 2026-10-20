@@ -1,3 +1,4 @@
+import re
 from pathlib import Path
 import yaml
 import git
@@ -29,6 +30,12 @@ def parse_meta_yaml(file_path):
     with open(file_path, "r") as file:
         return yaml.safe_load(file)
     
+def rst_description(text):
+    """Turns markdown style `code` into rst literals and escapes underscores elsewhere."""
+    parts = re.split(r"(`[^`]+`)", text)
+    return "".join(f"`{part}`" if part.startswith("`") else part.replace("_", "\\_") for part in parts)
+
+
 def header(title, level, rst_content):
     """Adds a header to the .rst content."""
     rst_content.append("\n" + title)
@@ -48,7 +55,7 @@ def format_rst(spell_meta, spell_url, spell_path):
     rst_content.append(f"  :target: https://datavzrd.github.io/datavzrd-spells/{spell_path}/index.html\n")
     
     # Description
-    description = spell_meta.get('description', 'No description available.').replace('_', '\\_').replace(':', '\\:')
+    description = rst_description(spell_meta.get('description', 'No description available.'))
     rst_content.append(description)
 
     # Example
