@@ -6,225 +6,18 @@ Spells
 Spells provide reusable configuration snippets for **datavzrd**.
 These spells simplify the process of creating reports by allowing users to define common configurations in a modular way. Users can easily pull spells from local files or remote URLs, facilitating consistency and efficiency in data visualization workflows.
 
+Column spells configure a single column, while view spells configure an entire view, e.g. for the output of a specific tool.
+
 Below is a list of all the available spells in the `datavzrd-spells repository <https://github.com/datavzrd/datavzrd-spells>`__.
 For adding new spells, please see the instructions in the `datavzrd-spells repository <https://github.com/datavzrd/datavzrd-spells>`__.
 
 
-clin-sig
-========
-
-.. image:: https://img.shields.io/badge/code-github-blue
-  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.6.0/med/clin-sig
-
-.. image:: https://img.shields.io/badge/example-report-green
-  :target: https://datavzrd.github.io/datavzrd-spells/med/clin-sig/index.html
-
-This spell visualizes the clinical significance, given in clinvar significance terms (https\://www.ncbi.nlm.nih.gov/clinvar/)
-The values should be given in a column consisting of strings and separated by ','
-
-
-Example
--------
-
-.. code-block:: yaml
-
-
-
-  render-table:
-    columns: 
-      some clinical significance column:
-        spell:
-          url: v1.6.0/med/clin-sig
-
-Authors
--------
-
-Benjamin Orlik
-
-
-
-
-alleles
-=======
-
-.. image:: https://img.shields.io/badge/code-github-blue
-  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.6.0/med/alleles
-
-.. image:: https://img.shields.io/badge/example-report-green
-  :target: https://datavzrd.github.io/datavzrd-spells/med/alleles/index.html
-
-This spell visualizes alleles (e.g. A, T, G, C or any longer string composed out of these nucleotides) using merged pills with color-coded bases.
-Coloring is based on the same color scheme used by alignoth.
-
-
-Example
--------
-
-.. code-block:: yaml
-
-
-
-  render-table:
-    columns:
-      some clinical column containing alleles:
-        spell:
-          url: v1.6.0/med/alleles
-
-Authors
--------
-
-Felix Wiegand
-
-
-
-
-genomic-coordinates
-===================
-
-.. image:: https://img.shields.io/badge/code-github-blue
-  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.6.0/med/genomic-coordinates
-
-.. image:: https://img.shields.io/badge/example-report-green
-  :target: https://datavzrd.github.io/datavzrd-spells/med/genomic-coordinates/index.html
-
-This spell visualizes genomic coordinates in a structured and visually enhanced way.
-It formats the coordinates with color-coded pills for reference and alternate bases, making it easy to read and interpret genomic variant data.
-The values should be given in a column with the format "<chromosome>\:<reference><coordinates><alternate>" (e.g., "6\:G29942560A").
-
-
-Example
--------
-
-.. code-block:: yaml
-
-
-
-  render-table:
-    columns: 
-      some clinical column containing genomic coordinates:
-        spell:
-          url: v1.6.0/med/genomic-coordinates
-
-Authors
--------
-
-Felix Wiegand
-
-
-
-
-separated-links
-===============
-
-.. image:: https://img.shields.io/badge/code-github-blue
-  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.6.0/stats/separated-links
-
-.. image:: https://img.shields.io/badge/example-report-green
-  :target: https://datavzrd.github.io/datavzrd-spells/stats/separated-links/index.html
-
-This spell separates a cell on a given separator (default\: comma) and creates clickable links for each element. Each element can be formatted as a URL using a configurable URL template with `${value}` as a placeholder.
-Perfect for lists of genes, proteins, or other entities that should link to external resources.
-
-
-Example
--------
-
-.. code-block:: yaml
-
-
-
-  render-table:
-    columns:
-      genes:
-        spell:
-          url: v1.6.0/stats/separated-links
-          with:
-            separator: ","
-            url_template: "https://www.genecards.org/cgi-bin/carddisp.pl?gene=${value}"
-
-Authors
--------
-
-Adrian Prinz
-
-
-
-
-p-value
-=======
-
-.. image:: https://img.shields.io/badge/code-github-blue
-  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.6.0/stats/p-value
-
-.. image:: https://img.shields.io/badge/example-report-green
-  :target: https://datavzrd.github.io/datavzrd-spells/stats/p-value/index.html
-
-This spell generates a heatmap visualization to represent the distribution of p-values or statistical significance in data.
-The heatmap uses a linear color scale to map values to a gradient from green over white to organge.
-The significance\_threshold (e.g., p = 0.05) - a boundary between statistical significance and non-significance - can be adjusted dynamically based on the context or dataset.
-
-
-Example
--------
-
-.. code-block:: yaml
-
-
-
-  render-table:
-    columns:
-      some p-value column:
-        spell:
-          url: v1.6.0/stats/p-value
-          with:
-            significance_threshold: 0.05
-
-Authors
--------
-
-Johannes Köster, Felix Wiegand
-
-
-
-
-text
-====
-
-.. image:: https://img.shields.io/badge/code-github-blue
-  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.6.0/utils/text
-
-.. image:: https://img.shields.io/badge/example-report-green
-  :target: https://datavzrd.github.io/datavzrd-spells/utils/text/index.html
-
-This spell allows to split long text after a certain number of characters (always at whitespace).
-
-
-Example
--------
-
-.. code-block:: yaml
-
-
-
-  render-table:
-    columns:
-      text:
-        spell:
-          url: v1.6.0/utils/text
-          with:
-            # specify how many characters should be used per line
-            chars_per_line: 50
-
-Authors
--------
-
-Felix Wiegand
-
-
+Column spells
+=============
 
 
 boolean
-=======
+-------
 
 .. image:: https://img.shields.io/badge/code-github-blue
   :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.6.0/logic/boolean
@@ -236,7 +29,7 @@ This spell visualizes boolean values via colored +/- symbols.
 
 
 Example
--------
+^^^^^^^
 
 .. code-block:: yaml
 
@@ -253,8 +46,221 @@ Example
             false_value: "false"
 
 Authors
--------
+^^^^^^^
 
 Johannes Köster
+
+
+
+
+alleles
+-------
+
+.. image:: https://img.shields.io/badge/code-github-blue
+  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.6.0/med/alleles
+
+.. image:: https://img.shields.io/badge/example-report-green
+  :target: https://datavzrd.github.io/datavzrd-spells/med/alleles/index.html
+
+This spell visualizes alleles (e.g. A, T, G, C or any longer string composed out of these nucleotides) using merged pills with color-coded bases.
+Coloring is based on the same color scheme used by alignoth.
+
+
+Example
+^^^^^^^
+
+.. code-block:: yaml
+
+
+
+  render-table:
+    columns:
+      some clinical column containing alleles:
+        spell:
+          url: v1.6.0/med/alleles
+
+Authors
+^^^^^^^
+
+Felix Wiegand
+
+
+
+
+clin-sig
+--------
+
+.. image:: https://img.shields.io/badge/code-github-blue
+  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.6.0/med/clin-sig
+
+.. image:: https://img.shields.io/badge/example-report-green
+  :target: https://datavzrd.github.io/datavzrd-spells/med/clin-sig/index.html
+
+This spell visualizes the clinical significance, given in clinvar significance terms (https\://www.ncbi.nlm.nih.gov/clinvar/)
+The values should be given in a column consisting of strings and separated by ','
+
+
+Example
+^^^^^^^
+
+.. code-block:: yaml
+
+
+
+  render-table:
+    columns: 
+      some clinical significance column:
+        spell:
+          url: v1.6.0/med/clin-sig
+
+Authors
+^^^^^^^
+
+Benjamin Orlik
+
+
+
+
+genomic-coordinates
+-------------------
+
+.. image:: https://img.shields.io/badge/code-github-blue
+  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.6.0/med/genomic-coordinates
+
+.. image:: https://img.shields.io/badge/example-report-green
+  :target: https://datavzrd.github.io/datavzrd-spells/med/genomic-coordinates/index.html
+
+This spell visualizes genomic coordinates in a structured and visually enhanced way.
+It formats the coordinates with color-coded pills for reference and alternate bases, making it easy to read and interpret genomic variant data.
+The values should be given in a column with the format "<chromosome>\:<reference><coordinates><alternate>" (e.g., "6\:G29942560A").
+
+
+Example
+^^^^^^^
+
+.. code-block:: yaml
+
+
+
+  render-table:
+    columns: 
+      some clinical column containing genomic coordinates:
+        spell:
+          url: v1.6.0/med/genomic-coordinates
+
+Authors
+^^^^^^^
+
+Felix Wiegand
+
+
+
+
+p-value
+-------
+
+.. image:: https://img.shields.io/badge/code-github-blue
+  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.6.0/stats/p-value
+
+.. image:: https://img.shields.io/badge/example-report-green
+  :target: https://datavzrd.github.io/datavzrd-spells/stats/p-value/index.html
+
+This spell generates a heatmap visualization to represent the distribution of p-values or statistical significance in data.
+The heatmap uses a linear color scale to map values to a gradient from green over white to organge.
+The significance\_threshold (e.g., p = 0.05) - a boundary between statistical significance and non-significance - can be adjusted dynamically based on the context or dataset.
+
+
+Example
+^^^^^^^
+
+.. code-block:: yaml
+
+
+
+  render-table:
+    columns:
+      some p-value column:
+        spell:
+          url: v1.6.0/stats/p-value
+          with:
+            significance_threshold: 0.05
+
+Authors
+^^^^^^^
+
+Johannes Köster, Felix Wiegand
+
+
+
+
+separated-links
+---------------
+
+.. image:: https://img.shields.io/badge/code-github-blue
+  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.6.0/stats/separated-links
+
+.. image:: https://img.shields.io/badge/example-report-green
+  :target: https://datavzrd.github.io/datavzrd-spells/stats/separated-links/index.html
+
+This spell separates a cell on a given separator (default\: comma) and creates clickable links for each element. Each element can be formatted as a URL using a configurable URL template with `${value}` as a placeholder.
+Perfect for lists of genes, proteins, or other entities that should link to external resources.
+
+
+Example
+^^^^^^^
+
+.. code-block:: yaml
+
+
+
+  render-table:
+    columns:
+      genes:
+        spell:
+          url: v1.6.0/stats/separated-links
+          with:
+            separator: ","
+            url_template: "https://www.genecards.org/cgi-bin/carddisp.pl?gene=${value}"
+
+Authors
+^^^^^^^
+
+Adrian Prinz
+
+
+
+
+text
+----
+
+.. image:: https://img.shields.io/badge/code-github-blue
+  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.6.0/utils/text
+
+.. image:: https://img.shields.io/badge/example-report-green
+  :target: https://datavzrd.github.io/datavzrd-spells/utils/text/index.html
+
+This spell allows to split long text after a certain number of characters (always at whitespace).
+
+
+Example
+^^^^^^^
+
+.. code-block:: yaml
+
+
+
+  render-table:
+    columns:
+      text:
+        spell:
+          url: v1.6.0/utils/text
+          with:
+            # specify how many characters should be used per line
+            chars_per_line: 50
+
+Authors
+^^^^^^^
+
+Felix Wiegand
 
 
