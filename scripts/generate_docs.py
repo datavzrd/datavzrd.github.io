@@ -1,4 +1,3 @@
-import os
 from pathlib import Path
 import yaml
 import git
@@ -18,6 +17,8 @@ Spells
 
 Spells provide reusable configuration snippets for **datavzrd**.
 These spells simplify the process of creating reports by allowing users to define common configurations in a modular way. Users can easily pull spells from local files or remote URLs, facilitating consistency and efficiency in data visualization workflows.
+
+Column spells configure a single column, while view spells configure an entire view, e.g. for the output of a specific tool.
 
 Below is a list of all the available spells in the `datavzrd-spells repository <https://github.com/datavzrd/datavzrd-spells>`__.
 For adding new spells, please see the instructions in the `datavzrd-spells repository <https://github.com/datavzrd/datavzrd-spells>`__.
@@ -39,7 +40,7 @@ def format_rst(spell_meta, spell_url, spell_path):
     rst_content = []
     
     # Spell Name
-    header(spell_meta['name'], "=", rst_content)
+    header(spell_meta['name'], "-", rst_content)
 
     rst_content.append(f".. image:: https://img.shields.io/badge/code-github-blue")
     rst_content.append(f"  :target: https://github.com/datavzrd/datavzrd-spells/tree/{spell_url}\n")
@@ -53,14 +54,14 @@ def format_rst(spell_meta, spell_url, spell_path):
     # Example
     example = spell_meta['example']["code"]
     example = example.replace("<url>", spell_url)
-    header("Example", "-", rst_content)
+    header("Example", "^", rst_content)
     rst_content.append(".. code-block:: yaml\n")
     rst_content.append("\n")
     for line in example.splitlines():
         rst_content.append(f"  {line}")
     
     # Authors
-    header("Authors", "-", rst_content)
+    header("Authors", "^", rst_content)
     rst_content.append(", ".join(spell_meta['authors']))
 
     rst_content.append("\n\n")
@@ -70,13 +71,17 @@ def format_rst(spell_meta, spell_url, spell_path):
 def generate_docs():
     """Iterates through the spells repository, parses meta.yaml files, and writes the output to the spells.rst file."""
     rst_content = [HEADER_CONTENT]
-    
-    # Walk through the directory structure
-    for root, dirs, files in os.walk(SPELLS_REPO_PATH):
-        if "meta.yaml" in files:
-            meta_file_path = os.path.join(root, "meta.yaml")
-            spell_meta = parse_meta_yaml(meta_file_path)
-            spell_path = Path(root).relative_to(SPELLS_REPO_PATH)
+
+    spells = {"column": [], "view": []}
+    for meta_file_path in sorted(Path(SPELLS_REPO_PATH).glob("**/meta.yaml")):
+        spell_meta = parse_meta_yaml(meta_file_path)
+        spells[spell_meta["type"]].append((spell_meta, meta_file_path.parent.relative_to(SPELLS_REPO_PATH)))
+
+    for spell_type, title in [("column", "Column spells"), ("view", "View spells")]:
+        if not spells[spell_type]:
+            continue
+        header(title, "=", rst_content)
+        for spell_meta, spell_path in spells[spell_type]:
             spell_url = f"{TAG.name}/{spell_path}"
             rst_content.extend(format_rst(spell_meta, spell_url, spell_path))
     
