@@ -27,7 +27,7 @@ jobs:
         activate-environment: datavzrd
 
     - name: Install datavzrd
-      run: mamba install -y datavzrd pyyaml
+      run: mamba install -y datavzrd ruamel.yaml
 
     - name: Generate configuration schema
       run: python scripts/generate_schema.py
