@@ -20,7 +20,7 @@ boolean
 -------
 
 .. image:: https://img.shields.io/badge/code-github-blue
-  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.6.0/logic/boolean
+  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.7.0/logic/boolean
 
 .. image:: https://img.shields.io/badge/example-report-green
   :target: https://datavzrd.github.io/datavzrd-spells/logic/boolean/index.html
@@ -39,7 +39,7 @@ Example
     columns:
       some boolean column:
         spell:
-          url: v1.6.0/logic/boolean
+          url: v1.7.0/logic/boolean
           with:
             # specify which values should be interpreted as true or false
             true_value: "true"
@@ -57,7 +57,7 @@ alleles
 -------
 
 .. image:: https://img.shields.io/badge/code-github-blue
-  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.6.0/med/alleles
+  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.7.0/med/alleles
 
 .. image:: https://img.shields.io/badge/example-report-green
   :target: https://datavzrd.github.io/datavzrd-spells/med/alleles/index.html
@@ -77,7 +77,7 @@ Example
     columns:
       some clinical column containing alleles:
         spell:
-          url: v1.6.0/med/alleles
+          url: v1.7.0/med/alleles
 
 Authors
 ^^^^^^^
@@ -91,7 +91,7 @@ clin-sig
 --------
 
 .. image:: https://img.shields.io/badge/code-github-blue
-  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.6.0/med/clin-sig
+  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.7.0/med/clin-sig
 
 .. image:: https://img.shields.io/badge/example-report-green
   :target: https://datavzrd.github.io/datavzrd-spells/med/clin-sig/index.html
@@ -111,7 +111,7 @@ Example
     columns: 
       some clinical significance column:
         spell:
-          url: v1.6.0/med/clin-sig
+          url: v1.7.0/med/clin-sig
 
 Authors
 ^^^^^^^
@@ -125,7 +125,7 @@ genomic-coordinates
 -------------------
 
 .. image:: https://img.shields.io/badge/code-github-blue
-  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.6.0/med/genomic-coordinates
+  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.7.0/med/genomic-coordinates
 
 .. image:: https://img.shields.io/badge/example-report-green
   :target: https://datavzrd.github.io/datavzrd-spells/med/genomic-coordinates/index.html
@@ -146,7 +146,7 @@ Example
     columns: 
       some clinical column containing genomic coordinates:
         spell:
-          url: v1.6.0/med/genomic-coordinates
+          url: v1.7.0/med/genomic-coordinates
 
 Authors
 ^^^^^^^
@@ -160,7 +160,7 @@ p-value
 -------
 
 .. image:: https://img.shields.io/badge/code-github-blue
-  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.6.0/stats/p-value
+  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.7.0/stats/p-value
 
 .. image:: https://img.shields.io/badge/example-report-green
   :target: https://datavzrd.github.io/datavzrd-spells/stats/p-value/index.html
@@ -181,7 +181,7 @@ Example
     columns:
       some p-value column:
         spell:
-          url: v1.6.0/stats/p-value
+          url: v1.7.0/stats/p-value
           with:
             significance_threshold: 0.05
 
@@ -197,7 +197,7 @@ separated-links
 ---------------
 
 .. image:: https://img.shields.io/badge/code-github-blue
-  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.6.0/stats/separated-links
+  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.7.0/stats/separated-links
 
 .. image:: https://img.shields.io/badge/example-report-green
   :target: https://datavzrd.github.io/datavzrd-spells/stats/separated-links/index.html
@@ -217,7 +217,7 @@ Example
     columns:
       genes:
         spell:
-          url: v1.6.0/stats/separated-links
+          url: v1.7.0/stats/separated-links
           with:
             separator: ","
             url_template: "https://www.genecards.org/cgi-bin/carddisp.pl?gene=${value}"
@@ -234,7 +234,7 @@ text
 ----
 
 .. image:: https://img.shields.io/badge/code-github-blue
-  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.6.0/utils/text
+  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.7.0/utils/text
 
 .. image:: https://img.shields.io/badge/example-report-green
   :target: https://datavzrd.github.io/datavzrd-spells/utils/text/index.html
@@ -253,7 +253,7 @@ Example
     columns:
       text:
         spell:
-          url: v1.6.0/utils/text
+          url: v1.7.0/utils/text
           with:
             # specify how many characters should be used per line
             chars_per_line: 50
@@ -274,7 +274,7 @@ deseq2
 ------
 
 .. image:: https://img.shields.io/badge/code-github-blue
-  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.6.0/tools/deseq2
+  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.7.0/tools/deseq2
 
 .. image:: https://img.shields.io/badge/example-report-green
   :target: https://datavzrd.github.io/datavzrd-spells/tools/deseq2/index.html
@@ -296,10 +296,69 @@ Example
 
 
   spell:
-    url: v1.6.0/tools/deseq2
+    url: v1.7.0/tools/deseq2
     with:
       significance_threshold: 0.05
       fold_change_color_limit: 3
+
+Authors
+^^^^^^^
+
+Felix Wiegand
+
+
+
+
+volcano-plot
+------------
+
+.. image:: https://img.shields.io/badge/code-github-blue
+  :target: https://github.com/datavzrd/datavzrd-spells/tree/v1.7.0/visualization/volcano-plot
+
+.. image:: https://img.shields.io/badge/example-report-green
+  :target: https://datavzrd.github.io/datavzrd-spells/visualization/volcano-plot/index.html
+
+This spell renders a volcano plot of the results of a differential expression or abundance analysis, plotting the log2 fold change against the negative log10 p-value.
+The columns holding them are given as ``fold_change_column`` and ``p_value_column``, an optional ``id_column`` is shown in the tooltip.
+For `DESeq2 <https://bioconductor.org/packages/DESeq2>`__ these are e.g. ``log2FoldChange`` and ``padj``, for edgeR ``logFC`` and ``FDR`` and for limma ``logFC`` and ``adj.P.Val``.
+Rows below ``significance_threshold`` and beyond ``fold_change_threshold`` (default 0, drawn as dashed lines if set) are colored by the direction of regulation.
+The x-axis is centered at zero, the plot can be zoomed and panned and rows without a fold change or p-value are left out.
+p-values of zero are drawn one order of magnitude above the smallest non-zero one, while the tooltip shows the actual value.
+When plotting s-values from ``lfcShrink()`` with apeglm or ashr, a ``significance_threshold`` of 0.005 is common.
+If the plot stays empty, check that the given column names exist in the dataset.
+For DESeq2, plotting shrunken fold changes from ``lfcShrink()`` avoids that genes with low counts dominate the x-axis.
+Points can link to the corresponding table row (e.g. of the deseq2 spell) via a link defined for the dataset, here pointing to the view ``results`` showing the table:
+
+
+.. code-block:: yaml
+
+   datasets:
+     results:
+       path: results.tsv
+       links:
+         gene details:
+           column: gene_id
+           table-row: results/gene_id
+
+
+Passing ``link: gene details`` to the spell then makes the points clickable.
+
+
+Example
+^^^^^^^
+
+.. code-block:: yaml
+
+
+
+  spell:
+    url: v1.7.0/visualization/volcano-plot
+    with:
+      id_column: gene_id
+      fold_change_column: log2FoldChange
+      p_value_column: padj
+      significance_threshold: 0.05
+      fold_change_threshold: 1
 
 Authors
 ^^^^^^^
