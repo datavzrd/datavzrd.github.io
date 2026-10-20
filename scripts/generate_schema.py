@@ -20,7 +20,8 @@ def update_assets():
     )
     with open(CONFIG_PATH) as f:
         config = yaml.safe_load(f)
-    config["assets"] = schemas
+    others = [asset for asset in config["assets"] if not asset.startswith("schema/")]
+    config["assets"] = others + schemas
     with open(CONFIG_PATH, "w") as f:
         yaml.dump(config, f, default_flow_style=False, indent=2)
 

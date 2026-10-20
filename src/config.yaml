@@ -1,4 +1,5 @@
 assets:
+- llms.txt
 - schema/latest/datavzrd.schema.json
 - schema/v2.72.2/datavzrd.schema.json
 - schema/v2.73.0/datavzrd.schema.json
