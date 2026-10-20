@@ -1,0 +1,38 @@
+# Datavzrd
+
+> Datavzrd turns tabular data (CSV, TSV, JSON or Parquet) into interactive, self-contained HTML reports. Reports are described in a short YAML configuration and need no server, only a web browser.
+
+Datavzrd is a command line tool written in Rust. It is installed via conda-forge (`conda install -c conda-forge datavzrd` or `pixi global install datavzrd`) and run as `datavzrd config.datavzrd.yaml --output report/`. A report consists of datasets (input tables) and views. Each view renders one dataset as a table (`render-table`), a Vega-Lite plot (`render-plot`), custom HTML and JavaScript (`render-html`) or an image (`render-img`). Columns of a table can be shown as heatmaps, tick, bar or bubble plots, pills, links to external resources or custom plots, and datasets can be linked to each other.
+
+Things to keep in mind when writing a configuration:
+
+- Only use keys that exist in the JSON schema below. Naming the file `*.datavzrd.yaml` lets editors with SchemaStore support validate it automatically.
+- `datavzrd suggest -f data.csv -s ,` prints a working starting configuration for a given table.
+- A `heatmap` needs either a `type`, or a `scale` together with a `color-scheme` or `range`.
+- Custom JavaScript (e.g. `custom`, `custom-plot` data functions) is given as a function, usually `function(value, row)`.
+- Header rows under `render-table: headers` are counted from 0 (the column names), so customizing row 1 requires `headers: 2` in the dataset.
+- Column names within a dataset must be unique.
+
+## Docs
+
+- [Installation](https://raw.githubusercontent.com/datavzrd/datavzrd.github.io/main/src/docs/installation.rst): Installing datavzrd with conda, pixi or cargo
+- [Usage](https://raw.githubusercontent.com/datavzrd/datavzrd.github.io/main/src/docs/usage.rst): Command line arguments and the `suggest`, `schema` and `publish` subcommands
+- [Configuration](https://raw.githubusercontent.com/datavzrd/datavzrd.github.io/main/src/docs/configuration.rst): Full reference of all configuration keys
+- [Tutorial](https://raw.githubusercontent.com/datavzrd/datavzrd.github.io/main/src/docs/tutorial.rst): Step by step introduction building a report from an Oscar winners dataset
+- [Advanced tutorial](https://raw.githubusercontent.com/datavzrd/datavzrd.github.io/main/src/docs/advanced_tutorial.rst): Templating configurations with YTE, linking views and using your own data
+- [Troubleshooting](https://raw.githubusercontent.com/datavzrd/datavzrd.github.io/main/src/docs/troubleshooting.rst): Common error messages and how to fix them
+- [Spells](https://raw.githubusercontent.com/datavzrd/datavzrd.github.io/main/src/docs/spells.rst): Reusable configuration snippets for common column types
+
+## Reference
+
+- [Configuration schema](https://datavzrd.github.io/schema/latest/datavzrd.schema.json): JSON schema of the configuration file, also printed by `datavzrd schema`
+- [Example configuration](https://raw.githubusercontent.com/datavzrd/datavzrd/main/.examples/example.datavzrd.yaml): Configuration of the live demo report using most features
+- [Live demo](https://datavzrd.github.io/datavzrd/oscars/index_1.html): A rendered example report
+
+## Optional
+
+- [Workflow integration](https://raw.githubusercontent.com/datavzrd/datavzrd.github.io/main/src/docs/wms_integration.rst): Using datavzrd from Snakemake and Nextflow
+- [Interaction](https://raw.githubusercontent.com/datavzrd/datavzrd.github.io/main/src/docs/interaction.rst): What readers of a report can do in the browser
+- [Examples](https://raw.githubusercontent.com/datavzrd/datavzrd.github.io/main/src/docs/examples.rst): Reports from different disciplines
+- [Paper](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0323079): Datavzrd article in PLOS ONE
+- [Source code](https://github.com/datavzrd/datavzrd)
