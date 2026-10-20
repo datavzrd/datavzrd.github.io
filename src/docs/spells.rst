@@ -96,7 +96,7 @@ clin-sig
 .. image:: https://img.shields.io/badge/example-report-green
   :target: https://datavzrd.github.io/datavzrd-spells/med/clin-sig/index.html
 
-This spell visualizes the clinical significance, given in clinvar significance terms (https\://www.ncbi.nlm.nih.gov/clinvar/)
+This spell visualizes the clinical significance, given in clinvar significance terms (https://www.ncbi.nlm.nih.gov/clinvar/)
 The values should be given in a column consisting of strings and separated by ','
 
 
@@ -132,7 +132,7 @@ genomic-coordinates
 
 This spell visualizes genomic coordinates in a structured and visually enhanced way.
 It formats the coordinates with color-coded pills for reference and alternate bases, making it easy to read and interpret genomic variant data.
-The values should be given in a column with the format "<chromosome>\:<reference><coordinates><alternate>" (e.g., "6\:G29942560A").
+The values should be given in a column with the format "<chromosome>:<reference><coordinates><alternate>" (e.g., "6:G29942560A").
 
 
 Example
@@ -202,7 +202,7 @@ separated-links
 .. image:: https://img.shields.io/badge/example-report-green
   :target: https://datavzrd.github.io/datavzrd-spells/stats/separated-links/index.html
 
-This spell separates a cell on a given separator (default\: comma) and creates clickable links for each element. Each element can be formatted as a URL using a configurable URL template with `${value}` as a placeholder.
+This spell separates a cell on a given separator (default: comma) and creates clickable links for each element. Each element can be formatted as a URL using a configurable URL template with ``${value}`` as a placeholder.
 Perfect for lists of genes, proteins, or other entities that should link to external resources.
 
 
