@@ -31,15 +31,19 @@ def parse_meta_yaml(file_path):
         return yaml.safe_load(file)
     
 def rst_description(text):
-    """Turns markdown style `code` and [links](url) into rst and escapes underscores elsewhere."""
+    """Turns markdown style code blocks, `code` and [links](url) into rst and escapes underscores elsewhere."""
     def convert(part):
+        if block := re.fullmatch(r"```(\w*)\n(.*?)```\n?", part, re.DOTALL):
+            code = "".join(f"   {line}" if line.strip() else line for line in block[2].splitlines(keepends=True))
+            return f"\n.. code-block:: {block[1] or 'text'}\n\n{code}\n"
         if part.startswith("`"):
             return f"`{part}`"
         if link := re.fullmatch(r"\[([^\]]+)\]\(([^)]+)\)", part):
             return f"`{link[1]} <{link[2]}>`__"
         return part.replace("_", "\\_")
 
-    return "".join(convert(part) for part in re.split(r"(`[^`]+`|\[[^\]]+\]\([^)]+\))", text))
+    parts = re.split(r"(```\w*\n.*?```\n?|`[^`]+`|\[[^\]]+\]\([^)]+\))", text, flags=re.DOTALL)
+    return "".join(convert(part) for part in parts)
 
 
 def header(title, level, rst_content):
