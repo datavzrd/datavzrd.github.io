@@ -1,10 +1,9 @@
 import subprocess
 from pathlib import Path
 
-import yaml
+from site_config import load_config, save_config
 
 SCHEMA_DIR = Path("src/schema")
-CONFIG_PATH = Path("src/config.yaml")
 
 
 def datavzrd(*args):
@@ -18,12 +17,10 @@ def update_assets():
         str(path.relative_to("src"))
         for path in SCHEMA_DIR.rglob("datavzrd.schema.json")
     )
-    with open(CONFIG_PATH) as f:
-        config = yaml.safe_load(f)
+    config = load_config()
     others = [asset for asset in config["assets"] if not asset.startswith("schema/")]
     config["assets"] = others + schemas
-    with open(CONFIG_PATH, "w") as f:
-        yaml.dump(config, f, default_flow_style=False, indent=2)
+    save_config(config)
 
 
 def generate_schema():
