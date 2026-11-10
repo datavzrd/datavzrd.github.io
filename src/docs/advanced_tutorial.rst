@@ -246,14 +246,15 @@ Step 6: Using your own data
 
 Now that you know how to configure Datavzrd reports, it is time to try it with your own data.
 Instead of starting with an empty configuration file, you can let Datavzrd suggest one based on your tables via its ``suggest`` subcommand.
-It takes the path of each table via ``-f`` and its separator via ``-s``, and prints the suggested configuration to the terminal, which we redirect into a new configuration file:
+It takes the path of each table via ``-f`` and prints the suggested configuration to the terminal, which we redirect into a new configuration file:
 
 .. code-block:: bash
 
-    datavzrd suggest -f path/to/my-table.csv -s , > my-report.datavzrd.yaml
+    datavzrd suggest -f path/to/my-table.csv > my-report.datavzrd.yaml
 
-For tab-separated files, use ``-s $'\t'`` as separator.
-Multiple tables can be passed by repeating both options, e.g. ``-f table1.csv -s , -f table2.tsv -s $'\t'``.
+The separator is inferred from the file extension (tab for ``.tsv``, comma otherwise).
+If your file uses a different one, pass it via ``-s``, e.g. ``-s ';'``.
+Multiple tables can be passed by repeating ``-f``, e.g. ``-f table1.csv -f table2.parquet``.
 If you do not have a table at hand, you can also try it with ``data/movies.csv``.
 
 The suggested configuration can be rendered right away:
