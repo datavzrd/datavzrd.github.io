@@ -142,7 +142,7 @@ The `suggest` subcommand generates a configuration file based on the provided ta
 
 .. code-block:: bash
 
-   $ datavzrd suggest --files <file_paths> --separators <separators> [--name <report_name>]
+   $ datavzrd suggest --files <file_paths> [--separators <separators>] [--name <report_name>]
 
 Command Line Arguments for `suggest`:
 
@@ -161,10 +161,10 @@ Command Line Arguments for `suggest`:
      - Yes
      - N/A
    * - ``-s``, ``--separators``
-     - Separators for the corresponding input files (e.g., comma for CSV, tab for TSV).
+     - Separators for the corresponding input files (e.g., comma for CSV, tab for TSV). If omitted, they are inferred from the file extensions. Ignored for JSON and Parquet files.
      - Option
-     - Yes
-     - N/A
+     - No
+     - Inferred
    * - ``-n``, ``--name``
      - Name of the report.
      - Option
@@ -195,13 +195,19 @@ Example:
 
 .. code-block:: bash
 
-    $ datavzrd suggest -f data1.csv -s , -f data2.tsv -s $'\t'
+    $ datavzrd suggest -f data1.csv -f data2.tsv -f data3.parquet
+
+For files with a separator that does not match their extension (e.g. semicolon-separated CSV files), pass one separator per file:
+
+.. code-block:: bash
+
+    $ datavzrd suggest -f data1.csv -s ';' -f data2.tsv -s $'\t'
 
 To let an LLM draft the configuration, point ``--llm-url`` at an OpenAI-compatible endpoint and pass a model and a prompt:
 
 .. code-block:: bash
 
-    $ datavzrd suggest -f data.csv -s , --llm-url http://localhost:11434/v1 --llm-model qwen2.5:1.5b --prompt "Hide id columns, pin the sample name, viridis heatmap for p-values"
+    $ datavzrd suggest -f data.csv --llm-url http://localhost:11434/v1 --llm-model qwen2.5:1.5b --prompt "Hide id columns, pin the sample name, viridis heatmap for p-values"
 
 If the endpoint requires a token, set ``DATAVZRD_LLM_TOKEN`` in your environment or pass it with ``--llm-token``.
 
