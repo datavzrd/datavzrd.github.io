@@ -178,16 +178,17 @@ The resulting report has the following structure:
 
     example-report/
     ├── index.html
-    ├── movies
-    │   ├── config.js
-    │   ├── data
-    │   │   └── data_1.js
-    │   ├── functions.js
-    │   ├── index_1.html
-    │   └── plots
-    │       └── plots.js
-    └── static
-        └── bundle.js
+    ├── static
+    │   └── bundle.js
+    └── views
+        └── movies
+            ├── config.js
+            ├── data
+            │   └── data_1.js
+            ├── functions.js
+            ├── index_1.html
+            └── plots
+                └── plots.js
 
 Open the main file, called ``index.html``, in your browser.
 
