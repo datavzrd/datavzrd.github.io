@@ -27,7 +27,7 @@ Things to keep in mind when writing a configuration:
 
 - [Configuration schema](https://datavzrd.github.io/schema/latest/datavzrd.schema.json): JSON schema of the configuration file, also printed by `datavzrd schema`
 - [Example configuration](https://raw.githubusercontent.com/datavzrd/datavzrd/main/.examples/example.datavzrd.yaml): Configuration of the live demo report using most features
-- [Live demo](https://datavzrd.github.io/datavzrd/oscars/index_1.html): A rendered example report
+- [Live demo](https://datavzrd.github.io/datavzrd/index.html?view=oscars): A rendered example report
 
 ## Optional
 
