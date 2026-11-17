@@ -35,7 +35,7 @@ hero:
     - A zero/low-code, interactive, visual, server-free, browser-based reporting tool for tabular datasets
   links:
     - text: Live Demo
-      url: https://datavzrd.github.io/datavzrd/oscars/index_1.html
+      url: https://datavzrd.github.io/datavzrd/index.html?view=oscars
     - text: Tutorial
       url: https://datavzrd.github.io/docs/tutorial.html
     - text: Discipline-agnostic
@@ -52,7 +52,7 @@ features:
       Datavzrd aims to create a solution for reporting tabular data in a sharable format that is highly customizable and easy to use with simple configuration using the yaml syntax.
     img: preview.png
     img-width: min(30vw, 550px)
-    url: https://datavzrd.github.io/datavzrd/movies/index_1.html
+    url: https://datavzrd.github.io/datavzrd/index.html?view=movies
 
   - title: Datasets
     desc: Organize your datasets in a single place with few lines of code. Use links to connect them and make your reports interactive. Datavzrd supports CSV, TSV, JSON and parquet input files.
