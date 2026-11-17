@@ -442,7 +442,7 @@ links
      - The column that contains the value used for the linkout
      - 
    * - table-row
-     - Renders as a linkout to the other table highlighting the row in which the gene column has the same value as here
+     - Renders as a linkout to the other table highlighting the row in which the gene column has the same value as here. If the value occurs in multiple rows of a table that is rendered in-memory (see :ref:`max-in-memory-rows`), the linked table is filtered to all of them, otherwise the first matching row is highlighted.
      - 
    * - view
      - Renders as a link to the given view
