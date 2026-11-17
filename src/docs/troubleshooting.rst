@@ -152,6 +152,16 @@ Tell Datavzrd about it in the dataset definition:
         path: data/samples.csv
         separator: ";"
 
+Color scheme is not supported
+-----------------------------
+
+.. code-block:: text
+
+    Error: Given color-scheme "catgeory20" for column "award" of view "oscars" is not supported. Available options are: ["accent", "category10", "category20", "category20b", "category20c", "dark2", "observable10", "paired", "pastel1", "pastel2", "set1", "set2", "set3", "tableau10", "tableau20"]
+
+Either the color scheme is misspelled or it does not fit the scale of the heatmap.
+Ordinal heatmaps and pills need one of the categorical schemes from the list, while quantitative scales like ``linear`` need a sequential scheme like ``blues`` or ``viridis``.
+
 Data files
 ==========
 

@@ -10,7 +10,7 @@ Understanding and Using the Output Report
 When Datavzrd generates a report, it creates a folder containing:
 
 - An `index.html` file, which serves as the entry point to the report.
-- Subdirectories for each view defined in the configuration, such as `movies` and `oscars`.
+- A subdirectory named `views` containing a subdirectory for each view defined in the configuration, such as `movies` and `oscars`.
 - A subdirectory named `static` containing static resources needed for the report.
 
 Opening `index.html` will redirect you to a specific view. The view to display is determined by either:
@@ -41,7 +41,7 @@ For example:
 
 .. code-block:: bash
 
-   path/to/report/oscars/index_1.html?highlight_value=Jezebel&highlight_column=movie
+   path/to/report/views/oscars/index_1.html?highlight_value=Jezebel&highlight_column=movie
 
 This highlights the value `Jezebel` in the `movie` column of the `oscars` view.
 

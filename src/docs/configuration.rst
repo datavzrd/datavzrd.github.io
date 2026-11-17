@@ -642,9 +642,13 @@ To color the cells the heatmap needs either a ``type``, or a ``scale`` together 
      - 
    * - color-scheme
      - Defines the `color-scheme <https://vega.github.io/vega/docs/schemes/#categorical>`_ of the heatmap for nominal values.
+       For an ordinal scale, the following categorical schemes are supported:
+
+       ``accent``\ , ``category10``\ , ``category20``\ , ``category20b``\ , ``category20c``\ , ``dark2``\ , ``observable10``\ , ``paired``\ , ``pastel1``\ , ``pastel2``\ , ``set1``\ , ``set2``\ , ``set3``\ , ``tableau10``\ , ``tableau20``
+
        For sequential (numeric) values, the following schemes are supported:
 
-       ``blues``\ , ``greens``\ , ``greys``\ , ``oranges``\ , ``purples``\ , ``reds``\ , ``viridis``\ , ``inferno``\ , ``magma``\ , ``plasma``\ , ``cividis``
+       ``blues``\ , ``greens``\ , ``greys``\ , ``oranges``\ , ``purples``\ , ``reds``\ , ``viridis``\ , ``inferno``\ , ``magma``\ , ``plasma``\ , ``cividis``\ , ``turbo``\ , ``rainbow``\ , ``sinebow``\ , ``spectral``\ , ``warm``\ , ``cool``
      - 
    * - range
      - Defines the color range of the heatmap as a list
@@ -697,8 +701,8 @@ Pills are always colored, so they need either a ``color-scheme`` or a ``range``.
      - Defines the separator of the values.
      - ,
    * - color-scheme
-     - Defines the `color-scheme <https://vega.github.io/vega/docs/schemes/#categorical>`_ of the pills for nominal values
-     - 
+     - Defines the `color-scheme <https://vega.github.io/vega/docs/schemes/#categorical>`_ of the pills for nominal values. Supported are the same categorical schemes as for :ref:`heatmap` with an ordinal scale.
+     -
    * - range
      - Defines the color range of the heatmap as a list
      - 
