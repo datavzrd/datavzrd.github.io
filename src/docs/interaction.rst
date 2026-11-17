@@ -44,6 +44,7 @@ For example:
    path/to/report/views/oscars/index_1.html?highlight_value=Jezebel&highlight_column=movie
 
 This highlights the value `Jezebel` in the `movie` column of the `oscars` view.
+If the value occurs in multiple rows of a view that is rendered in-memory, the table is filtered to all of them instead, which can be undone via *Clear filters* in the menu.
 
 Combining Parameters
 --------------------
