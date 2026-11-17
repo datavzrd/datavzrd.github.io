@@ -526,6 +526,9 @@ link-to-url
    * - new-window
      - Whether or not the rendered link will be opened in a new window or not
      - true
+   * - url-encode
+     - Whether the values inserted into the url are URL encoded (e.g. ``7th Heaven`` becomes ``7th%20Heaven``). Set it to ``false`` for columns that already contain whole links or paths, so the values are inserted as they are.
+     - true
 
 Each link is a named entry that holds a ``url``. At least one such entry is required, and providing more than one renders them as a dropdown menu. ``custom-content`` on its own is not enough: it only changes the label, so a ``link-to-url`` without any ``url`` entry has nothing to point to and results in an error.
 
