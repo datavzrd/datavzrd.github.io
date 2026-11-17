@@ -215,6 +215,19 @@ Take your time to explore the interactive capabilities of this very minimal vers
     The report is self-contained and can be shared with others by simply compressing the output directory into a zip file and e.g. sending it around or sharing it via cloud storage.
     The report can be opened in any modern browser without requiring any additional software or server infrastructure.
 
+.. tip::
+
+    Instead of writing a configuration file from scratch, you can also let Datavzrd suggest one for your tables via its ``suggest`` subcommand.
+    Try it with the movies table and render the suggested configuration into a separate report:
+
+    .. code-block:: bash
+
+        datavzrd suggest -f data/movies.csv > suggested.datavzrd.yaml
+        datavzrd suggested.datavzrd.yaml --output suggested-report
+
+    The suggestion adds a heatmap to every column and is only meant as a starting point that you can refine with what you learn in this tutorial.
+    In the following, we continue with our own ``config.datavzrd.yaml``.
+
 Step 2: Add a report name and a description
 -------------------------------------------
 
@@ -956,26 +969,62 @@ Step 10: Add a plot view
 
 Apart from displaying table views, Datavzrd offers the ability to define so-called plot views, which only contain a custom plot instead of a table.
 Again, plots can be defined using Vega-Lite_.
-To illustrate this feature, let us specify a view that displays the relation between the year of the Oscar award (column ``oscar_yr``) and the age of the actress or actor (column ``age``).
-We add the following entry as a new view below the oscars table view in the configuration file at the same indentation level as oscars and movies.
+To illustrate this feature, let us create a view that displays the relation between the year of the Oscar award (column ``oscar_yr``) and the age of the actress or actor (column ``age``).
+Instead of writing the plot by hand, we create it interactively in the report.
+Open the oscars view of your report and click the scatter icons in the headers of the columns ``oscar_yr``, ``age`` and ``award`` in this order.
+A small panel shows that they are mapped to the x axis, the y axis and the color of the plot.
+Clicking "Plot" opens a dialog with the plot, where you can adjust e.g. the mark type, the width and height or a title.
+Clicking "Export as view" in this dialog shows a view definition starting with ``views:``.
+Copy it (e.g. via the "Copy" button) into the configuration file below the oscars table view, at the same indentation level as oscars and movies.
+Leave out the first line ``views:``, since the configuration file already has a ``views`` section.
+Finally, we add a description to the new view:
 
 .. code-block:: yaml
 
-    year_vs_age:
+    age-vs-oscar-yr:
       dataset: oscars
       desc: |
         Relationship between year of the Oscar award and the age of the actress/actor.
       render-plot:
         spec: |
           {
-            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-            "mark": {"type": "circle", "tooltip": true},
+            "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+            "width": 820,
+            "height": 400,
+            "autosize": {
+              "type": "fit",
+              "contains": "padding"
+            },
+            "mark": {
+              "type": "point",
+              "tooltip": {
+                "content": "data"
+              }
+            },
             "encoding": {
-              "x": {"field": "oscar_yr", "type": "temporal"},
-              "y": {"field": "age", "type": "quantitative"},
-              "color": {"field": "award", "type": "nominal"}
+              "x": {
+                "field": "oscar_yr",
+                "type": "quantitative",
+                "scale": {
+                  "zero": false
+                }
+              },
+              "y": {
+                "field": "age",
+                "type": "quantitative",
+                "scale": {
+                  "zero": false
+                }
+              },
+              "color": {
+                "field": "award",
+                "type": "nominal"
+              }
             }
           }
+
+The ``spec`` entry is the Vega-Lite_ specification of the plot: ``mark`` defines the type of plot and ``encoding`` maps the columns to the x axis, the y axis and the color.
+Depending on your browser window and the options you chose in the dialog, it may differ slightly from the one shown here, e.g. in ``width``.
 
 The updated configuration file looks like this:
 
@@ -1096,31 +1145,50 @@ The updated configuration file looks like this:
                   }
                 }
 
-      year_vs_age:
+      age-vs-oscar-yr:
         dataset: oscars
         desc: |
           Relationship between year of the Oscar award and the age of the actress/actor.
         render-plot:
           spec: |
             {
-              "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-              "mark": {"type": "circle", "tooltip": true},
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+              "width": 820,
+              "height": 400,
+              "autosize": {
+                "type": "fit",
+                "contains": "padding"
+              },
+              "mark": {
+                "type": "point",
+                "tooltip": {
+                  "content": "data"
+                }
+              },
               "encoding": {
-                "x": {"field": "oscar_yr", "type": "temporal"},
-                "y": {"field": "age", "type": "quantitative"},
-                "color": {"field": "award", "type": "nominal"}
+                "x": {
+                  "field": "oscar_yr",
+                  "type": "quantitative",
+                  "scale": {
+                    "zero": false
+                  }
+                },
+                "y": {
+                  "field": "age",
+                  "type": "quantitative",
+                  "scale": {
+                    "zero": false
+                  }
+                },
+                "color": {
+                  "field": "award",
+                  "type": "nominal"
+                }
               }
             }
 
 As always run datavzrd on this configuration to obtain an updated report.
 Investigate the resulting new view, and be surprised (or not) about the systematic age difference between actors and actresses and how that reflects some of the issues we have in the society.
-
-.. tip::
-
-    Plots like this can also be created interactively in the report.
-    Click the "Plot against another column" icon in the headers of two columns of a table view (e.g. ``oscar_yr`` and ``age`` in the oscars view), and a dialog with a plot of both columns opens, where you can adjust e.g. the mark type and colors.
-    Clicking "Export as view" in this dialog shows a view definition starting with ``views:``.
-    Copy the entry below this line into the ``views`` section of your configuration file.
 
 With this, we end the first part of the Datavzrd tutorial.
 You can continue with the second part to learn about more advanced features and options including templating configuration files for hierarchical data in the :doc:`second part <advanced_tutorial>`.
