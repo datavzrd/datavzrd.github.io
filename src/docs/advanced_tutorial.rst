@@ -54,7 +54,7 @@ Our data directory should now include a directory named ``companies`` with one c
 Step 1: Adding the tables to the report
 ---------------------------------------
 
-Since our movies dataset contain more than 180 movies, adding one table per movie will result in a lot of manual typing and makes the configuration file large and difficult to maintain.
+Since our movies dataset contains 177 movies, adding one table per movie will result in a lot of manual typing and makes the configuration file large and difficult to maintain.
 To avoid this, we will use the YTE_ template engine to generate the configuration file dynamically.
 YTE_ allows us to use Python_ expressions within a YAML_ file while still maintaining a valid YAML syntax.
 As our configuration now becomes a template, we should rename it to clearly indicate its purpose.
