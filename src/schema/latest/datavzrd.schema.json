@@ -568,6 +568,10 @@
         },
         "url": {
           "type": "string"
+        },
+        "url-encode": {
+          "default": true,
+          "type": "boolean"
         }
       },
       "additionalProperties": false
