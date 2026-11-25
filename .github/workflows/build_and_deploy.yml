@@ -14,10 +14,7 @@ permissions:
   id-token: write
 
 jobs:
-  build-and-deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  build:
     defaults:
       run:
         shell: bash -el {0}
@@ -32,3 +29,15 @@ jobs:
           config: src/config.yaml
           path: build
           token: ${{ secrets.GITHUB_TOKEN }}
+          deploy: false
+
+  deploy:
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
