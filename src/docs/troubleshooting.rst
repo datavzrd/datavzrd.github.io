@@ -38,6 +38,20 @@ Add ``--overwrite-output`` (or its short form ``-x``) to your command:
 
     datavzrd config.datavzrd.yaml --output example-report -x
 
+The output directory does not look like a report
+------------------------------------------------
+
+.. code-block:: text
+
+    Error: Given output directory "example-report" does not look like a datavzrd report and is not overwritten. Please remove it yourself or choose another output directory.
+
+To avoid deleting unrelated files, ``--overwrite-output`` only overwrites directories that contain a previously rendered report (an ``index.html`` and a ``static`` directory).
+Choose an empty or non-existing output directory instead:
+
+.. code-block:: bash
+
+    datavzrd config.datavzrd.yaml --output example-report
+
 The configuration file cannot be found
 --------------------------------------
 

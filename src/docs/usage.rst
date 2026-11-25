@@ -44,7 +44,7 @@ Command Line Arguments
      - No
      - N/A
    * - ``-x``, ``--overwrite-output``
-     - Overwrites the contents of the given output directory if it is not empty.
+     - Overwrites the given output directory if it contains a previously rendered report.
      - Flag
      - No
      - N/A
