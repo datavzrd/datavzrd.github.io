@@ -166,7 +166,7 @@ views
      - Overwrites the global settings for :ref:`max-in-memory-rows`
      -
    * - :ref:`spell`
-     - Uses a datavzrd spell to configure a view. Any other definitions for the view will be overwritten by the spell.
+     - Uses a datavzrd spell to configure a view. Definitions of the spell overwrite the ones of the view, while definitions the spell does not set (e.g. ``hidden``, ``narrow`` or ``page-size``) are kept.
      - 
 
 Example:
