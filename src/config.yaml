@@ -134,3 +134,4 @@ assets:
   - schema/v2.78.0/datavzrd.schema.json
   - schema/v2.78.1/datavzrd.schema.json
   - schema/v2.80.0/datavzrd.schema.json
+  - schema/v2.80.1/datavzrd.schema.json
